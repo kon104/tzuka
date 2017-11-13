@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Placemark>
+      <name>花のみち 第四地区</name>
+      <styleUrl>#poly-000000-1200-77-nodesc</styleUrl>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              135.3501356,34.8080776,0
+              135.3496259,34.8067782,0
+              135.3495562,34.8066681,0
+              135.3514928,34.8061175,0
+              135.3525066,34.8058665,0
+              135.3532094,34.8058312,0
+              135.3537673,34.8057784,0
+              135.3528124,34.8070337,0
+              135.3524101,34.8075623,0
+              135.3501356,34.8080776,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+</kml>
