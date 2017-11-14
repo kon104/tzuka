@@ -16,19 +16,27 @@
 
 </head>
 <body>
-<div id="kml_tree">
-	<ul>
-		<li  id="kml_root" data-jstree='{"opened": true, "selected": true}'>111
-		<ul>
-			<li id="kml_0" data-jstree='{"icon": "jstree-file"}'>aaa</li>
-			<li id="kml_1" data-jstree='{"icon": "jstree-file"}'>bbb</li>
-			<li id="kml_2" data-jstree='{"icon": "jstree-file"}'>ccc</li>
-			<li id="kml_3" data-jstree='{"icon": "jstree-file"}'>ddd</li>
-			<li id="kml_4" data-jstree='{"icon": "jstree-file"}'>eee</li>
-		</ul></li>
-	</ul>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3">
+			<div id="kml_tree">
+				<ul>
+					<li  id="kml_root" data-jstree='{"opened": true, "selected": true}'>111
+					<ul>
+						<li id="kml_0" data-jstree='{"icon": "jstree-file"}'>花のみち 第一地区</li>
+						<li id="kml_1" data-jstree='{"icon": "jstree-file"}'>花のみち 第二地区</li>
+						<li id="kml_2" data-jstree='{"icon": "jstree-file"}'>花のみち 第三地区</li>
+						<li id="kml_3" data-jstree='{"icon": "jstree-file"}'>花のみち 第四地区</li>
+						<li id="kml_4" data-jstree='{"icon": "jstree-file"}'>米谷自治会</li>
+					</ul></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div id="map"></div>
+		</div>
+	</div>
 </div>
-<div id="map"></div>
 
 <script type="text/javascript" charset="utf-8" src="https://map.yahooapis.jp/js/V1/jsapi?appid=dj00aiZpPXNxSnVwYngxM1luNCZzPWNvbnN1bWVyc2VjcmV0Jng9YWU-"></script>
 
@@ -89,13 +97,6 @@ window.onload = function(){
 	ymap.addControl(new Y.SliderZoomControlHorizontal());
 	ymap.addControl(new Y.SearchControl());
 
-//	ymap.drawMap(new Y.LatLng(37.864291, 140.672862), 17, Y.LayerSetId.NORMAL);
-//	var kmlUrl = "http://anineco.nyanta.jp/example/routemap.kml";
-
-//	ymap.drawMap(new Y.LatLng(35.17072677789611, 136.88260304318726), 17, Y.LayerSetId.NORMAL);
-//	var kmlUrl = "http://www.nilab.info/f/0/20110830_sample.kml";
-
-//	ymap.drawMap(new Y.LatLng(34.799902331988555, 135.3602957725525), 15, Y.LayerSetId.NORMAL);
 	ymap.drawMap(new Y.LatLng(34.81123119501047, 135.35563945770264), 16, Y.LayerSetId.NORMAL);
 
 	var kmlUrls = [
