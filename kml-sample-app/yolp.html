@@ -1,0 +1,52 @@
+<html>
+<body>
+<div id="map" style="width:100%; height:550px"></div>
+
+<script type="text/javascript" charset="utf-8" src="https://map.yahooapis.jp/js/V1/jsapi?appid=dj00aiZpPXNxSnVwYngxM1luNCZzPWNvbnN1bWVyc2VjcmV0Jng9YWU-"></script>
+
+<script type="text/javascript">
+
+window.onload = function(){
+
+	var ymap = new Y.Map("map");
+
+	ymap.setConfigure('doubleClickZoom', true);
+	ymap.setConfigure('scrollWheelZoom', true);
+	ymap.setConfigure('continuousZoom', true);
+	ymap.setConfigure('weatherOverlay', true);
+
+//	ymap.addControl(new Y.CenterMarkControl());
+	ymap.addControl(new Y.LayerSetControl());
+	ymap.addControl(new Y.ScaleControl());
+	ymap.addControl(new Y.SliderZoomControlHorizontal());
+	ymap.addControl(new Y.SearchControl());
+
+//	ymap.drawMap(new Y.LatLng(37.864291, 140.672862), 17, Y.LayerSetId.NORMAL);
+//	var kmlUrl = "http://anineco.nyanta.jp/example/routemap.kml";
+
+//	ymap.drawMap(new Y.LatLng(35.17072677789611, 136.88260304318726), 17, Y.LayerSetId.NORMAL);
+//	var kmlUrl = "http://www.nilab.info/f/0/20110830_sample.kml";
+
+//	ymap.drawMap(new Y.LatLng(34.799902331988555, 135.3602957725525), 15, Y.LayerSetId.NORMAL);
+	ymap.drawMap(new Y.LatLng(34.81123119501047, 135.35563945770264), 16, Y.LayerSetId.NORMAL);
+
+	var kmlUrls = [
+		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample/hananomichi-1st.kml",
+		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample/hananomichi-2nd.kml",
+		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample/hananomichi-3rd.kml",
+		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample/hananomichi-4th.kml",
+		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample/yoneya.kml"
+	];
+	var kmlLayers = [];
+	for(var i = 0; i < kmlUrls.length; i++)
+	{
+		kmlLayers[i] = new Y.GeoXmlLayer(kmlUrls[i]);
+		ymap.addLayer(kmlLayers[i]);
+		kmlLayers[i].execute();
+	}
+
+}
+
+</script>
+</body>
+</html>
