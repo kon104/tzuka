@@ -1,3 +1,8 @@
+<?php
+
+	$center = array('lat' => 34.81123119501047, 'lng' => 135.35563945770264);
+
+?>
 <html>
 <head>
 <meta http-equiv="Content-Type" Content="text/html;charset=UTF-8">
@@ -98,7 +103,7 @@ window.onload = function(){
 	ymap.addControl(new Y.SliderZoomControlHorizontal());
 	ymap.addControl(new Y.SearchControl());
 
-	ymap.drawMap(new Y.LatLng(34.81123119501047, 135.35563945770264), 16, Y.LayerSetId.NORMAL);
+	ymap.drawMap(new Y.LatLng(<? php echo $center['lat'] . ', ' . $center['lng']; ?>, 16, Y.LayerSetId.NORMAL);
 
 	var kmlUrls = [
 		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-1st.kml",
