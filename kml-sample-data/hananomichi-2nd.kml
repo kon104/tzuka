@@ -2,7 +2,6 @@
 <kml xmlns="http://www.opengis.net/kml/2.2">
     <Placemark>
       <name>花のみち 第二地区</name>
-      <styleUrl>#poly-000000-1200-77-nodesc</styleUrl>
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
