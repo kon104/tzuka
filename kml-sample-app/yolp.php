@@ -1,6 +1,23 @@
 <?php
 
+	require_once("./mycurl.class.inc");
+
 	$center = array('lat' => 34.81123119501047, 'lng' => 135.35563945770264);
+
+	$kmllist = array(
+		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-1st.kml",
+		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-2nd.kml",
+		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-3rd.kml",
+		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-4th.kml",
+		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/yoneya.kml"
+	);
+
+	$results = mycurl::execMulti($kmllist);
+	$kmltitles = array();
+	foreach($results as $response) {
+		$kmlxml = new SimpleXMLElement($response['body']);
+		$kmltitles[] = $kmlxml->Placemark->name;
+	}
 
 ?>
 <html>
@@ -27,14 +44,16 @@
 		<div class="col-sm-3">
 			<div id="kml_tree">
 				<ul>
-					<li  id="kml_root" data-jstree='{"opened": true, "selected": true}'>111
-					<ul>
-						<li id="kml_0" data-jstree='{"icon": "jstree-file"}'>花のみち 第一地区</li>
-						<li id="kml_1" data-jstree='{"icon": "jstree-file"}'>花のみち 第二地区</li>
-						<li id="kml_2" data-jstree='{"icon": "jstree-file"}'>花のみち 第三地区</li>
-						<li id="kml_3" data-jstree='{"icon": "jstree-file"}'>花のみち 第四地区</li>
-						<li id="kml_4" data-jstree='{"icon": "jstree-file"}'>米谷自治会</li>
-					</ul></li>
+					<li id="kml_root" data-jstree='{"opened": true, "selected": true}'>自治会
+<?php
+	if (count($kmltitles) > 0) {
+		echo "\t\t\t\t\t<ul>\n";
+		foreach($kmltitles as $idx => $title) {
+			printf("\t\t\t\t\t\t<li id=\"kml_%d\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $idx, $title);
+		}
+		echo "\t\t\t\t\t</ul>\n";
+	}
+?></li>
 				</ul>
 			</div>
 		</div>
@@ -103,14 +122,14 @@ window.onload = function(){
 	ymap.addControl(new Y.SliderZoomControlHorizontal());
 	ymap.addControl(new Y.SearchControl());
 
-	ymap.drawMap(new Y.LatLng(<? php echo $center['lat'] . ', ' . $center['lng']; ?>, 16, Y.LayerSetId.NORMAL);
+	ymap.drawMap(new Y.LatLng(<?php printf("%.14f, %.14f", $center['lat'], $center['lng']); ?>), 16, Y.LayerSetId.NORMAL);
 
 	var kmlUrls = [
-		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-1st.kml",
-		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-2nd.kml",
-		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-3rd.kml",
-		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-4th.kml",
-		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/yoneya.kml"
+<?php
+	foreach($kmllist as $kml) {
+		printf("\t\t\"%s\",\n", $kml);
+	}
+?>
 	];
 
 	for(var i = 0; i < kmlUrls.length; i++)
