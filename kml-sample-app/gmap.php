@@ -7,6 +7,11 @@
 ?>
 <html>
 <head>
+<meta http-equiv="Content-Type" Content="text/html;charset=UTF-8">
+<?php
+	GenerateHtml::cssJsTree();
+	GenerateHtml::cssBootStrap();
+?>
 <style type="text/css"> 
 #map {
 	width: 100%;
@@ -15,22 +20,41 @@
 </style>
 <link rel="stylesheet" href="./style/searchbox.css" type="text/css">
 
+<?php
+	GenerateHtml::jsJQuery();
+	GenerateHtml::jsJsTree();
+	GenerateHtml::jsBootStrap();
+?>
 <script type="text/javascript" src="./jsg/searchbox.js"></script>
-
 </head>
 <body>
 
-<div id="map"></div>
-<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-<ul>
-	<li>lat: <span id="lat">---</spans></li>
-	<li>lng: <span id="lng">---</spans></li>
-</ul>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3">
+<?php
+	GenerateHtml::partCommunityTree($kmlxmls);
+?>
+		</div>
+		<div class="col-sm-9">
+			<div id="map"></div>
+			<input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+			<ul>
+				<li>lat: <span id="lat">---</spans></li>
+				<li>lng: <span id="lng">---</spans></li>
+			</ul>
+		</div>
+	</div>
+</div>
 
 <script>
+
+var map;
+var kmlLayers = [];
+
 function initMap() {
 	// display the map
-	var map = new google.maps.Map(document.getElementById('map'), {
+	map = new google.maps.Map(document.getElementById('map'), {
 		center: {
 			lat: <?php echo MyCoord::$center['lat']; ?>,
 			lng: <?php echo MyCoord::$center['lng']; ?>
@@ -50,7 +74,6 @@ function initMap() {
 ?>
 	];
 
-	var kmlLayers = [];
 	for(var i = 0; i < kmlUrls.length; i++)
 	{
 		var layer = new google.maps.KmlLayer(kmlUrls[i], {
@@ -90,14 +113,22 @@ function getClickLatLng(latlng, map, layers)
 	document.getElementById("lat").innerHTML = latlng.lat();
 	document.getElementById('lng').innerHTML = latlng.lng();
 
-	var imgBaseUrl = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|';
-	var pinImage = null;
-	for(var i = 0; (pinImage == null) && (i < layers.length); i++)
+	var pinColor = null;
+	for(var i = 0; (pinColor == null) && (i < layers.length); i++)
 	{
-		pinImage = google.maps.geometry.poly.containsLocation(latlng, layers[i].polygon) ?
-			new google.maps.MarkerImage(imgBaseUrl + '6495ed') :
+		if (layers[i].visible == false) {
+			continue;
+		}
+		pinColor = google.maps.geometry.poly.containsLocation(latlng, layers[i].polygon) ?
+			'6495ed' :
 			null;
 	}
+	if (pinColor == null) {
+		pinColor = 'c0c0c0';
+	}
+
+	var imgBaseUrl = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|';
+	var pinImage = new google.maps.MarkerImage(imgBaseUrl + pinColor);
 
 	var marker = new google.maps.Marker(
 	{
@@ -106,6 +137,38 @@ function getClickLatLng(latlng, map, layers)
 		icon: pinImage,
 	});
 }
+
+$(function () {
+	$('#kml_tree').jstree({
+		"plugins": ["checkbox"]
+	});
+});
+
+$('#kml_tree').on("changed.jstree", function (e, data) {
+	if (kmlLayers.length == 0) {
+		return;
+	}
+	var checks = [];
+	for(var i = 0; i < data.selected.length; i++) {
+		var items = data.selected[i].split("_");
+		var num = items[1];
+		if (num == 'root') continue;
+		checks[num] = num;
+	}
+	for(var i = 0; i < kmlLayers.length; i++) {
+		if (kmlLayers[i].visible === true) {
+			if (typeof checks[i] === "undefined") {
+				kmlLayers[i].layer.setMap(null);
+				kmlLayers[i].visible = false;
+			}
+		} else {
+			if (typeof checks[i] !== "undefined") {
+				kmlLayers[i].layer.setMap(map);
+				kmlLayers[i].visible = true;
+			}
+		}
+	}
+});
 
 </script>
 
