@@ -29,20 +29,9 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-3">
-			<div id="kml_tree">
-				<ul>
-					<li id="kml_root" data-jstree='{"opened": true, "selected": true}'>自治会
 <?php
-	if (count($kmlxmls) > 0) {
-		echo "\t\t\t\t\t<ul>\n";
-		foreach($kmlxmls as $idx => $kml) {
-			printf("\t\t\t\t\t\t<li id=\"kml_%d\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $idx, $kml->Placemark->name);
-		}
-		echo "\t\t\t\t\t</ul>\n";
-	}
-?></li>
-				</ul>
-			</div>
+	GenerateHtml::partCommunityTree($kmlxmls);
+?>
 		</div>
 		<div class="col-sm-9">
 			<div id="map"></div>
