@@ -1,5 +1,11 @@
 <?php
 
+	require_once("./MyCoord.class.inc");
+	require_once("./GenerateHtml.class.inc");
+
+	$kmlxmls = MyCoord::fetchKmlXmls();
+
+/*
 	require_once("./MyCurl.class.inc");
 	require_once("./MyCoord.class.inc");
 
@@ -8,6 +14,7 @@
 	foreach($results as $response) {
 		$kmlxmls[] = new SimpleXMLElement($response['body']);
 	}
+*/
 
 ?>
 <html>
@@ -102,15 +109,12 @@ function initMap() {
 
 	// create class of polygon from KML
 	var kmlPolygons = [];
-<?php	foreach($kmlxmls as $xml) { ?>
+<?php	foreach($kmlxmls as $kml) { ?>
 	kmlPolygons.push(new google.maps.Polygon({
 		paths: [
 <?php
-			$value = $xml->Placemark->Polygon->outerBoundaryIs->LinearRing->coordinates;
-			$lines = preg_split("/[\s]+/", trim($value));
-			foreach($lines as $pos) {
-				$lnglat = explode(',', $pos);
-				printf("\t\tnew google.maps.LatLng(%s , %s),\n", $lnglat[1], $lnglat[0]);
+			foreach($kml['coordinates'] as $pos) {
+				printf("\t\tnew google.maps.LatLng(%s , %s),\n", $pos['lat'], $pos['lng']);
 			}
 ?>
 		]

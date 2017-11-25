@@ -1,5 +1,7 @@
 <?php
 
+require_once("./MyCurl.class.inc");
+
 class MyCoord
 {
 
@@ -12,6 +14,38 @@ class MyCoord
 		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-4th.kml",
 		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/yoneya.kml"
 	);
+
+	public static function fetchKmlXmls()
+	{
+		$results = MyCurl::execMulti(self::$kmlUrls);
+
+		$kmlxmls = array();
+		foreach($results as $response) {
+
+			$xml = new SimpleXMLElement($response['body']);
+
+			// divide to individual value for coordinates
+			$value = $xml->Placemark->Polygon->outerBoundaryIs->LinearRing->coordinates;
+			$coordinates = preg_split("/[\s]+/", trim($value));
+			foreach($coordinates as $i => $line) {
+				$items = explode(',', $line);
+				$record = array(
+					'lat' => $items[1],
+					'lng' => $items[0],
+					'alt' => (count($items) > 2) ? $items[2] : null
+				);
+				$coordinates[$i] = $record;
+			}
+
+			// package to array
+			$kmlxmls[] = array(
+				'xml' => $xml,
+				'coordinates' => $coordinates
+			);
+		}
+		return $kmlxmls;
+	}
+
 
 }
 

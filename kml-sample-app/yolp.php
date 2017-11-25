@@ -1,15 +1,9 @@
 <?php
 
-	require_once("./MyCurl.class.inc");
 	require_once("./MyCoord.class.inc");
 	require_once("./GenerateHtml.class.inc");
 
-	$results = MyCurl::execMulti(MyCoord::$kmlUrls);
-	$kmlxmls = array();
-	foreach($results as $response) {
-		$kmlxmls[] = new SimpleXMLElement($response['body']);
-	}
-
+	$kmlxmls = MyCoord::fetchKmlXmls();
 ?>
 <html>
 <head>
@@ -122,5 +116,7 @@ window.onload = function(){
 }
 
 </script>
+
+<?php var_dump($kmlxmls); ?>
 </body>
 </html>
