@@ -61,14 +61,14 @@ function initMap() {
 		layer.setMap(map);
 		kmlLayers.push({
 			layer: layer,
+			polygon: null,
 			visible: true
 		});
 	}
 
 	// create class of polygon from KML
-	var kmlPolygons = [];
-<?php	foreach($kmlxmls as $kml) { ?>
-	kmlPolygons.push(new google.maps.Polygon({
+<?php	foreach($kmlxmls as $i => $kml) { ?>
+	kmlLayers[<?php echo $i; ?>].polygon = new google.maps.Polygon({
 		paths: [
 <?php
 			foreach($kml['coordinates'] as $pos) {
@@ -76,25 +76,25 @@ function initMap() {
 			}
 ?>
 		]
-	}));
+	});
 <?php	} ?>
 
 	map.addListener('click', function(e)
 	{
-		getClickLatLng(e.latLng, map, kmlPolygons);
+		getClickLatLng(e.latLng, map, kmlLayers);
 	});
 }
 
-function getClickLatLng(latlng, map, polygons)
+function getClickLatLng(latlng, map, layers)
 {
 	document.getElementById("lat").innerHTML = latlng.lat();
 	document.getElementById('lng').innerHTML = latlng.lng();
 
 	var imgBaseUrl = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|';
 	var pinImage = null;
-	for(var i = 0; (pinImage == null) && (i < polygons.length); i++)
+	for(var i = 0; (pinImage == null) && (i < layers.length); i++)
 	{
-		pinImage = google.maps.geometry.poly.containsLocation(latlng, polygons[i]) ?
+		pinImage = google.maps.geometry.poly.containsLocation(latlng, layers[i].polygon) ?
 			new google.maps.MarkerImage(imgBaseUrl + '6495ed') :
 			null;
 	}
