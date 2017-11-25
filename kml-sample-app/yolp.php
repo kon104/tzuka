@@ -1,18 +1,9 @@
 <?php
 
 	require_once("./mycurl.class.inc");
+	require_once("./MyCoord.class.inc");
 
-	$center = array('lat' => 34.81123119501047, 'lng' => 135.35563945770264);
-
-	$kmllist = array(
-		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-1st.kml",
-		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-2nd.kml",
-		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-3rd.kml",
-		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/hananomichi-4th.kml",
-		"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/yoneya.kml"
-	);
-
-	$results = mycurl::execMulti($kmllist);
+	$results = mycurl::execMulti(MyCoord::$kmllist);
 	$kmltitles = array();
 	foreach($results as $response) {
 		$kmlxml = new SimpleXMLElement($response['body']);
@@ -122,11 +113,11 @@ window.onload = function(){
 	ymap.addControl(new Y.SliderZoomControlHorizontal());
 	ymap.addControl(new Y.SearchControl());
 
-	ymap.drawMap(new Y.LatLng(<?php printf("%.14f, %.14f", $center['lat'], $center['lng']); ?>), 16, Y.LayerSetId.NORMAL);
+	ymap.drawMap(new Y.LatLng(<?php printf("%.14f, %.14f", MyCoord::$center['lat'], MyCoord::$center['lng']); ?>), 16, Y.LayerSetId.NORMAL);
 
 	var kmlUrls = [
 <?php
-	foreach($kmllist as $kml) {
+	foreach(MyCoord::$kmllist as $kml) {
 		printf("\t\t\"%s\",\n", $kml);
 	}
 ?>
