@@ -1,33 +1,29 @@
 <?php
 
-	require_once("./mycurl.class.inc");
+	require_once("./MyCurl.class.inc");
 	require_once("./MyCoord.class.inc");
+	require_once("./GenerateHtml.class.inc");
 
-	$results = mycurl::execMulti(MyCoord::$kmllist);
-	$kmltitles = array();
+	$results = MyCurl::execMulti(MyCoord::$kmlUrls);
+	$kmlxmls = array();
 	foreach($results as $response) {
-		$kmlxml = new SimpleXMLElement($response['body']);
-		$kmltitles[] = $kmlxml->Placemark->name;
+		$kmlxmls[] = new SimpleXMLElement($response['body']);
 	}
 
 ?>
 <html>
 <head>
 <meta http-equiv="Content-Type" Content="text/html;charset=UTF-8">
-
-<!-- jquery/bootstrap/mine -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<?php
+	GenerateHtml::cssJsTree();
+	GenerateHtml::cssBootStrap();
+?>
 <link rel="stylesheet" href="./style/map.css" type="text/css">
-
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
+<?php
+	GenerateHtml::jsJQuery();
+	GenerateHtml::jsJsTree();
+	GenerateHtml::jsBootStrap();
+?>
 </head>
 <body>
 <div class="container-fluid">
@@ -37,10 +33,10 @@
 				<ul>
 					<li id="kml_root" data-jstree='{"opened": true, "selected": true}'>自治会
 <?php
-	if (count($kmltitles) > 0) {
+	if (count($kmlxmls) > 0) {
 		echo "\t\t\t\t\t<ul>\n";
-		foreach($kmltitles as $idx => $title) {
-			printf("\t\t\t\t\t\t<li id=\"kml_%d\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $idx, $title);
+		foreach($kmlxmls as $idx => $kml) {
+			printf("\t\t\t\t\t\t<li id=\"kml_%d\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $idx, $kml->Placemark->name);
 		}
 		echo "\t\t\t\t\t</ul>\n";
 	}
@@ -117,7 +113,7 @@ window.onload = function(){
 
 	var kmlUrls = [
 <?php
-	foreach(MyCoord::$kmllist as $kml) {
+	foreach(MyCoord::$kmlUrls as $kml) {
 		printf("\t\t\"%s\",\n", $kml);
 	}
 ?>

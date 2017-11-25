@@ -1,6 +1,6 @@
 <?php
 
-class mycurl {
+class MyCurl {
 
 	/**
 	 * curl multi 実行
