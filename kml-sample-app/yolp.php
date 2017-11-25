@@ -117,6 +117,5 @@ window.onload = function(){
 
 </script>
 
-<?php var_dump($kmlxmls); ?>
 </body>
 </html>

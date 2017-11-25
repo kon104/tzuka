@@ -4,18 +4,6 @@
 	require_once("./GenerateHtml.class.inc");
 
 	$kmlxmls = MyCoord::fetchKmlXmls();
-
-/*
-	require_once("./MyCurl.class.inc");
-	require_once("./MyCoord.class.inc");
-
-	$results = MyCurl::execMulti(MyCoord::$kmlUrls);
-	$kmlxmls = array();
-	foreach($results as $response) {
-		$kmlxmls[] = new SimpleXMLElement($response['body']);
-	}
-*/
-
 ?>
 <html>
 <head>
@@ -24,43 +12,8 @@
 	width: 100%;
 	height: 80%;
 }
-
-
-
-
-      .controls {
-        margin-top: 10px;
-        border: 1px solid transparent;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        height: 32px;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      }
-
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 300px;
-      }
-
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
-
-      .pac-container {
-        font-family: Roboto;
-      }
-
-
-
 </style>
+<link rel="stylesheet" href="./style/searchbox.css" type="text/css">
 
 <script type="text/javascript" src="./jsg/searchbox.js"></script>
 
@@ -97,13 +50,18 @@ function initMap() {
 ?>
 	];
 
+	var kmlLayers = [];
 	for(var i = 0; i < kmlUrls.length; i++)
 	{
-		var kmlLayer = new google.maps.KmlLayer(kmlUrls[i], {
+		var layer = new google.maps.KmlLayer(kmlUrls[i], {
 			clickable: false,
 			suppressInfoWindows: true,
 			preserveViewport: false,
-			map: map
+		});
+		layer.setMap(map);
+		kmlLayers.push({
+			layer: layer,
+			visible: true
 		});
 	}
 
@@ -114,7 +72,7 @@ function initMap() {
 		paths: [
 <?php
 			foreach($kml['coordinates'] as $pos) {
-				printf("\t\tnew google.maps.LatLng(%s , %s),\n", $pos['lat'], $pos['lng']);
+				printf("\t\t\tnew google.maps.LatLng(%s , %s),\n", $pos['lat'], $pos['lng']);
 			}
 ?>
 		]
