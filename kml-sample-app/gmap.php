@@ -44,8 +44,8 @@ function initMap() {
 	// draw polygons on KML
 	var kmlUrls = [
 <?php
-	foreach(MyCoord::$kmlUrls as $kml) {
-		printf("\t\t\"%s\",\n", $kml);
+	foreach($kmlxmls as $kml) {
+		printf("\t\t\"%s\",\n", $kml['url']);
 	}
 ?>
 	];

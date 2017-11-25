@@ -32,6 +32,7 @@ class MyCurl {
 		} while( true );
 		// 実行結果の取得
 		foreach( $ch_list as $id => $ch ) {
+			$results[ $id ][ 'url' ] = $url_list[ $id ];
 			$results[ $id ][ 'curl_errno' ] = $info_list[ $ch ][ 'result' ];
 			$info = curl_getinfo( $ch );
 			$results[ $id ][ 'http_code' ] = $info[ 'http_code' ];
