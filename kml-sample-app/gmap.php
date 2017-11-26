@@ -12,12 +12,7 @@
 	GenerateHtml::cssJsTree();
 	GenerateHtml::cssBootStrap();
 ?>
-<style type="text/css"> 
-#map {
-	width: 100%;
-	height: 80%;
-}
-</style>
+<link rel="stylesheet" href="./style/map.css" type="text/css">
 <link rel="stylesheet" href="./style/searchbox.css" type="text/css">
 
 <?php
@@ -35,14 +30,14 @@
 <?php
 	GenerateHtml::partCommunityTree($kmlxmls);
 ?>
+			<div>
+				<div>lat: <span id="lat">---</spans></div>
+				<div>lng: <span id="lng">---</spans></div>
+			</div>
 		</div>
 		<div class="col-sm-9">
 			<div id="map"></div>
 			<input id="pac-input" class="controls" type="text" placeholder="Search Box" />
-			<ul>
-				<li>lat: <span id="lat">---</spans></li>
-				<li>lng: <span id="lng">---</spans></li>
-			</ul>
 		</div>
 	</div>
 </div>
