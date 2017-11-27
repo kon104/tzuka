@@ -34,6 +34,9 @@
 				<div>lat: <span id="lat">---</spans></div>
 				<div>lng: <span id="lng">---</spans></div>
 			</div>
+			<div>
+				<input type="button" id="btn" onClick="buttonClick()" value="clear markers" />
+			</div>
 		</div>
 		<div class="col-sm-9">
 			<div id="map"></div>
@@ -46,6 +49,7 @@
 
 var map;
 var kmlLayers = [];
+var markers = [];
 
 function initMap() {
 	// display the map
@@ -99,11 +103,11 @@ function initMap() {
 
 	map.addListener('click', function(e)
 	{
-		getClickLatLng(map, kmlLayers, e.latLng);
+		getClickLatLng(map, kmlLayers, markers, e.latLng);
 	});
 }
 
-function getClickLatLng(map, layers, latlng)
+function getClickLatLng(map, layers, markers, latlng)
 {
 	document.getElementById('lat').innerHTML = latlng.lat();
 	document.getElementById('lng').innerHTML = latlng.lng();
@@ -140,6 +144,7 @@ function getClickLatLng(map, layers, latlng)
 		info.open(map, marker);
 	});
 
+	markers.push(marker);
 
 }
 
@@ -174,6 +179,13 @@ $('#kml_tree').on("changed.jstree", function (e, data) {
 		}
 	}
 });
+
+function buttonClick()
+{
+	for(var i = 0; i < markers.length; i++) {
+		markers[i].setMap(null);
+	}
+}
 
 </script>
 
