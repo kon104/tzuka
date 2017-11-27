@@ -105,7 +105,7 @@ function initMap() {
 
 function getClickLatLng(latlng, map, layers)
 {
-	document.getElementById("lat").innerHTML = latlng.lat();
+	document.getElementById('lat').innerHTML = latlng.lat();
 	document.getElementById('lng').innerHTML = latlng.lng();
 
 	var pinColor = null;
@@ -131,6 +131,16 @@ function getClickLatLng(latlng, map, layers)
 		map: map,
 		icon: pinImage,
 	});
+
+	var info = new google.maps.InfoWindow(
+	{
+		content: '<div>lat: ' + latlng.lat() + '</div><div>lng: ' + latlng.lng() + '</div>',
+	});
+	marker.addListener('click', function(){
+		info.open(map, marker);
+	});
+
+
 }
 
 $(function () {
