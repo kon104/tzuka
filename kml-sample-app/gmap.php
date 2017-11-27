@@ -99,11 +99,11 @@ function initMap() {
 
 	map.addListener('click', function(e)
 	{
-		getClickLatLng(e.latLng, map, kmlLayers);
+		getClickLatLng(map, kmlLayers, e.latLng);
 	});
 }
 
-function getClickLatLng(latlng, map, layers)
+function getClickLatLng(map, layers, latlng)
 {
 	document.getElementById('lat').innerHTML = latlng.lat();
 	document.getElementById('lng').innerHTML = latlng.lng();
