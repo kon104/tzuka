@@ -34,6 +34,13 @@
 				<div>lat: <span id="lat">---</spans></div>
 				<div>lng: <span id="lng">---</spans></div>
 			</div>
+			<div>
+				<input type="button" id="btn" onClick="buttonClick()" value="clear markers" />
+			</div>
+			<div>
+				<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
+2,兵庫県宝塚市武庫川町7-23</textarea>
+			</div>
 		</div>
 		<div class="col-sm-9">
 			<div id="map"></div>
@@ -46,6 +53,7 @@
 
 var map;
 var kmlLayers = [];
+var markers = [];
 
 function initMap() {
 	// display the map
@@ -99,15 +107,14 @@ function initMap() {
 
 	map.addListener('click', function(e)
 	{
-		getClickLatLng(e.latLng, map, kmlLayers);
+		document.getElementById('lat').innerHTML = e.latLng.lat();
+		document.getElementById('lng').innerHTML = e.latLng.lng();
+		placeMarker(map, kmlLayers, markers, e.latLng, null);
 	});
 }
 
-function getClickLatLng(latlng, map, layers)
+function placeMarker(map, layers, markers, latlng, caption)
 {
-	document.getElementById("lat").innerHTML = latlng.lat();
-	document.getElementById('lng').innerHTML = latlng.lng();
-
 	var pinColor = null;
 	for(var i = 0; (pinColor == null) && (i < layers.length); i++)
 	{
@@ -131,6 +138,21 @@ function getClickLatLng(latlng, map, layers)
 		map: map,
 		icon: pinImage,
 	});
+
+	var content = '<div>lat: ' + latlng.lat() + '</div><div>lng: ' + latlng.lng() + '</div>';
+	if (caption !== null) {
+		content = '<div>' + caption + '</div>' + content;
+	}
+	var info = new google.maps.InfoWindow(
+	{
+		content: content,
+	});
+	marker.addListener('click', function(){
+		info.open(map, marker);
+	});
+
+	markers.push(marker);
+
 }
 
 $(function () {
@@ -164,6 +186,32 @@ $('#kml_tree').on("changed.jstree", function (e, data) {
 		}
 	}
 });
+
+function buttonClick()
+{
+	for(var i = 0; i < markers.length; i++) {
+		markers[i].setMap(null);
+	}
+
+	var geocoder = new google.maps.Geocoder();
+
+	var str =  document.getElementById("txtarea").value;
+	var lines = str.split(/\r\n|\r|\n/);
+	for(var i = 0; i < lines.length; i++) {
+		var items = lines[i].split(',');
+		var number = items[0];
+		(function(){
+			var num = number;
+			geocoder.geocode({'address': items[1]}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					placeMarker(map, kmlLayers, markers, results[0].geometry.location, "#" + num);
+				} else {
+					console.log('Geocode was not successful for the following reason: ' + status);
+				}
+			});
+		})();
+	}
+}
 
 </script>
 
