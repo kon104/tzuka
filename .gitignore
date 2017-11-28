@@ -2,3 +2,5 @@
 .DS_Store
 .htaccess
 
+article-crawler/vendor/
+
