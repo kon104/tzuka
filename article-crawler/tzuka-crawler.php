@@ -3,9 +3,25 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 $client = new Goutte\Client();
-$url = 'http://www.city.takarazuka.hyogo.jp/kenkofukushi/koreisha/';
 
-browse($client, $url);
+$urls = array(
+	'http://www.city.takarazuka.hyogo.jp/kenkofukushi/kenko/',
+	'http://www.city.takarazuka.hyogo.jp/kenkofukushi/kenshin/',
+	'http://www.city.takarazuka.hyogo.jp/kenkofukushi/koreisha/',
+	'http://www.city.takarazuka.hyogo.jp/kenkofukushi/kaigohoken/',
+	'http://www.city.takarazuka.hyogo.jp/kenkofukushi/shogaisha/',
+	'http://www.city.takarazuka.hyogo.jp/kenkofukushi/shinshia/',
+	'http://www.city.takarazuka.hyogo.jp/kenkofukushi/chiikifukushi/',
+	'http://www.city.takarazuka.hyogo.jp/kenkofukushi/fukushikanren/',
+	'http://www.city.takarazuka.hyogo.jp/kenkofukushi/seikatsushien/',
+	'http://www.city.takarazuka.hyogo.jp/kenkofukushi/jisatsuyobo/',
+);
+
+printf("%s\t%s\n", "URL", "タイトル");
+foreach($urls as $url) {
+	echo $url . "\n";
+	browse($client, $url);
+}
 
 function browse($client, $url)
 {
@@ -31,14 +47,19 @@ function browse($client, $url)
 	} else {
 		// 末端の記事
 		$title = $content->filter('h1')->text();
-//		printf("%s\t%s\t%s\n", 'art', $url, $title);
+		printf("%s\t%s", $url, $title);
 
 		$dt = $content->filter('dt');
 		if (count($dt) > 0) {
-			$dt->each(function ($node) {
-				echo $node->text() . "\n";
+			$fields = array();
+			$dt->each(function ($node) use (&$fields) {
+//				echo $node->text() . "\n";
+				$text = $node->text();
+				$fields[$text] = $text;
 			});
+			echo "\t" . implode("\t", $fields);
 		}
 
+		echo "\n";
 	}
 }
