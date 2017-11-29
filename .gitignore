@@ -3,4 +3,6 @@
 .htaccess
 
 article-crawler/vendor/
+article-crawler/*.tsv
+
 
