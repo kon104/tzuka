@@ -27,20 +27,38 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-3">
+
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a href="#tab1" class="nav-link navbar-default active" data-toggle="tab">自治会選択</a>
+				</li>
+				<li class="nav-item">
+					<a href="#tab2" class="nav-link navbar-default" data-toggle="tab">住所判定</a>
+				</li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="tab1" class="tab-pane active">
 <?php
 	GenerateHtml::partCommunityTree($kmlxmls);
 ?>
-			<div>
-				<div>lat: <span id="lat">---</spans></div>
-				<div>lng: <span id="lng">---</spans></div>
-			</div>
-			<div>
-				<input type="button" id="btn" onClick="buttonClick()" value="clear markers" />
-			</div>
-			<div>
-				<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
+					<div>
+						<div>lat: <span id="lat">---</spans></div>
+						<div>lng: <span id="lng">---</spans></div>
+					</div>
+
+				</div>
+				<div id="tab2" class="tab-pane">
+					<div>
+						<input type="button" id="btn" class="btn btn-primary" onClick="buttonClick()" value="判定" />
+					</div>
+					<div>
+						<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
 2,兵庫県宝塚市武庫川町7-23</textarea>
+					</div>
+				</div>
 			</div>
+
 		</div>
 		<div class="col-sm-9">
 			<div id="map"></div>
