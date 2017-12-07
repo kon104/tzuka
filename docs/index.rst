@@ -7,14 +7,12 @@ Welcome to tzuka's documentation!
 =================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :hidden
    :caption: Contents:
 
+List of Contents
+========
 
+* :doc:`qgis-heatmap`
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
