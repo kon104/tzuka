@@ -5,4 +5,5 @@
 article-crawler/vendor/
 article-crawler/*.tsv
 
+docs/_build/
 
