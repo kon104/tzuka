@@ -47,3 +47,26 @@ CSV形式で一行あたり ``小学校区名,数値`` の書式で、小学校�
 
 - `サンプルCSVデータ <https://raw.githubusercontent.com/kon104/tzuka/master/qgis/takarazuka-area-elementary.csv>`_
 
+
+
+取り急ぎ画像を貼り付け
+=====================
+
+.. image:: ./image/dialog-add_delimitedlayer.png
+.. image:: ./image/dialog-add_merge_vector.png
+.. image:: ./image/dialog-vector_layer.png
+.. image:: ./image/layer_prop-chnge_color.png
+.. image:: ./image/layer_prop-merge_after.png
+.. image:: ./image/layer_prop-merge_before.png
+.. image:: ./image/layer_prop-style.png
+.. image:: ./image/layer_prop-style_change_symbol.png
+.. image:: ./image/layer_prop-style_click_layer_rendering.png
+.. image:: ./image/layer_prop-style_dankai.png
+.. image:: ./image/qgis-add_vectorlayer.png
+.. image:: ./image/qgis-completion.png
+.. image:: ./image/qgis-load_city.png
+.. image:: ./image/qgis-load_elementary.png
+.. image:: ./image/qgis-menu-add_delimitedlayer.png
+.. image:: ./image/qgis-popmenu_layersprop.png
+
+
