@@ -39,8 +39,6 @@ foreach($pages as $page)
 	echo $line . "\n";
 }
 
-//	print_r($pages);
-
 
 // {{{ function pageArticle($url, $content)
 function pageArticle($url, $content)
@@ -52,8 +50,14 @@ function pageArticle($url, $content)
 
 	$fields['施設名'] = $title;
 
-	$fields['写真'] = dirname($url) . "/"
-			. $content->filter('img')->eq(0)->attr('src');
+	$before = "";
+	$after = dirname($url) . "/"
+		. $content->filter('img')->eq(0)->attr('src');
+	do {
+		$before = $after;
+		$after = preg_replace("/[^\.\/]+\/\.\.\//", "", $before);
+	} while($before !== $after);
+	$fields['写真'] = $after;
 
 	$dt = $content->filter('dt');
 	$dt_list = array();
@@ -67,7 +71,6 @@ function pageArticle($url, $content)
 
 	$fields = array_merge($fields, $list);
 
-//	print_r($fields);
 	return $fields;
 }
 // }}}
