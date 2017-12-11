@@ -25,14 +25,16 @@ echo $line . "\n";
 
 foreach($pages as $page)
 {
-	$line = '';
+	$lines = array();
 	foreach($items as $item)
 	{
 		if (isset($page[$item])) {
-			$line .= "\"" . $page[$item] . "\"";
+			$lines[] = "\"" . $page[$item] . "\"";
+		} else {
+			$lines[] = "\"\"";
 		}
-		$line .= ",";
 	}
+	$line = implode(",", $lines);
 //	$line = mb_convert_encoding($line, 'Shift_JIS', 'UTF-8');
 	echo $line . "\n";
 }
