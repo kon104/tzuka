@@ -10,6 +10,7 @@ Welcome to tzuka's documentation!
    :maxdepth: 1
 
    qgis-heatmap
+   csv2marker
 
 Indices and tables
 ==================
