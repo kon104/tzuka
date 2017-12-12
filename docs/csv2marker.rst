@@ -63,7 +63,7 @@ Spread Sheetからマーカー化する
 .. image:: ./image/csv2marker/gmap-myplace-added.png
 
 埋め込み用のURLを取得する
--------------------------
+=========================
 
 .. image:: ./image/csv2marker/gmap-mymap_share_setting.png
 .. image:: ./image/csv2marker/gmap-mymap_share_url.png
@@ -71,5 +71,21 @@ Spread Sheetからマーカー化する
 .. image:: ./image/csv2marker/gmap-embed_00menu.png
 .. image:: ./image/csv2marker/gmap-embed_01menu.png
 
+
+埋め込んだ例
+===========
+
+かきくけこさしすせそ
+
+.. code-block:: html
+
+    <iframe
+      src="https://www.google.com/maps/d/u/0/embed?mid=16pjnGesH0tP1vzXFF6C1_nnfIXAYkREW"
+      width="640"
+      height="480"></iframe>
+
+.. raw:: html
+
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=16pjnGesH0tP1vzXFF6C1_nnfIXAYkREW" width="640" height="480"></iframe>
 
 
