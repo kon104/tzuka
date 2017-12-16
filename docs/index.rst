@@ -7,7 +7,8 @@ Welcome to tzuka's documentation!
 =================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+   :numbered:
 
    qgis-heatmap
    csv2marker
