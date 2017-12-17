@@ -31,13 +31,13 @@ GISソフトウエア
 - `QGIS 操作マニュアル - GISホームページ - 国土交通省 <http://nlftp.mlit.go.jp/ksj/other/manual.pdf>`_
 
 シェープデータ（ポリゴン）
--------------------------
+--------------------------
 
 GISで市の図形を扱うためのポリンゴンデータで、国土交通省の `国土数値情報ダウンロードサービス <http://nlftp.mlit.go.jp/ksj/>`_ の「２．政策区域」からダウンロードできるシェイプファイルが県単位であるため、事前に市単位で切り出して加工して用意しておきます
 
 以下のリポジトリに、市全体と市内の小学校区で切り出したシェイプファイルを用意しておきましたので、ダウンロードしてご利用いただいても構いません
 
-- `宝塚市全体のシェープファイル <https://github.com/kon104/tzuka/tree/master/qgis/shape-takarazuka/city>`_
+- `市全体のシェープファイル <https://github.com/kon104/tzuka/tree/master/qgis/shape-takarazuka/city>`_
 - `小学校区のシェープファイル <https://github.com/kon104/tzuka/tree/master/qgis/shape-takarazuka/area-elementary>`_
 
 
@@ -56,24 +56,88 @@ CSV形式で一行あたり ``小学校区名,数値`` の書式で、小学校�
 
 
 
-取り急ぎ画像を貼り付け
+ヒートマップ作成手順
 ======================
 
-.. image:: ./image/qgis-heatmap/qgis-add_vectorlayer.png
-.. image:: ./image/qgis-heatmap/dialog-vector_layer.png
-.. image:: ./image/qgis-heatmap/qgis-popmenu_layersprop.png
-.. image:: ./image/qgis-heatmap/layer_prop-style.png
-.. image:: ./image/qgis-heatmap/layer_prop-style_click_layer_rendering.png
-.. image:: ./image/qgis-heatmap/layer_prop-chnge_color.png
-.. image:: ./image/qgis-heatmap/qgis-load_city.png
-.. image:: ./image/qgis-heatmap/qgis-load_elementary.png
-.. image:: ./image/qgis-heatmap/qgis-menu-add_delimitedlayer.png
-.. image:: ./image/qgis-heatmap/dialog-add_delimitedlayer.png
-.. image:: ./image/qgis-heatmap/layer_prop-merge_before.png
-.. image:: ./image/qgis-heatmap/dialog-add_merge_vector.png
-.. image:: ./image/qgis-heatmap/layer_prop-merge_after.png
-.. image:: ./image/qgis-heatmap/layer_prop-style_change_symbol.png
-.. image:: ./image/qgis-heatmap/layer_prop-style_dankai.png
-.. image:: ./image/qgis-heatmap/qgis-completion.png
+市全体のシェイプを読み込む
+--------------------------
 
+シェイプを読み込むには、メニューバーの「レイヤ ＞ レイヤの追加 ＞ ベクタレイヤの追加」を選びます
+
+.. image:: ./image/qgis-heatmap/qgis-add_vectorlayer.png
+
+ベクタレイヤの追加ダイアログが表示されたら、ソースタイプに「ファイル」とエンコーディングに「Shift_JIS」を選び、データセットに市全体のシェイプファイルの「takarazuka-city.shp」を選択します
+
+.. image:: ./image/qgis-heatmap/dialog-vector_layer.png
+
+市全体のシェイプが表示されたら白色にしたいので、レイヤパネルで市全体のシェイプのレイヤで右クリックしショートカットメニューを表示し「プロパティ」を選びます
+
+.. image:: ./image/qgis-heatmap/qgis-popmenu_layersprop.png
+
+レイヤプロパティのダイアログが表示された「レイヤレンダリング」をクリックします
+.. image:: ./image/qgis-heatmap/layer_prop-style.png
+
+色変更のドロップダウン項目が表示されたら右端の▼をクリックします
+
+.. image:: ./image/qgis-heatmap/layer_prop-style_click_layer_rendering.png
+
+色選択のポップアップが表示されたら、その中から白色を選びます
+
+.. image:: ./image/qgis-heatmap/layer_prop-chnge_color.png
+
+市全体のシェイプが白色になりました
+
+.. image:: ./image/qgis-heatmap/qgis-load_city.png
+
+小学校区のシェイプを読み込む
+----------------------------
+
+小学校区のシェイプファイル「takarazuka-area-elementary.shp」を読み込みますが、手順は市全体の場合と同じなので割愛します
+
+.. image:: ./image/qgis-heatmap/qgis-load_elementary.png
+
+小学校区のシェイプにデータを被せてヒートマップで表現
+----------------------------------------------------
+
+ヒートマップしたいデータもレイヤの一つとして取り込みます。データの取り込みはメニューバーの「レイヤ ＞ レイヤの追加 ＞ デリミテッドテキストレイヤの追加」を選びます
+
+.. image:: ./image/qgis-heatmap/qgis-menu-add_delimitedlayer.png
+
+デリミテッドテキストファイルからレイヤを作成のダイアログが表示されたら以下の項目を入力します
+
+- ファイル名に「読み込ませたいCSVファイル」
+- エンコーディングに「CSVファイルの文字コード（Excelで作った場合は「Shift_JIS」）」
+- ジオメトリ定義に「ジオメトリなし（属性のみのテーブル）」
+
+.. image:: ./image/qgis-heatmap/dialog-add_delimitedlayer.png
+
+★ここに小学校区のレイヤー右クリックでプロパティを選択する説明の画像を追加する
+
+レイヤプロパティのダイアログで「結合」を選び「＋」ボタンをクリックする
+
+.. image:: ./image/qgis-heatmap/layer_prop-merge_before.png
+
+ベクタ結合の追加ダイアログで、結合フィールドに「小学校区」、ターゲットフィールドに「A27_007」を選ぶ
+
+.. image:: ./image/qgis-heatmap/dialog-add_merge_vector.png
+
+結合するレイヤにCSVの数値データのレイヤが追加されました
+
+.. image:: ./image/qgis-heatmap/layer_prop-merge_after.png
+
+「スタイル」を選び、ダイアログ上部のドロップダウンで「単一シンボル」から「段階に分けられた」に変更する
+
+.. image:: ./image/qgis-heatmap/layer_prop-style_change_symbol.png
+
+ヒートマップの修飾方法を設定します
+
+- カラムに「takarazuka-area-elementary_値」を選ぶ
+- 色階調に暖色系、寒色系などの表現したいデータのヒートマップにあった色を選ぶ
+- 分類数は数値をいじりながらヒートマップの段階を調整する
+
+.. image:: ./image/qgis-heatmap/layer_prop-style_dankai.png
+
+ヒートマップが完成しました
+
+.. image:: ./image/qgis-heatmap/qgis-completion.png
 
