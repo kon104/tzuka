@@ -5,7 +5,7 @@ OpenDATA: マーカー入り地図を作ろう
 .. |csv| replace:: CSVファイル
 
 
-`CSV <https://ja.wikipedia.org/wiki/Comma-Separated_Values>`_ 形式のデータが行政からオープンデータとして公開されるケースが多いので、施設一覧の|csv|を活用してプログラムを書かなくても地図上に情報表示をする方法を説明します
+`CSV <https://ja.wikipedia.org/wiki/Comma-Separated_Values>`_ 形式のデータが行政からオープンデータとして公開されるケースが多いので、施設一覧の |csv| を活用してプログラムを書かなくても地図上に情報表示をする方法を説明します
 
 完成イメージ
 ============
