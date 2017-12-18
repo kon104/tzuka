@@ -107,6 +107,7 @@ CSV形式で一行あたり ``小学校区名,数値`` の書式で、小学校�
 
 - ファイル名に「読み込ませたいCSVファイル」
 - エンコーディングに「CSVファイルの文字コード（Excelで作った場合は「Shift_JIS」）」
+- ファイル形式に「CSV（コンマで区切られた値）」
 - ジオメトリ定義に「ジオメトリなし（属性のみのテーブル）」
 
 .. image:: ./image/qgis-heatmap/dialog-add_delimitedlayer.png
