@@ -21,12 +21,38 @@
 	GenerateHtml::jsBootStrap();
 ?>
 <script type="text/javascript" src="./jsg/searchbox.js"></script>
+
+<style>
+body {
+	margin: 0px;
+}
+
+#container{
+    display: flex;
+}
+#side{
+    width: 300px;
+	height: 100%;
+	overflow: auto;
+}
+#control{
+	width: 100%;
+	height: 100%;
+}
+#main{
+    flex: 1;
+	height: 99.5%;
+}
+
+</style>
+
 </head>
 <body>
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-3">
+<div id="container">
+
+	<div id="side">
+		<div class="control">
 
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
@@ -58,13 +84,14 @@
 					</div>
 				</div>
 			</div>
-
-		</div>
-		<div class="col-sm-9">
-			<div id="map"></div>
-			<input id="pac-input" class="controls" type="text" placeholder="Search Box" />
 		</div>
 	</div>
+
+	<div id="main">
+		<div id="map"></div>
+		<input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+	</div>
+
 </div>
 
 <script>
