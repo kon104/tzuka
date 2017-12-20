@@ -10,7 +10,6 @@
 <meta http-equiv="Content-Type" Content="text/html;charset=UTF-8">
 <?php
 	GenerateHtml::cssJsTree();
-	GenerateHtml::cssBootStrap();
 ?>
 <link rel="stylesheet" href="./style/map.css" type="text/css">
 <link rel="stylesheet" href="./style/searchbox.css" type="text/css">
@@ -18,7 +17,6 @@
 <?php
 	GenerateHtml::jsJQuery();
 	GenerateHtml::jsJsTree();
-	GenerateHtml::jsBootStrap();
 ?>
 <script type="text/javascript" src="./jsg/searchbox.js"></script>
 
@@ -54,36 +52,26 @@ body {
 	<div id="side">
 		<div class="control">
 
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-					<a href="#tab1" class="nav-link navbar-default active" data-toggle="tab">自治会選択</a>
-				</li>
-				<li class="nav-item">
-					<a href="#tab2" class="nav-link navbar-default" data-toggle="tab">住所判定</a>
-				</li>
-			</ul>
-
-			<div class="tab-content">
-				<div id="tab1" class="tab-pane active">
+			<div>
 <?php
 	GenerateHtml::partCommunityTree($kmlxmls);
 ?>
-					<div>
-						<div>lat: <span id="lat">---</spans></div>
-						<div>lng: <span id="lng">---</spans></div>
-					</div>
-
-				</div>
-				<div id="tab2" class="tab-pane">
-					<div>
-						<input type="button" id="btn" class="btn btn-primary" onClick="buttonClick()" value="判定" />
-					</div>
-					<div>
-						<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
-2,兵庫県宝塚市武庫川町7-23</textarea>
-					</div>
+				<div>
+					<div>lat: <span id="lat">---</spans></div>
+					<div>lng: <span id="lng">---</spans></div>
 				</div>
 			</div>
+
+			<div>
+				<div>
+					<input type="button" id="btn" class="btn btn-primary" onClick="buttonClick()" value="判定" />
+				</div>
+				<div>
+					<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
+2,兵庫県宝塚市武庫川町7-23</textarea>
+				</div>
+			</div>
+
 		</div>
 	</div>
 
