@@ -65,10 +65,6 @@ body {
 <?php
 	GenerateHtml::partCommunityTree($kmlxmls);
 ?>
-					<div>
-						<div>lat: <span id="lat">---</spans></div>
-						<div>lng: <span id="lng">---</spans></div>
-					</div>
 				</div>
 
 				<div id="tab2" class="divtab">
@@ -151,8 +147,6 @@ function initMap() {
 
 	map.addListener('click', function(e)
 	{
-		document.getElementById('lat').innerHTML = e.latLng.lat();
-		document.getElementById('lng').innerHTML = e.latLng.lng();
 		placeMarker(map, kmlLayers, markers, e.latLng, null);
 	});
 }
