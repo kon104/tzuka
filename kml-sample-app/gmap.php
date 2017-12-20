@@ -13,12 +13,14 @@
 ?>
 <link rel="stylesheet" href="./style/map.css" type="text/css">
 <link rel="stylesheet" href="./style/searchbox.css" type="text/css">
+<link rel="stylesheet" href="./style/tabmenu.css" type="text/css">
 
 <?php
 	GenerateHtml::jsJQuery();
 	GenerateHtml::jsJsTree();
 ?>
 <script type="text/javascript" src="./jsg/searchbox.js"></script>
+<script type="text/javascript" src="./jsg/tabmenu.js"></script>
 
 <style>
 body {
@@ -52,24 +54,33 @@ body {
 	<div id="side">
 		<div class="control">
 
-			<div>
+			<ul id="tab_menu">
+				<li><a href="#tab1" class="current">tab1</a></li>
+				<li><a href="#tab2" class="">tab2</a></li>
+			</ul>
+
+			<div id="tab_contents">
+
+				<div id="tab1" class="divtab">
 <?php
 	GenerateHtml::partCommunityTree($kmlxmls);
 ?>
-				<div>
-					<div>lat: <span id="lat">---</spans></div>
-					<div>lng: <span id="lng">---</spans></div>
+					<div>
+						<div>lat: <span id="lat">---</spans></div>
+						<div>lng: <span id="lng">---</spans></div>
+					</div>
 				</div>
-			</div>
 
-			<div>
-				<div>
-					<input type="button" id="btn" class="btn btn-primary" onClick="buttonClick()" value="判定" />
-				</div>
-				<div>
-					<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
+				<div id="tab2" class="divtab">
+					<div>
+						<input type="button" id="btn" class="btn btn-primary" onClick="buttonClick()" value="判定" />
+					</div>
+					<div>
+						<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
 2,兵庫県宝塚市武庫川町7-23</textarea>
+					</div>
 				</div>
+
 			</div>
 
 		</div>
