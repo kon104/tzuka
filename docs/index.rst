@@ -12,6 +12,7 @@ Welcome to tzuka's documentation!
 
    qgis-heatmap
    csv2marker
+   csv2bi
 
 Indices and tables
 ==================
