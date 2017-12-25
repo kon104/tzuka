@@ -27,7 +27,7 @@ OpenDATA: マーカー入り地図を作ろう
 	<tr>
 
 	<td><iframe
-      src="https://www.google.com/maps/d/u/0/embed?mid=1AYM_VDPLhmb2IRQVPr7PDWtqVL6MDxAZ&ll=34.79960279193115,135.35992562770844&z=15"
+      src="https://www.google.com/maps/d/u/0/embed?mid=1AYM_VDPLhmb2IRQVPr7PDWtqVL6MDxAZ&ll=34.79960279193115,135.35992562770844&z=13"
       width="310"
       height="400"></iframe></td>
 
