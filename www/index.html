@@ -112,8 +112,9 @@
 <div id="leftbox">
 <div id="topcontent">
 <div id="topsitesearch" class="clearfix">
-<form method="get" id="search-box" name="search-box" action="http://www.google.co.jp/search">
 <h2><label for="key">サイト内検索</label></h2>
+
+<form method="get" id="search-box" name="search-box" action="http://www.google.co.jp/search">
 <input type="hidden" name="ie" value="UTF-8" />
 <input type="hidden" name="oe" value="UTF-8" />
 <input type="hidden" name="hl" value="ja" />
@@ -122,6 +123,163 @@
 <input type="text" name="q" size="20" id="key" value="" />
 <input type="submit" value="検索" />
 </form>
+
+
+<div id="srchBox" class="watermark">
+<style type="text/css">
+/*
+#srchBox
+{
+width:398px;
+_width:396px;
+margin-bottom:10px;
+background-color:#FFFFFF;
+border-style:solid;
+border-width:1px;
+border-color:#EEEEEE;
+color:#000000;
+text-align:left;
+}
+#srchBox *
+{
+margin:0;
+padding:0;
+font-size:13px;
+*font-size:small;
+*font:x-small;
+}
+#srchBox a img
+{
+border:none;
+}
+#srchBox #srch
+{
+padding:10px 10px 0 10px;
+}
+#srchBox #srch #srchForm
+{
+white-space:nowrap;
+}
+*/
+#srchBox #srchInput
+{
+	width: 365px;
+	height: 21px;
+	margin-left: 20px;
+	margin-right: 4px;
+//	vertical-align:bottom;
+}
+/*
+#srchBox #srchBtn
+{
+width:80px;
+}
+*html #srchBox #srchBtn
+{
+padding-top:2px;
+}
+*:first-child+html #srchBox #srchBtn
+{
+padding-top:2px;
+}
+#srchBox ul
+{
+margin-top:6px;
+text-align:left;
+}
+#srchBox li
+{
+list-style-type:none;
+display:inline;
+zoom:1;
+padding-right:10px;
+}
+#srchBox li input
+{
+zoom:1;
+margin-right:2px;
+_margin:-4px 0 -4px -4px;
+vertical-align:middle;
+border:0;
+}
+*:+html #srchBox li input
+{
+margin:-4px 0 -4px -4px;
+}
+#srchBox #srchLogo
+{
+margin:6px 6px 6px 0;
+text-align:right;
+}
+#srchBox #srchLogo a
+{
+color:#666666;
+text-decoration:none;
+font-size:85%;
+}
+#srchBox #srchLogo a:hover
+{
+text-decoration:underline;
+}
+#srchBox.watermark
+{
+padding-bottom: 6px;
+}
+*/
+#srchBox.watermark #srchInput
+{
+//	padding:1px 1px 2px 1px;
+//	border:1px solid #a5acb2;
+	background: #fff url(http://i.yimg.jp/images/search/customsearch/yjlogo/yjlogo_type4.gif) center center no-repeat;
+}
+#srchBox.watermark #srchInput.nomark
+{
+background: #fff;
+}
+/*
+#srchBox.watermark #srchLogo
+{
+display: none;
+}
+*/
+</style>
+<!--
+<form action="http://v-27-120-113-61.ub-freebit.net/tzuka/www/search.html" method="get" id="srch">
+-->
+<form action="./search.html" method="get" id="srch">
+<p id="srchForm">
+<input type="text" name="p" id="srchInput"><input type="submit" value="検索" id="srchBtn" onclick="document.getElementById('srchInput').focus();">
+<input type="hidden" id="fr" name="fr" value="cse">
+<input type="hidden" id="ei" name="ei" value="UTF-8">
+<input type="hidden" id="csid" name="csid" value="SG7sRdZGBtnbPry4IXlWQXvoUe1bYGlhYTCk.dAusg--">
+</p>
+<input type="hidden" name="vs" value="www.city.takarazuka.hyogo.jp" id="yjInsite">
+</form>
+<img src="http://custom.search.yahoo.co.jp/images/window/SG7sRdZGBtnbPry4IXlWQXvoUe1bYGlhYTCk.dAusg--.gif">
+</div>
+<script type="text/javascript">
+(function() {
+var sb = document.getElementById('srchBox');
+if (sb && sb.className == 'watermark') {
+  var si = document.getElementById('srchInput');
+  var f = function() { si.className = 'nomark'; };
+  var b = function() {
+    if (si.value == '') {
+      si.className = '';
+    }
+  };
+  si.onfocus = f;
+  si.onblur = b;
+  if (!/[&?]p=[^&]/.test(location.search)) {
+    b();
+  } else {
+    f();
+  }
+}
+})();
+</script>
+<!-- /#srchBox -->
+
 <!-- ▲▲▲ END sitesearch ▲▲▲ --></div>
 <div id="topics">
 <ul id="tab" class="clearfix">
