@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 ===================================
 市のヒートマップを作ろう
 ===================================
@@ -35,16 +47,42 @@ GISソフトウエア
 
 GISで市の図形を扱うためのポリンゴンデータで、国土交通省の `国土数値情報ダウンロードサービス <http://nlftp.mlit.go.jp/ksj/>`_ の「２．政策区域」からダウンロードできるシェイプファイルが県単位であるため、事前に市単位で切り出して加工して用意しておきます
 
-以下のリポジトリに、市全体と市内の小学校区で切り出したシェイプファイルを用意しておきましたので、ダウンロードしてご利用いただいても構いません
+参考として Git リポジトリに市全体と市内の小学校区で切り出したシェイプファイルを用意しておきました
 
 - `市全体のシェープファイル <https://github.com/kon104/tzuka/tree/master/qgis/shape-takarazuka/city>`_
 - `小学校区のシェープファイル <https://github.com/kon104/tzuka/tree/master/qgis/shape-takarazuka/area-elementary>`_
 
+利用する場合は、リポジトリを一括ダウンロード（`master.zip <https://github.com/kon104/tzuka/archive/master.zip>`_）して展開したなかから以下のフォルダにファイルがあります
+
+.. code-block:: none
+
+  tzuka-master/
+  │
+  └── qgis
+      └── shape-takarazuka
+          │
+          ├── area-elementary
+          │   ├── takarazuka-area-elementary.shp *
+          │   ├── takarazuka-area-elementary.cpg
+          │   ├── takarazuka-area-elementary.dbf
+          │   ├── takarazuka-area-elementary.prj
+          │   ├── takarazuka-area-elementary.qpj
+          │   └── takarazuka-area-elementary.shx
+          │
+          └── city
+              ├── takarazuka-city.shp *
+              ├── takarazuka-city.cpg
+              ├── takarazuka-city.dbf
+              ├── takarazuka-city.prj
+              ├── takarazuka-city.qpj
+              └── takarazuka-city.shx
 
 ヒートマップしたい数値データ
 ----------------------------
 
 CSV形式で一行あたり ``小学校区名,数値`` の書式で、小学校区分の行数でCSVファイルを用意してください ::
+
+.. code-block:: none
 
   小学校区,値
   西山小学校,23.93
