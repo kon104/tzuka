@@ -118,7 +118,7 @@ CSVからマーカー配置
 
 .. image:: ./image/csv2marker/gmap-1layer-03title.png
 
-レイヤーがファイル名になっているので、クリックして好きなレイヤー名に変更します
+地図上にマーカーが配置されましたが、色を変更したいので「個別スタイル」をクリックします
 
 .. image:: ./image/csv2marker/gmap-1layer-11loaded.png
 
@@ -147,7 +147,7 @@ TABLEタグからマーカー配置
 TABLEタグからSpread Sheetに読み込み
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-TABLEタグを吸い出すSpread Sheetを新規に作成します
+TABLEタグを吸い出すSpread Sheetを新規に作成するため、`ドライブ アプリ <https://www.google.com/intl/ja_ALL/drive/>`_ の右クリックメニューから選択します
 
 .. image:: ./image/csv2marker/spsheet-00create.png
 
