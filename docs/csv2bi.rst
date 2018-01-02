@@ -33,7 +33,7 @@ OpenDATA: BIツールで可視化しよう
 - `電気（全日）使用量 2015年度版 <https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/energy-dept/power-usage-allday_2015.csv>`_
 - `電気（全日）使用量 2016年度版 <https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/energy-dept/power-usage-allday_2016.csv>`_
 
-いただいた Excelファイル から必要な行と列に絞り |csv| を作成しました
+いただいた Excelファイル から必要な行と列に絞り |csv| を作成しました（適当にフィルタリングして作成したので値の正確性に保証はありません）
 
 
 CSVからSpreadSheetに集約

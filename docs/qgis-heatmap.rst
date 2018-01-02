@@ -1,15 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
 ===================================
 市のヒートマップを作ろう
 ===================================
@@ -19,14 +8,11 @@
 完成イメージ
 ============
 
-==========================================================================================================   ============
-データマッピング前                                                                                           完成イメージ
-==========================================================================================================   ============
-.. image:: https://raw.githubusercontent.com/kon104/tzuka/master/qgis/takarazuka-area-elementary-white.png   .. image:: https://raw.githubusercontent.com/kon104/tzuka/master/qgis/takarazuka-area-elementary-heat.png
-==========================================================================================================   ============
-
-- https://github.com/kon104/tzuka/blob/master/qgis/takarazuka-area-elementary-white.png
-- https://github.com/kon104/tzuka/blob/master/qgis/takarazuka-area-elementary-heat.png
+=============================================================================================================   ============
+`データマッピング前 <https://github.com/kon104/tzuka/blob/master/qgis/takarazuka-area-elementary-white.png>`_   `完成イメージ <https://github.com/kon104/tzuka/blob/master/qgis/takarazuka-area-elementary-heat.png>`_
+=============================================================================================================   ============
+.. image:: https://raw.githubusercontent.com/kon104/tzuka/master/qgis/takarazuka-area-elementary-white.png       .. image:: https://raw.githubusercontent.com/kon104/tzuka/master/qgis/takarazuka-area-elementary-heat.png
+=============================================================================================================   ============
 
 事前準備
 ========
@@ -52,7 +38,7 @@ GISで市の図形を扱うためのポリンゴンデータで、国土交通�
 - `市全体のシェープファイル <https://github.com/kon104/tzuka/tree/master/qgis/shape-takarazuka/city>`_
 - `小学校区のシェープファイル <https://github.com/kon104/tzuka/tree/master/qgis/shape-takarazuka/area-elementary>`_
 
-利用する場合は、リポジトリを一括ダウンロード（`master.zip <https://github.com/kon104/tzuka/archive/master.zip>`_）して展開したなかから以下のフォルダにファイルがあります
+利用する場合は、リポジトリを一括ダウンロード（`master.zip <https://github.com/kon104/tzuka/archive/master.zip>`_）して展開すると以下のフォルダにファイルがあります
 
 .. code-block:: none
 
@@ -81,8 +67,6 @@ GISで市の図形を扱うためのポリンゴンデータで、国土交通�
 ----------------------------
 
 CSV形式で一行あたり ``小学校区名,数値`` の書式で、小学校区分の行数でCSVファイルを用意してください ::
-
-.. code-block:: none
 
   小学校区,値
   西山小学校,23.93
@@ -135,10 +119,13 @@ CSV形式で一行あたり ``小学校区名,数値`` の書式で、小学校�
 
 .. image:: ./image/qgis-heatmap/qgis-load_elementary.png
 
+ここまでの手順で、レイヤーパネルに、市全体のレイヤーと小学校区のレイヤーの2つのレイヤーが登録されました
+
+
 小学校区のシェイプにデータを被せてヒートマップで表現
 ----------------------------------------------------
 
-ヒートマップしたいデータもレイヤの一つとして取り込みます。データの取り込みはメニューバーの「レイヤ ＞ レイヤの追加 ＞ デリミテッドテキストレイヤの追加」を選びます
+ヒートマップしたいデータも3つ目のレイヤーとして取り込みます。データの取り込みはメニューバーの「レイヤ ＞ レイヤの追加 ＞ デリミテッドテキストレイヤの追加」を選びます
 
 .. image:: ./image/qgis-heatmap/qgis-menu-add_delimitedlayer.png
 
@@ -151,7 +138,7 @@ CSV形式で一行あたり ``小学校区名,数値`` の書式で、小学校�
 
 .. image:: ./image/qgis-heatmap/dialog-add_delimitedlayer.png
 
-小学校区のレイヤーの上で右クリックしてプロパティを選ぶ
+小学校区のレイヤーにデータを被せたいので、小学校区のレイヤーの上で右クリックしてプロパティを選ぶ
 
 .. image:: ./image/qgis-heatmap/qgis-popmenu_layersprop-elem.png
 
@@ -159,7 +146,7 @@ CSV形式で一行あたり ``小学校区名,数値`` の書式で、小学校�
 
 .. image:: ./image/qgis-heatmap/layer_prop-merge_before.png
 
-ベクタ結合の追加ダイアログで、結合フィールドに「小学校区」、ターゲットフィールドに「A27_007」を選ぶ
+ベクタ結合の追加ダイアログで、レイヤの結合にデリミテッドテキストレイヤ名、結合フィールドに「小学校区」、ターゲットフィールドに「A27_007」を選ぶ
 
 .. image:: ./image/qgis-heatmap/dialog-add_merge_vector.png
 
