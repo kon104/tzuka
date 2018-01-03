@@ -69,7 +69,7 @@ body {
 
 				<div id="tab2" class="divtab">
 					<div>
-						<input type="button" id="btn" class="btn btn-primary" onClick="buttonClick()" value="判定" />
+						<a class="btn_classify" onClick="buttonClick()">判定</a>
 					</div>
 					<div>
 						<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
