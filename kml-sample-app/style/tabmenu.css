@@ -54,17 +54,11 @@
 	padding: 10px;
 }
 
-#tab_contents #txtarea {
-	width: 100%;
-	height: 200px;
-	margin-top: 10px;
-}
-
-#tab_contents .btn_classify {
+#tab_contents #btn_classify {
 	display: block;
 	text-decoration: none;
 	height:35px;
-	width: 120px;
+	width: 180px;
 	line-height: 37px;
 	text-align: center;
 	color: #fff;
@@ -75,11 +69,42 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c667', endColorstr='#f79621',GradientType=1 );
 	border-radius: 20px;
 	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
+
+	cursor: pointer;
 }
 
-#tab_contents .btn_classify:active {
+#tab_contents #btn_classify:active {
 	-ms-transform: translateY(2px);
 	-webkit-transform: translateY(2px);
 	transform: translateY(2px);
 	box-shadow: none;
 }
+
+#tab_contents #txtarea {
+	width: 100%;
+	height: 200px;
+	margin-top: 10px;
+}
+
+#tab_contents #tbl_classify {
+	margin-top: 10px;
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 8pt;
+}
+
+#tab_contents #tbl_classify tr:nth-child(even) {
+	background: #f2f2f2;
+}
+
+#tab_contents #tbl_classify th {
+	background: lightyellow;
+}
+
+#tab_contents #tbl_classify th,
+#tab_contents #tbl_classify td {
+	padding: 2 7px;
+	border: 1px solid #0D0D0D;
+	vertical-align: middle;
+}
+

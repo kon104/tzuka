@@ -69,11 +69,36 @@ body {
 
 				<div id="tab2" class="divtab">
 					<div>
-						<a class="btn_classify" onClick="buttonClick()">判定</a>
+						<a id="btn_classify" onClick="buttonClick()">判定開始(10箇所毎)</a>
 					</div>
 					<div>
 						<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
 2,兵庫県宝塚市武庫川町7-23</textarea>
+					</div>
+					<div>
+						<table id="tbl_classify">
+							<thead>
+								<tr><th>#</th><th>住所</th><th>判定</th><tr>
+							</thead>
+							<tbody>
+								<tr><td>1</td><td>aaa</td><td>1</td></tr>
+								<tr><td>2</td><td>aaa</td><td>1</td></tr>
+								<tr><td>3</td><td>aaa</td><td>1</td></tr>
+								<tr><td>4</td><td>aaa</td><td>1</td></tr>
+								<tr><td>5</td><td>aaa</td><td>1</td></tr>
+								<tr><td>6</td><td>aaa</td><td>1</td></tr>
+								<tr><td>7</td><td>aaa</td><td>1</td></tr>
+								<tr><td>8</td><td>aaa</td><td>1</td></tr>
+								<tr><td>9</td><td>aaa</td><td>1</td></tr>
+								<tr><td>10</td><td>aaa</td><td>1</td></tr>
+								<tr><td>11</td><td>aaa</td><td>1</td></tr>
+								<tr><td>12</td><td>aaa</td><td>1</td></tr>
+								<tr><td>13</td><td>aaa</td><td>1</td></tr>
+								<tr><td>14</td><td>aaa</td><td>1</td></tr>
+								<tr><td>15</td><td>aaa</td><td>1</td></tr>
+								<tr><td>16</td><td>aaa</td><td>1</td></tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 
@@ -153,17 +178,19 @@ function initMap() {
 
 function placeMarker(map, layers, markers, latlng, caption)
 {
-	var pinColor = null;
-	for(var i = 0; (pinColor == null) && (i < layers.length); i++)
+	var pinWithin = false;
+	for(var i = 0; (pinWithin == false) && (i < layers.length); i++)
 	{
 		if (layers[i].visible == false) {
 			continue;
 		}
-		pinColor = google.maps.geometry.poly.containsLocation(latlng, layers[i].polygon) ?
-			'6495ed' :
-			null;
+		pinWithin = google.maps.geometry.poly.containsLocation(latlng, layers[i].polygon);
+
 	}
-	if (pinColor == null) {
+	var pinColor = null;
+	if (pinWithin == true) {
+		pinColor = '6495ed';
+	} else {
 		pinColor = 'c0c0c0';
 	}
 
@@ -191,6 +218,7 @@ function placeMarker(map, layers, markers, latlng, caption)
 
 	markers.push(marker);
 
+	return pinWithin;
 }
 
 $(function () {
@@ -227,6 +255,11 @@ $('#kml_tree').on("changed.jstree", function (e, data) {
 
 function buttonClick()
 {
+	// clear all rows in table
+	var table = document.getElementById("tbl_classify");
+	while(table.rows[1]) table.deleteRow(1);
+
+	// clear all marker in map
 	for(var i = 0; i < markers.length; i++) {
 		markers[i].setMap(null);
 	}
@@ -235,20 +268,36 @@ function buttonClick()
 
 	var str =  document.getElementById("txtarea").value;
 	var lines = str.split(/\r\n|\r|\n/);
-	for(var i = 0; i < lines.length; i++) {
-		var items = lines[i].split(',');
+
+	// There is a limit until 10 to call count of G's api per second.
+	for(var idx = 0; (idx < lines.length) && (idx < 10); idx++) {
+
+		var items = lines[idx].split(',');
 		var number = items[0];
+		var address = items[1];
+		var row = table.insertRow(-1);
 		(function(){
 			var num = number;
-			geocoder.geocode({'address': items[1]}, function(results, status) {
+			var adr = address;
+
+			var cell1 = row.insertCell(-1);
+			var cell2 = row.insertCell(-1);
+			var cell3 = row.insertCell(-1);
+			cell1.innerHTML = num;
+			cell2.innerHTML = adr;
+
+			geocoder.geocode({'address': adr}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
-					placeMarker(map, kmlLayers, markers, results[0].geometry.location, "#" + num);
+					var pinWithin = placeMarker(map, kmlLayers, markers, results[0].geometry.location, "#" + num);
+					cell3.innerHTML = pinWithin;
 				} else {
 					console.log('Geocode was not successful for the following reason: ' + status);
+					cell3.innerHTML = "-";
 				}
 			});
 		})();
 	}
+
 }
 
 </script>
