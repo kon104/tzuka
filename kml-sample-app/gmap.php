@@ -68,8 +68,11 @@ body {
 				</div>
 
 				<div id="tab2" class="divtab">
-					<div>
+					<div class="side">
 						<a id="btn_classify" onClick="buttonClick()">判定開始(10箇所毎)</a>
+					</div>
+					<div class="sideend">
+						<a href="https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-app/data/emergency-station.csv" target="_blank">sample</a>
 					</div>
 					<div>
 						<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
@@ -77,27 +80,7 @@ body {
 					</div>
 					<div>
 						<table id="tbl_classify">
-							<thead>
-								<tr><th>#</th><th>住所</th><th>判定</th><tr>
-							</thead>
-							<tbody>
-								<tr><td>1</td><td>aaa</td><td>1</td></tr>
-								<tr><td>2</td><td>aaa</td><td>1</td></tr>
-								<tr><td>3</td><td>aaa</td><td>1</td></tr>
-								<tr><td>4</td><td>aaa</td><td>1</td></tr>
-								<tr><td>5</td><td>aaa</td><td>1</td></tr>
-								<tr><td>6</td><td>aaa</td><td>1</td></tr>
-								<tr><td>7</td><td>aaa</td><td>1</td></tr>
-								<tr><td>8</td><td>aaa</td><td>1</td></tr>
-								<tr><td>9</td><td>aaa</td><td>1</td></tr>
-								<tr><td>10</td><td>aaa</td><td>1</td></tr>
-								<tr><td>11</td><td>aaa</td><td>1</td></tr>
-								<tr><td>12</td><td>aaa</td><td>1</td></tr>
-								<tr><td>13</td><td>aaa</td><td>1</td></tr>
-								<tr><td>14</td><td>aaa</td><td>1</td></tr>
-								<tr><td>15</td><td>aaa</td><td>1</td></tr>
-								<tr><td>16</td><td>aaa</td><td>1</td></tr>
-							</tbody>
+							<tr><th>#</th><th>住所</th><th>判定</th><tr>
 						</table>
 					</div>
 				</div>
