@@ -1,0 +1,755 @@
+@charset "utf-8";
+/*------------------------------------------------------------------------------
+[1] トップページレイアウト
+[2] 詳細デザイン
+------------------------------------------------------------------------------*/
+/*******************************************************************************
+[1] トップページレイアウト
+*******************************************************************************/
+#wrap{
+}
+#pagebody{
+	padding:20px 0px 0px 0px;
+	width:100%;
+	clear:both;
+	background:url(images/top/pagebody_bg.gif) repeat-x center top;
+}
+#content3{
+	margin:0px auto 0px auto;
+	width:950px;
+	background:none;
+}
+/*==============================================================================
+		配置
+==============================================================================*/
+#leftbox{
+	padding-bottom:20px;
+	width:710px;
+	float:left;
+}
+#rightbox{
+	padding-bottom:20px;
+	width:210px;
+	float:right;
+}
+/*------------------------------------------------------------------------------
+		#leftbox
+------------------------------------------------------------------------------*/
+#toplnavi{
+	width:210px;
+	float:left;
+}
+#topcontent{
+	width:470px;
+	float:right;
+}
+/*******************************************************************************
+[2] 詳細デザイン
+*******************************************************************************/
+/*==============================================================================
+		ページ
+==============================================================================*/
+/*------------------------------------------------------------------------------
+		緊急情報（Twitter）
+------------------------------------------------------------------------------*/
+.kinkyu{
+	margin-bottom:20px;
+	padding-bottom:5px;
+	background-color:#FFFFFF;
+	border:3px solid #aa0808;
+	line-height:1.5;
+}
+.kinkyu h2{
+	margin-bottom:10px;
+	padding:5px 5px 5px 45px;
+	color:#FFF;
+	font-size:120%;
+	background:#aa0808 url(images/top/kinkyu_h2.gif) no-repeat 8px center;
+}
+.kinkyu p{
+	padding:0px 10px 10px 15px;
+}
+.kinkyu iframe{
+	border:none;
+}
+.kinkyu a{
+	margin:5px 15px 5px 15px;
+}
+/*==============================================================================
+		スクロールメニュー
+==============================================================================*/
+#pickupbg2{
+	background:url(images/top/pickupbg_bg2.gif) repeat-y center top;
+}
+#pickupbg{
+	background:url(images/top/pickupbg_bg.gif) no-repeat center bottom;
+	clear:both;
+}
+#pickup{
+	margin:0px auto 0px auto;
+	width:950px;
+	min-height:260px;
+	position:relative;
+}
+/*------------------------------------------------------------------------------
+		スクロールメニュー
+------------------------------------------------------------------------------*/
+.main_view{
+	margin:0px 0px 0px 214px;
+	width:516px;
+	height:255px;
+	float:left;
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	background:url(images/top/main_view_bg.gif) no-repeat left bottom;
+}
+/*　左のメイン枠
+------------------------------------------------------------------------------*/
+.window{
+	margin:2px 23px 0px 23px;
+	width:470px;
+	height:200px;
+	overflow:hidden; /*--Hides anything outside of the set width/height--*/
+}
+.main{
+	overflow:hidden; /*--Hides anything outside of the set width/height--*/
+}
+/*　番号ボタン
+------------------------------------------------------------------------------*/
+.paging{
+	position:absolute;
+	display:none; /*--Hidden by default, will be later shown with jQuery--*/
+	display:block;
+	top:209px;
+	left:24px;
+}
+.paging a{
+	margin:0px 2px 0px 0px;
+	float:left;
+	display:block;
+}
+/*　停止・再生ボタン
+------------------------------------------------------------------------------*/
+p.btn{
+	width:58px;
+	height:21px;
+	display:block;
+	position:absolute;
+	top:209px;
+	right:25px;
+	overflow:hidden;
+}
+p.btn a img{
+	vertical-align:bottom;
+}
+/*　イベント
+------------------------------------------------------------------------------*/
+#topeventbg{
+	margin:0px 0px 4px 0px;
+	width:224px;
+	height:auto;
+	display:block;
+	float:right;
+	text-align:left;
+	background:url(images/top/event_bg_top.gif) no-repeat left top;
+}
+#topeventbg h2{
+	margin:26px 15px 0px 15px;
+	padding:0px 0px 0px 0px;
+	font-size:110%;
+	background:#ffffff url(images/top/event_bg_middle.gif) repeat-y center 0px;
+	text-align:center;
+}
+#topeventbg #topevent{
+	margin:0px 7px 0px 7px;
+	background:#ffffff url(images/top/event_bg_middle.gif) repeat-y center 0px;
+}
+#topeventbg #topevent .countdown{
+	padding:0px 10px 5px 10px;
+	font-weight:bold;
+	line-height:1.2;
+}
+#topeventbg #topevent .countdown span{
+	padding:0px 0px 0px 4px;
+	font-size:140%;
+	color:#A60000;
+	letter-spacing:4px;
+}
+#topeventbg #topevent .eventpicup ul{
+	padding:0px 14px 2px 14px;
+	list-style:none;
+	line-height:1.4;
+}
+#topeventbg #topevent .eventtoday{
+	margin:0px 10px 5px 10px;
+	padding:5px 7px 1px 7px;
+	background:#F6F3E9 url(images/top/event_bg_eventtoday.gif) repeat-x center 0px;
+}
+#topeventbg #topevent .eventtoday h3{
+	font-size:90%;
+}
+#topeventbg #topevent .eventtoday ul{
+	margin:2px 0px 0px 2px;
+	display:block;
+	list-style:none;
+}
+#topeventbg #topevent .eventtoday ul li{
+	margin:0px 0px 5px 0px;
+	padding-left:13px;
+	font-size:90%;
+	background:url(images/top/mark_util.gif) no-repeat 0px 5px;
+	line-height:1.4;
+}
+#topeventbg #topevent .textright{
+	padding:0px 10px 5px 10px;
+	font-size:90%;
+}
+#topeventbg #topevent .eventdetail{
+	padding:0px 10px 10px 10px;
+	font-size:85%;
+	background:url(images/top/event_bg_bottom.gif) no-repeat center bottom;
+	text-align:right;
+}
+#topeventbg #topevent .eventdetail a{
+	padding:0px 0px 0px 19px;
+	background:url(images/top/mark_detail.gif) no-repeat left 1px;
+}
+#topeventbg #topevent .order{
+	margin-bottom:3px;
+	font-size:85%;
+	text-align:right;
+}
+/*==============================================================================
+		左
+==============================================================================*/
+/*------------------------------------------------------------------------------
+		いざという時に
+------------------------------------------------------------------------------*/
+#emergency{
+	margin:0px 0px 15px 0px;
+	width:208px;
+	background:#ffffff url(images/top/emergency_bg.gif) repeat-y left bottom;
+	border:1px solid #9A0000;
+}
+#emergency h2{
+	width:40px;
+	height:140px;
+	float:left;
+}
+#emergency ul{
+	padding:10px 2px 5px 6px;
+	width:160px;
+	display:block;
+	float:left;
+	list-style-type:none;
+	line-height:1.4;
+}
+#emergency ul li{
+	margin-bottom:7px;
+	padding-left:16px;
+	background:url(images/top/mark_kinkyu.gif) no-repeat 0px 2px;
+}
+/*------------------------------------------------------------------------------
+		左ナビゲーション、広報ID検索
+------------------------------------------------------------------------------*/
+#leftnavi, #navi{
+	margin:0px 0px 15px 0px;
+}
+#leftnavi .articleall, #navi .articleall{
+	margin:0px 0px 20px 0px;
+	padding:0px 0px 5px 0px;
+	background-color:#FFFFFF;
+}
+#leftnavi .articleall h2, #navi .articleall h2{
+	margin-bottom:5px;
+	padding:6px 10px 3px 10px;
+	font-size:110%;
+	color:#FFFFFF;
+	background:#860155 url(images/top/navi_h2.gif) no-repeat 0px 0px;
+}
+#leftnavi .articleall ul, #navi .articleall ul{
+	margin:10px 5px 0px 10px;
+	list-style-type:none;
+	line-height:1.4;
+}
+#leftnavi .articleall ul li, #navi .articleall ul li{
+	margin-bottom:8px;
+	padding-left:17px;
+	background:url(images/content/mark_ul.gif) no-repeat 0px 2px;
+}
+/*------------------------------------------------------------------------------
+		広報ID検索
+------------------------------------------------------------------------------*/
+#navi .articleall .navidetail{
+	margin:0px 5px 0px 5px;
+	line-height:1.4;
+}
+#navi .articleall .navidetail form{
+	margin-bottom:3px;
+}
+#navi .articleall .navidetail p{
+	margin:0px 5px 4px 6px;
+	font-size:90%;
+}
+#navi .articleall .navidetail img{
+	margin:0px 0px 0px 5px;
+	vertical-align:bottom;
+}
+#navi .articleall .navidetail input{
+	width:40px;
+}
+#navi .articleall .navidetail input#id{
+	margin:0px 0px 5px 0px;
+	width:110px;
+	ime-mode:disabled;
+}
+#navi .articleall .navidetail #idresult{
+	margin:5px 0px 0px 0px;
+	font-weight:bold;
+	color:#FF0000;
+}
+/*==============================================================================
+		中央
+==============================================================================*/
+/*------------------------------------------------------------------------------
+		特出しお知らせ
+------------------------------------------------------------------------------*/
+#jyuyou h2{
+	padding:5px 5px 3px 15px;
+	font-size:120%;
+	color:#FFF;
+	background:#8e075d url(images/top/jyuyou_h2.gif) repeat-x left top;
+	border-bottom:1px solid #ffde7b;
+}
+#jyuyou p{
+	padding:10px 15px 0px 15px;
+	font-size:95%;
+	background-color:#FFF;
+}
+#jyuyou ul{
+	margin-bottom:20px;
+	padding:10px 5px 5px 15px;
+	font-size:95%;
+	background-color:#FFF;
+	list-style-type:none;
+}
+#jyuyou ul li{
+	margin-bottom:12px;
+	padding-left:14px;
+	background:url(images/top/mark_topics.gif) no-repeat 0px 3px;
+	line-height:1.3;
+}
+/*------------------------------------------------------------------------------
+		検索
+------------------------------------------------------------------------------*/
+#topsitesearch{
+	margin:0px 0px 25px 0px;
+	padding:0px 0px 6px 0px;
+	width:470px;
+	background-color:#FFFFFF;
+}
+#topsitesearch h2{
+	margin-bottom:18px;
+	padding:11px 10px 5px 10px;
+	font-size:120%;
+	background:#f9f4f8 url(images/top/lifescene_h2.gif) no-repeat 0px 0px;
+}
+#topsitesearch input{
+	margin-bottom:12px;
+	padding:3px 3px 3px 3px;
+}
+#topsitesearch input[type=submit]{
+	padding:3px 10px 3px 10px;
+}
+#topsitesearch #key{
+	margin-left:20px;
+	width:365px;
+}
+#topsitesearch h3{
+	margin:-3px 0px 6px 20px;
+	width:90px;
+	float:left;
+	font-size:95%;
+}
+#topsitesearch ul{
+	margin:-2px 0px 0px 0px;
+	width:342px;
+	float:left;
+	font-size:95%;
+	list-style-type:none;
+}
+#topsitesearch ul li{
+	display:inline;
+	border-left:1px solid #CCCCCC;
+}
+#topsitesearch ul li a{
+	margin:0px 5px 5px 0px;
+	padding:0px 8px 0px 10px;
+	display:inline-block;
+	line-height:1.5;
+}
+#topsitesearch ul li:first-child{
+	border:none;
+}
+/*------------------------------------------------------------------------------
+		お知らせ
+------------------------------------------------------------------------------*/
+#topics{
+	margin-bottom:20px;
+}
+#topics ul#tab{
+	width:470px;
+	list-style-type:none;
+}
+#topics ul#tab li{
+	float:left;
+}
+#topics ul#tab li a{
+	margin:0px 0px 0px 0px;
+	padding:8px 5px 8px 5px;
+	color:#FFFFFF;
+	width:144px;
+	display:block;
+	font-size:120%;
+	font-weight:bold;
+	background:url(images/top/tab_off.gif) repeat-y 0px 0px;
+	text-align:center;
+	text-decoration:none;
+}
+#topics ul#tab li#for_topics2 a{
+	margin:0px 4px 0px 4px;
+}
+#topics ul#tab li a:hover{
+	color:#000000;
+	background:#FFFFFF url(images/top/tab_on.gif) no-repeat 0px 0px;
+}
+#topics ul#tab li.ui-tabs-active a{
+	color:#000000;
+	background:#FFFFFF url(images/top/tab_on.gif) no-repeat 0px 0px;
+}
+/*　トピックス
+------------------------------------------------------------------------------*/
+#tmenu{
+	padding:15px 10px 6px 15px;
+	width:auto;
+	background-color:#FFFFFF;
+}
+* html #tmenu{
+	padding-bottom:0px;
+}
+#tmenu p.pickup{
+	margin-bottom:15px;
+	font-size:100%;
+	font-weight:bold;
+	line-height:1.4;
+}
+#tmenu ul{
+	margin-bottom:10px;
+	font-size:95%;
+	list-style-type:none;
+}
+#tmenu ul.nophoto{
+	width:auto;
+	float:none;
+}
+#tmenu ul li{
+	margin-bottom:12px;
+	padding-left:14px;
+	background:url(images/top/mark_topics.gif) no-repeat 0px 3px;
+	line-height:1.3;
+}
+/*　写真
+------------------------------------------------------------------------------*/
+#tmenu p#photo{
+	padding:5px;
+	width:160px;
+	float:right;
+	display:inline;
+	font-size:95%;
+	border:1px solid #CCC;
+}
+#tmenu p#photo img{
+	margin:0px 0px 5px 0px;
+}
+#tmenu p#photo a{
+	display:block;
+	line-height:1.5;
+}
+/*　新着更新情報、RSS
+------------------------------------------------------------------------------*/
+#tmenu ul.topicsdetail{
+	margin:0px;
+	padding:0px;
+	clear:both;
+	list-style-type:none;
+	text-align:right;
+}
+#tmenu ul.topicsdetail li{
+	margin:0px 0px 0px 15px;
+	padding:0px 0px 0px 20px;
+	display:inline;
+	background:url(images/top/mark_detail.gif) no-repeat 0px 2px;
+}
+#tmenu ul.topicsdetail li.rss{
+	padding:0px 0px 0px 20px;
+	background:url(images/top/rss.gif) no-repeat 0px 2px;
+}
+/*------------------------------------------------------------------------------
+		よくある質問
+------------------------------------------------------------------------------*/
+#topfaq{
+	margin-bottom:20px;
+	border:1px solid #CCC;
+}
+#topfaq h2{
+	padding:10px;
+	font-size:120%;
+	background:#B5C8FF;
+}
+#topfaq p{
+	padding:15px;
+	font-size:100%;
+}
+/*------------------------------------------------------------------------------
+		こんなときには
+------------------------------------------------------------------------------*/
+#lifescene{
+	margin:0px 0px 25px 0px;
+	padding:0px 0px 3px 0px;
+	width:470px;
+	background-color:#FFFFFF;
+}
+#lifescene h2{
+	padding:11px 10px 5px 10px;
+	font-size:120%;
+	background:#f9f4f8 url(images/top/lifescene_h2.gif) no-repeat 0px 0px;
+}
+#lifescene ul{
+	margin:13px 0px 0px 19px;
+	list-style-type:none;
+}
+#lifescene ul li{
+	margin:0px 8px 10px 0px;
+	float:left;
+}
+#lifescene ul li img{
+	vertical-align:bottom;
+}
+/*------------------------------------------------------------------------------
+		暮らしに役立つ情報
+------------------------------------------------------------------------------*/
+#helpinfo{
+	margin:0px 0px 25px 0px;
+	padding:0px 0px 3px 0px;
+	width:470px;
+	background-color:#FFFFFF;
+}
+#helpinfo h2{
+	padding:11px 10px 5px 10px;
+	font-size:120%;
+	background:#f9f4f8 url(images/top/lifescene_h2.gif) no-repeat 0px 0px;
+}
+#helpinfo ul{
+	margin:17px 0px 0px 15px;
+	list-style-type:none;
+}
+#helpinfo ul li{
+	margin:0px 12px 11px 0px;
+	float:left;
+}
+#helpinfo ul li img{
+	vertical-align:bottom;
+}
+/*------------------------------------------------------------------------------
+		市関連サイト
+------------------------------------------------------------------------------*/
+#kanrensite{
+	margin:0px 0px 25px 0px;
+	padding:0px 0px 3px 0px;
+	width:470px;
+	background-color:#FFFFFF;
+}
+#kanrensite h2{
+	padding:11px 10px 5px 10px;
+	font-size:120%;
+	background:#f9f4f8 url(images/top/lifescene_h2.gif) no-repeat 0px 0px;
+}
+#kanrensite .kanrensite{
+	margin:17px 0px 0px 15px;
+}
+#kanrensite .kanrensite p.kanrenbanner{
+	margin:0px 12px 11px 0px;
+	width:214px;
+	float:left;
+	text-align:center;
+}
+#kanrensite .kanrensite p.siteichiran{
+	margin:0px 15px 0px 0px;
+	padding:0px 0px 5px 0px;
+	font-size:95%;
+	text-align:right;
+}
+#kanrensite .kanrensite p.siteichiran a{
+	padding:0px 0px 0px 20px;
+	background:url(images/top/mark_detail.gif) no-repeat 0px 2px;
+}
+/*==============================================================================
+		右
+==============================================================================*/
+/*------------------------------------------------------------------------------
+		ランダムバナー
+------------------------------------------------------------------------------*/
+#randomad{
+	margin:0px 0px 20px 0px;
+	padding:8px 0px 8px 0px;
+	width:208px;
+	background:#F2F2F2;
+	border:1px solid #B1B1B1;
+	text-align:center;
+}
+#randomad:after{
+    content: ""; 
+    display: block; 
+    clear: both;
+}
+#randomad h2{
+	margin:0px 10px 5px 10px;
+	font-size:90%;
+	line-height:1.6;
+	text-align:left;
+}
+#randomad img{
+	margin:0px auto 0px auto;
+	text-align:center;
+}
+#randomad noscript p{
+	padding:10px 3px;
+	font-size:90%;
+	background-color:#FFFFFF;
+}
+/*------------------------------------------------------------------------------
+		知ってよ！宝塚
+------------------------------------------------------------------------------*/
+#citymovie{
+	margin:0px 0px 20px 0px;
+	padding:1px 1px 5px 1px;
+	width:206px;
+	background-color:#FFFFFF;
+	border:1px solid #921386;
+}
+#citymovie h2{
+	margin:0px 0px 13px 0px;
+	padding:5px 10px 5px 10px;
+	font-size:110%;
+	background:#FFFFFF url(images/top/citymovie_h2.gif) no-repeat 0px 0px;
+}
+#citymovie p{
+	text-align:center;
+}
+#citymovie ul{
+	margin:5px 5px 0px 0px;
+	list-style:none;
+}
+#citymovie ul li{
+	font-size:95%;
+	text-align:right;
+}
+#citymovie ul li a{
+	padding:0px 0px 0px 20px;
+	background:url(images/top/mark_detail.gif) no-repeat 0px 2px;
+}
+/*------------------------------------------------------------------------------
+		よく見られるページ
+------------------------------------------------------------------------------*/
+#referencepage{
+	margin-bottom:20px;
+	border:1px solid #0033CC;
+}
+#referencepage h2{
+	margin-bottom:10px;
+	padding:10px 5px 0px 10px;
+	font-size:110%;
+}
+#referencepage ol{
+	margin:0px 10px 10px 10px;
+	list-style-type:none;
+}
+#referencepage ol li{
+	margin-bottom:5px;
+	padding:3px 3px 5px 3px;
+}
+#referencepage ol li img{
+	margin-right:5px;
+	vertical-align:middle;
+}
+/*==============================================================================
+	バナー
+==============================================================================*/
+/*------------------------------------------------------------------------------
+		フェイスブック
+------------------------------------------------------------------------------*/
+#facebook{
+	margin:0px 0px 15px 0px;
+	background:#ffffff;
+	border:1px solid #921386;
+}
+#facebook h2{
+	padding:5px 10px 5px 10px;
+	font-size:110%;
+	background:url(images/top/facebook_h2.gif) no-repeat left top;
+	line-height:1.5;
+}
+/*------------------------------------------------------------------------------
+		画像リンク
+------------------------------------------------------------------------------*/
+.bannerimg{
+	margin-bottom:15px;
+}
+.bannerimg ul{
+	list-style-type:none;
+}
+.bannerimg ul li{
+	margin:0px 0px 10px 0px;
+}
+.bannerimg ul li img{
+	vertical-align:bottom;
+}
+/*------------------------------------------------------------------------------
+		テキスト
+------------------------------------------------------------------------------*/
+.txtlink{
+	margin-bottom:15px;
+}
+.txtlink ul{
+	margin:0px 0px 0px 10px;
+	padding-top:8px;
+	list-style-type:none;
+	border-top:1px dotted #CCC;
+}
+.txtlink ul li{
+	margin-bottom:8px;
+	padding-left:15px;
+	padding-bottom:8px;
+	background:url(images/top/mark_topics.gif) no-repeat 0px 3px;
+	border-bottom:1px dotted #CCC;
+}
+
+/*==============================================================================
+	広告欄（トップページ）
+==============================================================================*/
+#sad{
+	margin:0px auto 20px auto;
+}
+
+/*==============================================================================
+	印刷設定
+==============================================================================*/
+@media print{
+body{
+	background:#e5e1d3!important;
+}
+#wrap,#pagebody{
+	background-color:transparent;
+}
+}
