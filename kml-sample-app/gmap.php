@@ -2,6 +2,7 @@
 
 	require_once("./MyCoord.class.inc");
 	require_once("./GenerateHtml.class.inc");
+	require_once("./define.inc");
 
 	$kmlxmls = MyCoord::fetchKmlXmls();
 ?>
@@ -285,7 +286,7 @@ function buttonClick()
 
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwOoWKGysSQwWN1QWByK-lJCVnoWcxl_o&libraries=places&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap&key=<?php echo APPID_GMAP; ?>"></script>
 
 </body>
 </html>

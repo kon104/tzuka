@@ -2,6 +2,7 @@
 
 	require_once("./MyCoord.class.inc");
 	require_once("./GenerateHtml.class.inc");
+	require_once("./define.inc");
 
 	$kmlxmls = MyCoord::fetchKmlXmls();
 ?>
@@ -33,7 +34,7 @@
 	</div>
 </div>
 
-<script type="text/javascript" charset="utf-8" src="https://map.yahooapis.jp/js/V1/jsapi?appid=dj00aiZpPXNxSnVwYngxM1luNCZzPWNvbnN1bWVyc2VjcmV0Jng9YWU-"></script>
+<script type="text/javascript" charset="utf-8" src="https://map.yahooapis.jp/js/V1/jsapi?appid=<?php echo APPID_YOLP; ?>"></script>
 
 <script type="text/javascript">
 
