@@ -1,0 +1,771 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------------------
+[1] メインコンテンツ 共通設定
+[2] メインコンテンツ 詳細設定
+------------------------------------------------------------------------------*/
+/*******************************************************************************
+[1] メインコンテンツ 共通設定
+********************************************************************************/
+.clear{
+	clear:both;
+}
+.middle{
+	vertical-align:middle;
+}
+.small{
+	font-size:90%;
+}
+input[type="submit"]{
+	cursor:pointer;
+}
+/*==============================================================================
+	テキスト
+==============================================================================*/
+.textleft{
+	text-align:left;
+}
+.textright{
+	text-align:right;
+}
+.textcenter{
+	text-align:center;
+}
+/*==============================================================================
+	画像関連
+==============================================================================*/
+img{
+	line-height:1;
+}
+.imageright{
+	margin:5px 0px 0px 15px;
+	width:auto;
+	float:right;
+	display:inline;
+}
+.imageleft{
+	margin:5px 15px 0px 0px;
+	width:auto;
+	float:left;
+	display:inline;
+}
+#content p.imageleft,#content2 p.imageleft{
+	margin-right:15px;
+}
+#content p.imageright,#content2 p.imageright{
+	margin-left:15px;
+}
+p.imagecenter{
+	margin:5px auto 5px auto;
+	clear:both;
+	text-align:center;
+}
+p .imgcaption{
+	margin-top:5px;
+	display:inline-block;
+	line-height:1.5;
+	font-size:95%;
+}
+img.external{
+	margin-left:4px;
+}
+/*==============================================================================
+	SNSボタン
+==============================================================================*/
+#content div.sns,#content2 div.sns,#content3 div.sns{
+	margin:0px 0px 10px 15px;
+	width:245px;
+	float:left;
+	display:inline;
+}
+#content #tw,#content2 #tw,#content3 #tw{
+	margin-right:10px;
+	float:left;
+}
+#content #fb,#content2 #fb,#content3 #fb{
+	float:left;
+}
+/*==============================================================================
+	更新日
+==============================================================================*/
+#content p.update,#content2 p.update,#content3 p.update,#googlecontent p.update{
+	margin:0px 15px 10px 0px;
+	width:434px;
+	float:right;
+	display:inline;
+	text-align:right;
+}
+/*==============================================================================
+	ID番号
+==============================================================================*/
+#content p span.idnumber,#content2 p span.idnumber,#content3 p span.idnumber,#googlecontent p span.idnumber{
+	margin-right:10px;
+	padding:3px 6px 3px 6px;
+	font-size:95%;
+	background:#f6eef5;
+	line-height:2;
+}
+/*==============================================================================
+	印刷ボタン
+==============================================================================*/
+#content p span.print a,#content2 p span.print a,#content3 p span.print a{
+	margin-left:8px;
+	padding:2px 36px 2px 8px;
+	display:inline-block;
+	font-size:95%;
+	color:#333333;
+	text-decoration:none;
+	border:1px solid #9b0d67;
+	background:url(images/content/print.gif) no-repeat right center;
+}
+/*==============================================================================
+	★★★縦線のスタイル
+==============================================================================*/
+#content p.line span a,#content2 p.line span a{
+	margin:5px 3px 5px 0px;
+	padding:0px 8px 0px 5px;
+	display:inline-block;
+	line-height:1.5;
+	border-right:1px solid #999;
+}
+#content dd.line span a,#content2 dd.line span a{
+	margin:3px 10px 3px 0px;
+	padding:0px 8px 0px 0px;
+	border-right:1px solid #999;
+	display:inline-block;
+	line-height:1.2;
+}
+#content ul.line,#content2 ul.line,ul.line{
+	margin:10px 15px 10px 18px;
+	list-style-type:none;
+}
+#content ul.line li,#content2 ul.line li,ul.line li{
+	display:inline;
+}
+#content ul.line span a,#content2 ul.line span a,ul.line a{
+	margin:5px 5px 5px 5px;
+	padding:0px 12px 0px 0px;
+	display:inline-block;
+	border-right:1px solid #CCCCCC;
+	line-height:1.5;
+}
+/*==============================================================================
+	イベントやパブコメ用の「終了」メッセージ
+==============================================================================*/
+#content p.end{
+	margin:0px 0px 15px 0px;
+	padding:5px 10px 5px 10px;
+	color:#A80000;
+	font-size:120%;
+	font-weight:bold;
+	background: #FFF0F0;
+	border-top:1px solid #FFA6A6;
+	border-bottom:1px solid #FFA6A6;
+	text-align: center;
+}
+/*******************************************************************************
+[2] メインコンテンツ 詳細設定
+********************************************************************************/
+/*==============================================================================
+	見出し・段落（h1からh6まで）
+==============================================================================*/
+#content h1,#content2 h1,#content3 h1,#googlecontent h1,#content p.faqtitle,#wrapcal h1{
+	margin-bottom:15px;
+	padding:14px 10px 14px 15px;
+	font-size:130%;
+	font-weight:bold;
+	line-height:1.4;
+	background: url(images/content/h1_bg.gif) repeat-x left bottom;
+	border-top: 3px solid #9b0d67;
+	border-bottom: 1px solid #ae7e9c;
+}
+#content p.faqtitle{
+	margin-left:0px;
+	margin-right:0px;
+}
+#content h1 span,#content2 h1 span,#content p.faqtitle span{
+	font-size:75%;
+	font-weight:normal;
+}
+#content h2,#content2 h2,#faq h2,#gomi h2{
+	margin:0px 15px 10px 15px;
+	padding:10px 5px 8px 8px;
+	clear:both;
+	font-size:120%;
+	font-weight:bold;
+	line-height:1.4;
+	color:#ffffff;
+	background:#850155 url(images/content/h2_bg.gif) repeat-x left top;
+}
+#content h2.shingiyotei,#content2 h2.shingiyotei{
+	background:#326B08 url(images/content/h2_bg_shingiyotei.gif) repeat-x left top;
+}
+#content h2.shingirireki,#content2 h2.shingirireki{
+	background:#07467B url(images/content/h2_bg_shingirireki.gif) repeat-x left top;
+}
+#content h3,#content2 h3,#faq h3{
+	margin:0px 15px 10px 15px;
+	padding:6px 5px 6px 8px;
+	clear:both;
+	font-size:110%;
+	font-weight:bold;
+	line-height:1.4;
+	border-top:2px solid #9b0d67;
+	border-bottom:1px dotted #9b0d67;
+	background:#f6eef5;
+}
+#content h4,#content2 h4{
+	margin:0px 15px 10px 15px;
+	padding:4px 5px 4px 5px;
+	clear:both;
+	font-size:100%;
+	font-weight:bold;
+	background:#f6eef5;
+	border-left:3px solid #9b0d67;
+	line-height:1.4;
+}
+#content h5,#content2 h5{
+	margin:0px 15px 10px 15px;
+	padding:4px 5px 4px 5px;
+	clear:both;
+	font-size:100%;
+	font-weight:bold;
+	border-left:3px solid #9b0d67;
+	line-height:1.4;
+}
+#content h6,#content2 h6{
+	margin:0px 20px 14px 23px;
+	clear:both;
+	font-size:100%;
+	font-weight:bold;
+	line-height:1.4;
+}
+#content p,#content2 p,#gomi p,#googlecontent p{
+	margin-bottom:15px;
+	margin-left:25px;
+	margin-right:25px;
+}
+/*==============================================================================
+	リスト
+==============================================================================*/
+#content ol,#content2 ol{
+	margin:5px 15px 20px 55px;
+	line-height:1.5;
+}
+#content ul,#content2 ul{
+	margin:5px 15px 20px 50px;
+	line-height:1.5;
+}
+#content ol li,#content2 ol li{
+	margin-bottom:8px;
+}
+#content ul li,#content2 ul li{
+	margin-bottom:8px;
+}
+/*------------------------------------------------------------------------------
+	定義リスト
+------------------------------------------------------------------------------*/
+#content dl{
+	margin:20px 0px 20px 25px;
+	clear:both;
+	width:665px;
+}
+#content dl:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+#content dt{
+	margin-bottom:8px;
+	padding-top:6px;
+	padding-bottom:5px;
+	padding-left:7px;
+	width:158px;
+	float:left;
+	clear:both;
+	font-weight:bold;
+	border-left:3px solid #9b0d67;
+}
+#content dd{
+	margin-bottom:8px;
+	padding-bottom:5px;
+	padding-top:5px;
+	padding-left:7px;
+	width:480px;
+	float:right;
+	border-top:1px dotted #9b0d67;
+	text-align:left;
+}
+#content2 dl{
+	margin:20px 0px 20px 25px;
+	clear:both;
+	width:900px;
+}
+#content2 dl:after{
+    content:""; 
+    display:block; 
+    clear:both;
+}
+#content2 dt{
+	margin-bottom:8px;
+	padding-top:6px;
+	padding-bottom:5px;
+	padding-left:7px;
+	width:300px;
+	float:left;
+	clear:both;
+	font-weight:bold;
+	border-left:3px solid #9b0d67;
+}
+#content2 dd{
+	margin-left:8px;
+	padding:10px;
+	width:560px;
+	float:right;
+	background:#FFF;
+	text-align:left;
+	border-top:1px dotted #9b0d67;
+}
+#content dt p,#content2 dt p,#content dd p,#content2 dd p{
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+}
+#content dd ul{
+	margin-left:30px;
+	margin-bottom:10px;
+	margin-bottom:0px;
+}
+#content dd ol{
+	margin-left:30px;
+	margin-bottom:0px;
+}
+#content dd ul.objectlink,#content2 dd ul.objectlink{
+	margin-left:0px;
+	margin-bottom:0px;
+}
+/*------------------------------------------------------------------------------
+	リンク付リスト
+------------------------------------------------------------------------------*/
+#content ul.objectlink,#content2 ul.objectlink{
+	margin-bottom:25px;
+	margin-left:25px;
+	margin-right:25px;
+	clear:both;
+	list-style-type:none;
+	list-style-position:outside;
+	line-height:1.5;
+}
+#content ul.objectlink li,#content2 ul.objectlink li{
+	margin-bottom:6px;
+	padding:2px 0px 2px 25px;
+	background:url(images/content/mark_ul.gif) no-repeat 5px 6px;
+}
+#content ul.objectlink li.imglink,#content2 ul.objectlink li.imglink{
+	padding-left:5px;
+	background:none;
+}
+/*==============================================================================
+	リストページ
+==============================================================================*/
+#content ul.listlink,#content2 ul.listlink{
+	margin-bottom:25px;
+	margin-left:25px;
+	clear:both;
+	list-style-type:none;
+	list-style-position:outside;
+}
+#content ul.listlink:after,#content2 ul.listlink:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+#content ul.listlink li,#content2 ul.listlink li{
+	margin-bottom:10px;
+	padding-left:25px;
+	background: url(images/content/mark_ul.gif) no-repeat 5px 3px;
+	clear:left;
+}
+#content ul.listlink li.thumbslist, #content2 ul.listlink li.thumbslist{
+	margin-top:18px;
+	margin-bottom:18px;
+	padding-left:4px;
+	background:none;
+}
+#content ul.listlink li.thumbslist a,#content2 ul li.thumbslist a{
+	padding-left:25px;
+	background: url(images/content/mark_ul.gif) no-repeat 5px 3px;
+}
+#content ul li.thumbslist img, #content2 ul li.thumbslist img{
+	margin-bottom:18px;
+	margin-right:10px;
+	float:left;
+}
+#content ul li.thumbslist span, #content2 ul li.thumbslist span{
+	font-size:90%;
+	line-height:1.5;
+}
+#content ul.listlink li span,#content2 ul.listlink li span{
+	font-size:90%;
+	line-height:1.5;
+}
+/*------------------------------------------------------------------------------
+	サムネイル付き1行リスト
+------------------------------------------------------------------------------*/
+#content ul.thumbnailink,#content2 ul.thumbnailink{
+	margin-bottom:25px;
+	margin-left:25px;
+	clear:both;
+	list-style-type:none;
+	list-style-position:outside;
+}
+#content ul.thumbnailink li,#content2 ul.thumbnailink li{
+	margin-bottom:15px;
+	clear:left;
+}
+#content ul.thumbnailink li:after,#content2 ul.thumbnailink li:after{
+    content:""; 
+    display:block; 
+    clear:both;
+}
+#content ul.thumbnailink li img,#content2 ul.thumbnailink li img{
+	float:left;
+	margin-right:10px;
+	margin-bottom:5px;
+}
+#content ul.thumbnailink li span,#content2 ul.thumbnailink li span{
+	font-size:90%;
+	line-height:1.5;
+}
+/*------------------------------------------------------------------------------
+	サムネイル付き2行リスト
+------------------------------------------------------------------------------*/
+#content div.leftlist,#content2 div.leftlist{
+	margin-bottom:20px;
+	float:left;
+	width:48%;
+	display:inline;
+	clear:left;
+}
+#content div.rightlist,#content2 div.rightlist{
+	margin-bottom:20px;
+	float:right;
+	width:48%;
+	display:inline;
+}
+#content div.leftlist img,#content div.rightlist img,#content2 div.leftlist img,#content2 div.rightlist img{
+	float:left;
+	margin-right:10px;
+	margin-bottom:5px;
+}
+#content div.leftlist h2,#content div.rightlist h2,#content2 div.leftlist h2,#content2 div.rightlist h2{
+	background:none;
+	margin-bottom:5px;
+	line-height:1.3;
+	border:none;
+}
+#content div.leftlist p,#content div.rightlist p,#content2 div.leftlist p,#content2 div.rightlist p{
+	font-size:90%;
+}
+/*==============================================================================
+	添付ファイルアイコン
+==============================================================================*/
+/*------------------------------------------------------------------------------
+	<li>である場合
+------------------------------------------------------------------------------*/
+#content ul li.pdf,#content2 ul li.pdf{
+	background:url(images/icon/pdf.gif) no-repeat 5px 5px;
+}
+#content ul li.xls,#content2 ul li.xls{
+	background:url(images/icon/xls.gif) no-repeat 5px 5px;
+}
+#content ul li.doc,#content2 ul li.doc{
+	background:url(images/icon/doc.gif) no-repeat 5px 5px;
+}
+#content ul li.zip,#content2 ul li.zip{
+	background:url(images/icon/zip.gif) no-repeat 5px 5px;
+}
+#content ul li.com,#content2 ul li.com{
+	background:url(images/icon/com.gif) no-repeat 5px 5px;
+}
+#content ul li.pic,#content2 ul li.pic{
+	background:url(images/icon/png.gif) no-repeat 5px 5px;
+}
+#content ul li.mp3,#content2 ul li.mp3{
+	background:url(images/icon/mp3.gif) no-repeat 5px 5px;
+}
+/*------------------------------------------------------------------------------
+	<li>ではない場合
+------------------------------------------------------------------------------*/
+#content span.pdf{
+	padding-left:18px;
+	background:url(images/icon/pdf.gif) no-repeat left 2px;
+}
+#content span.xls{
+	padding-left:18px;
+	background:url(images/icon/xls.gif) no-repeat left 2px;
+}
+#content span.doc{
+	padding-left:18px;
+	background:url(images/icon/doc.gif) no-repeat left 2px;
+}
+#content span.zip{
+	padding-left:18px;
+	background:url(images/icon/zip.gif) no-repeat left 2px;
+}
+#content span.com{
+	padding-left:18px;
+	background:url(images/icon/com.gif) no-repeat left 2px;
+}
+#content span.pic{
+	padding-left:18px;
+	background:url(images/icon/png.gif) no-repeat left 2px;
+}
+#content span.mp3{
+	padding-left:18px;
+	background:url(images/icon/mp3.gif) no-repeat left 2px;
+}
+/*==============================================================================
+	テーブル
+==============================================================================*/
+#content table,#content2 table{
+	margin:10px 25px 20px 25px;
+	padding:0px;
+	clear:both;
+	border-collapse:collapse;
+	border:1px solid #CCC;
+	empty-cells:show;
+}
+/*　幅マックスのテーブル　*/
+#content table.w100,#content2 table.w100{
+	width:93%;
+}
+#content th,#content2 th{
+	padding:3px 6px 3px 6px;
+	background:#f6f4ec url(images/content/th_bg.gif) repeat-x left top;
+	border:1px solid #CCC;
+	text-align:left;
+	vertical-align:top;
+}
+#content td,#content2 td{
+	padding:3px 6px 3px 6px;
+	border:1px solid #CCC;
+	vertical-align:top;
+}
+#content table caption,#content2 table caption{
+	padding:0px 0px 3px 3px;
+	text-align:left;
+	font-weight:bold;
+}
+/*------------------------------------------------------------------------------
+	配置
+------------------------------------------------------------------------------*/
+/*　水平　左寄せ
+------------------------------------------------------------------------------*/
+#content table td.textleft,#content table th.textleft,#content2 table td.textleft,#content2 table th.textleft{
+	text-align:left;
+}
+/*　水平　右寄
+------------------------------------------------------------------------------*/
+#content table td.textright,#content table th.textright,#content2 table td.textright,#content2 table th.textright{
+	text-align:right;
+}
+/*　水平　中央寄せ
+------------------------------------------------------------------------------*/
+#content table td.textcenter,#content table th.textcenter,#content2 table td.textcenter,#content2 table th.textcenter{
+	text-align:center;
+}
+/*　垂直　上寄せ
+------------------------------------------------------------------------------*/
+#content table td.verticaltop,#content table th.verticaltop,#content2 table td.verticaltop,#content2 table th.verticaltop{
+	vertical-align:top;
+}
+/*　垂直　中央寄せ
+------------------------------------------------------------------------------*/
+#content table td.verticalmiddle,#content table th.verticalmiddle,#content2 table td.verticalmiddle,#content2 table th.verticalmiddle{
+	vertical-align:middle;
+}
+/*　垂直　下寄せ
+------------------------------------------------------------------------------*/
+#content table td.verticalbottom,#content table th.verticalbottom,#content2 table td.verticalbottom,#content2 table th.verticalbottom{
+	vertical-align:bottom;
+}
+/*　垂直　ベースライン
+------------------------------------------------------------------------------*/
+#content table td.verticalbaseline,#content table th.verticalbaseline,#content2 table td.verticalbaseline,#content2 table th.verticalbaseline{
+	vertical-align:baseline;
+}
+/*------------------------------------------------------------------------------
+	改行なし
+------------------------------------------------------------------------------*/
+/*　自動的に改行なし
+------------------------------------------------------------------------------*/
+#content table td.cell,#content table th.cell,#content2 table td.cell,#content2 table th.cell{
+	white-space:nowrap;
+}
+/*　左寄せかつ自動的に改行なし
+------------------------------------------------------------------------------*/
+#content table td.cellleft,#content table th.cellleft,#content2 table td.cellleft,#content2 table th.cellleft{
+	text-align:left;
+	white-space:nowrap;
+}
+/*　右寄せかつ自動的に改行なし
+------------------------------------------------------------------------------*/
+#content table td.cellright,#content table th.cellright,#content2 table td.cellright,#content2 table th.cellright{
+	text-align:right;
+	white-space:nowrap;
+}
+/*　中央寄せかつ自動的に改行なし
+------------------------------------------------------------------------------*/
+#content table td.cellcenter,#content table th.cellcenter,#content2 table td.cellcenter,#content2 table th.cellcenter{
+	text-align:center;
+	white-space:nowrap;
+}
+/*　pの中にテーブルがあるとき
+------------------------------------------------------------------------------*/
+#content p table,#content2 p table{
+	margin-left:0px;
+	width:100%;
+}
+/*　テーブルの中にpがあるとき
+------------------------------------------------------------------------------*/
+#content td p,#content th p,#content2 td p,#content2 th p{
+	margin:0px;
+	padding:0px;
+}
+/*　テーブルの中にリストがあるとき
+------------------------------------------------------------------------------*/
+#content table ul,#content2 table ul{
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:20px;
+}
+#content table ol,#content2 table ol{
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:35px;
+}
+#content table ul li,#content table ol li,#content2 table ul li,#content2 table ol li{
+	margin-bottom:0px;
+}
+/*------------------------------------------------------------------------------
+	幅
+------------------------------------------------------------------------------*/
+table .w10{
+	width:10%;
+}
+table .w15{
+	width:15%;
+}
+table .w20{
+	width:20%;
+}
+table .w25{
+	width:25%;
+}
+table .w30{
+	width:30%;
+}
+table .w40{
+	width:40%;
+}
+table .w50{
+	width:50%;
+}
+table .w60{
+	width:60%;
+}
+table .w70{
+	width:70%;
+}
+table .w80{
+	width:80%;
+}
+/*==============================================================================
+	関連情報、添付ファイル
+==============================================================================*/
+#content h2.kanren,#content2 h2.kanren{
+	margin-bottom:5px;
+	padding:5px 5px 5px 8px;
+	font-size:100%;
+	border-top:2px solid #e9ac27;
+	background:#9d6c02 none;
+}
+/*==============================================================================
+	plugin
+==============================================================================*/
+.plugin{
+	margin:20px auto 20px auto;
+	width:85%;
+	clear:both;
+	font-size:90%;
+	background:#efefef;
+}
+#content .plugin p{
+	margin:0px;
+	padding:10px 15px 10px 15px;
+}/*==============================================================================
+	ページ内アンケート
+==============================================================================*/
+#pagequest{
+	margin:20px 25px 20px 25px;
+	clear:both;
+	background-color:#FFFFFF;
+	border:1px solid #cbc6ac;
+}
+#pagequest h2{
+	margin:0px 0px 10px 0px;
+	padding:8px 5px 7px 19px;
+	font-size:100%;
+	color:#2d2d2d;
+	background: #f5f3e9 none;
+	border-left:none;
+	border-top:none;
+	border-right:none;
+	border-bottom:1px dotted #cbc6ac;
+}
+#pagequest p{
+	margin:0px 20px 10px 20px;
+	line-height:1.3;
+}
+#pagequest p strong{
+	margin-bottom:8px;
+	padding-bottom:2px;
+	width:100%;
+	display:inline-block;
+	border-bottom:1px dotted #cbc6ac;
+}
+#pagequest p input{
+	margin:0px 3px 0px 15px;
+}
+#pagequest p label{
+}
+#pagequest p.textcenter input{
+	margin-top:0px;
+	padding:2px 8px 2px 8px;
+}
+/*==============================================================================
+	お問合せ
+==============================================================================*/
+#reference{
+	margin:20px 25px 15px 25px;
+	clear:both;
+	border:1px solid #b78a29;
+}
+#reference h2{
+	margin:0px;
+	padding:7px 5px 6px 15px;
+	font-size:100%;
+	color:#333333;
+	border-top:3px double #b78a29;
+	border-bottom:1px dotted #b78a29;
+	background:none;
+}
+#reference p{
+	margin:0px;
+	padding:6px 15px 10px 15px;
+}
+#reference p a.mail{
+	padding-left:30px;
+	background:url(images/content/mail.gif) no-repeat left 2px;
+}

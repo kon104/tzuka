@@ -1,0 +1,195 @@
+@charset "utf-8";
+/*******************************************************************************
+	印刷
+*******************************************************************************/
+@media print{
+/*==============================================================================
+	共通
+==============================================================================*/
+#blockskip,#header,.scriptmessage,#gnavi,#lnavi,.plugin,#footer,
+#guide,#content p.sns,#content2 p.sns,.cmsprint,#mypage{
+	display:none;
+}
+#wrap,#page,#pagebody,#tpath,#content,#content2{
+	margin:0px;
+	padding:0px;
+	width:100%;
+	float:none;
+	border:none;
+	background:#FFF none;
+	text-align:left;
+}
+#tpath{
+	margin-bottom:15px;
+}
+body{
+	background:none;
+}
+#pagebody #content,#pagebody #content2{
+	padding:0px;
+	background:none;
+}
+/*==============================================================================
+	コンテンツ
+==============================================================================*/
+#content dl{
+	margin:10px auto 20px auto;
+	width:95%;
+}
+#content2 dl{
+	margin:10px auto 20px auto;
+	width:95%;
+}
+#content dt{
+	width:20%;
+}
+#content dd{
+	width:70%;
+}
+#content2 dt{
+	width:30%;
+}
+#content2 dd{
+	width:60%;
+}
+#content #reference p span.mail,#content2 #reference p span.mail{
+	padding-left:0px;
+	background-image:none;
+}
+#content dl,#content2 dl{
+	overflow:auto;
+}
+#content ul.newslist li{
+	overflow:auto;
+}
+#content h2,#content h4,#content h3{
+	overflow:auto;
+}
+/*==============================================================================
+	各種テンプレート
+==============================================================================*/
+#content h1.question{
+	width:95%;
+}
+#content h1.question span.qtitle{
+	width:87%;
+}
+#sad{
+	overflow:auto;
+}
+/*------------------------------------------------------------------------------
+	お問い合わせCGI
+------------------------------------------------------------------------------*/
+input#mail,textarea#naiyou{
+	width:60%;
+}
+/*------------------------------------------------------------------------------
+	画像横並び3列
+------------------------------------------------------------------------------*/
+#img3lows .imglows{
+	margin-left:2%;
+	width:29%;
+}
+/*------------------------------------------------------------------------------
+	画像横並び4列
+------------------------------------------------------------------------------*/
+#img4lows .imglows{
+	margin-left:2%;
+	width:23%;
+}
+/*------------------------------------------------------------------------------
+	画像横並び5列
+------------------------------------------------------------------------------*/
+#img5lows .imglows{
+	margin-left:2%;
+	width:18%;
+}
+/*------------------------------------------------------------------------------
+	2列メニュー
+------------------------------------------------------------------------------*/
+#content div.column2 .lmenu{
+	width:45%;
+}
+#content2 div.column2 .lmenu{
+	width:45%;
+}
+#content div.column2 .rmenu{
+	width:45%;
+}
+#content2 div.column2 .rmenu{
+	width:45%;
+}
+#content div.column2 h2{
+	overflow:visible;
+}
+/*------------------------------------------------------------------------------
+	ごみカレンダー
+------------------------------------------------------------------------------*/
+#content table.gomi{
+	width:90%;
+}
+/*------------------------------------------------------------------------------
+	イベントカレンダー
+------------------------------------------------------------------------------*/
+#today{
+	width:60%;
+}
+#hanrei1{
+	width:30%;
+}
+/*==============================================================================
+	IE6
+==============================================================================*/
+* html #topheader{
+	zoom:65%;
+}
+* html #toppage{
+	zoom:65%;
+	background:none;
+}
+* html #second,* html #petit{
+	zoom:70%;	
+}
+* html #content table#event ul li,
+* html #content ul.objectlink li,* html #content2 ul.objectlink li,
+* html #content ul.listlink li,* html #content2 ul.listlink li,
+* html #content ul li.com,* html #content2 ul li.com,
+* html #content ul li.doc,* html #content2 ul li.doc,
+* html #content ul li.gif,* html #content2 ul li.gif,
+* html #content ul li.jpg,* html #content2 ul li.jpg,
+* html #content ul li.pdf,* html #content2 ul li.pdf,
+* html #content ul li.xls,* html #content2 ul li.xls,
+* html #content ul li.zip,* html #content2 ul li.zip,
+* html #content span.com,* html #content2 span.com,
+* html #content span.doc,* html #content2 span.doc,
+* html #content span.gif,* html #content2 span.gif,
+* html #content span.jpg,* html #content2 span.jpg,
+* html #content span.pdf,* html #content2 span.pdf,
+* html #content span.jpg,* html #content2 span.jpg,
+* html #content span.zip,* html #content2 span.zip,
+* html .smenu ul li,
+* html .sidelink ul li,
+* html div.topics ul li,* html #content ul.newslist li,
+* html #topfooter ul li{
+	height:1%;
+}
+* html .main_view {
+	width:90%;
+	position: static;
+}
+.window {
+	position: static;
+}
+.image_reel {
+	position: static;
+}
+* html .paging a{
+	height:1%;
+}
+* html .paging a.active {
+	height:1%;
+}
+* html .paging a:hover {
+	height:1%;
+}
+}

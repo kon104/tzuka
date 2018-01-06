@@ -1,0 +1,1770 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------------------
+[1] 各種テンプレート
+	電子告示板
+	画像横並び
+	#content内お知らせ
+	#content内2列メニュー
+	新着更新情報
+	よくある質問
+	ライフイベント（通常ページに広告付き、なければ非表示）
+	セカンドトップ（施設案内を含む）
+	ごみトップ
+	ごみカレンダー
+	投票所（五十音順）
+	組織（リスト）
+	汎用トップ
+	イベント
+	マップ
+	審議会トップ
+	審議会詳細
+
+[2] 共通スタイル
+	文字サイズ・背景色の変更ボタン
+	サイドメニュー（テキストリンク、画像リンク、バナーテキストリンク）
+	新着更新情報（セカンドトップ、汎用トップ）
+	トピックス（セカンドトップ、汎用トップ）
+	お問い合わせCGI
+	広告欄（トップページ、セカンドトップ）
+	リンク集(2列、3列、4列)	
+------------------------------------------------------------------------------*/
+/*******************************************************************************
+[1] 各種テンプレート
+*******************************************************************************/
+/*==============================================================================
+	電子告示板
+==============================================================================*/
+#content p.inlinebox,#content2 p.inlinebox,#content3 p.inlinebox{
+	margin:15px;
+	padding:4px 12px 4px 12px;
+	border:1px solid #aaa;
+	display:inline-block;
+	line-height:1.5;
+}
+/*==============================================================================
+	画像横並び
+==============================================================================*/
+#img2lows .box,
+#img3lows .box,
+#img4lows .box,
+#img5lows .box{
+	margin:0px 0px 10px 0px;
+}
+#img2lows .box .imglows p,
+#img3lows .box .imglows p,
+#img4lows .box .imglows p,
+#img5lows .box .imglows p{
+	margin:5px auto 5px auto;
+	text-align:center;
+	line-height:1.5;
+}
+/*	2列
+------------------------------------------------------------------------------*/
+#img2lows{
+	padding:0px 0px 10px 0px;
+}
+#img2lows .imglows{
+	margin:0px 0px 0px 25px;
+	width:320px;
+	float:left;
+}
+/*	3列
+------------------------------------------------------------------------------*/
+#img3lows{
+	padding:0px 0px 10px 0px;
+}
+#img3lows .imglows{
+	margin:0px 0px 0px 25px;
+	width:205px;
+	float:left;
+}
+/*	4列
+------------------------------------------------------------------------------*/
+#img4lows{
+	padding:0px 0px 10px 0px;
+}
+#img4lows .imglows{
+	margin:0px 0px 0px 23px;
+	width:150px;
+	float:left;
+}
+/*	5列
+------------------------------------------------------------------------------*/
+#img5lows{
+	padding:0px 0px 10px 0px;
+}
+#img5lows .imglows{
+	margin:0px 0px 0px 25px;
+	width:113px;
+	float:left;
+}
+/*==============================================================================
+	#content内2列メニュー
+==============================================================================*/
+#content div.column2 h2,#content2 div.column2 h2{
+	margin:0px 5px 10px 20px;
+	padding:0px 5px 0px 7px;
+	clear:both;
+	font-size:100%;
+	font-weight:bold;
+	color:#2d2d2d;
+	background:none;
+	border:none;
+	border-left:5px solid #9b0d67;
+}
+#content div.column2 ul,#content2 div.column2 ul{
+	margin-bottom:0px;
+	margin-left:25px;
+	clear:both;
+	list-style-type:none;
+	list-style-position:outside;
+}
+#content div.column2 ul li,#content2 div.column2 ul li{
+	margin-bottom:5px;
+	padding-left:25px;
+	background:url(images/content/mark_ul.gif) no-repeat 5px 5px;
+}
+#content div.column2 .lmenu{
+	width:340px;
+	float:left;
+}
+#content2 div.column2 .lmenu{
+	width:475px;
+	float:left;
+}
+#content div.column2 .rmenu{
+	width:340px;
+	float:right;
+}
+#content2 div.column2 .rmenu{
+	width:475px;
+	float:right;
+}
+/*==============================================================================
+	新着更新情報
+==============================================================================*/
+#content ul.newslist,#content2 ul.newslist{
+	margin:0px 15px 20px 15px;
+	list-style-type:none;
+}
+#content ul.newslist li,#content2 ul.newslist li{
+	margin-bottom:5px;
+	border-bottom:1px dotted #9b0d67;
+}
+#content ul.newslist li img,#content2 ul.newslist li img{
+	padding:10px 15px 5px 0px;
+	float:left;
+	vertical-align:middle;
+}
+#content ul.newslist li span.date,#content2 ul.newslist li span.date{
+	padding:7px 0px 10px 5px;
+	width:135px;
+	float:left;
+	color:#666666;
+}
+#content ul.newslist li span.newsli,#content2 ul.newslist li span.newsli{
+	padding:7px 5px 10px 0px;
+	float:left;
+}
+#content ul.newslist li span.newsli{
+	width:495px;
+}
+#content2 ul.newslist li span.newsli{
+	width:730px;
+}
+/*==============================================================================
+	よくある質問
+==============================================================================*/
+/*------------------------------------------------------------------------------
+	よくある質問トップページ
+------------------------------------------------------------------------------*/
+/*	検索
+------------------------------------------------------------------------------*/
+#faqsearch{
+	margin:0px 15px 18px 15px;
+	padding:18px 10px 18px 10px;
+	display:block;
+	background-color:#f3efdf;
+}
+#faqsearch h2{
+	margin:0px 0px 10px 0px;
+	padding:5px 0px 5px 0px;
+	clear:both;
+	font-size:120%;
+	font-weight:bold;
+	line-height:1.4;
+	color:#2d2d2d;
+	background:none;
+}
+#faqsearch p{
+	margin:0px 0px 10px 0px;
+}
+#faqsearch form{
+	display:inline;
+}
+#faqsearch input{
+	padding:5px;
+	vertical-align:middle;
+}
+#key2{
+	width:300px;
+	font-size:100%;
+}
+/*	よく利用されているFAQ
+------------------------------------------------------------------------------*/
+.ranking,#content2 .ranking{
+	margin-bottom:20px;
+}
+.ranking ul,#content2 .ranking ul{
+	margin:0px 15px 15px 15px;
+	list-style:none;
+}
+.ranking li,#content2 .ranking li{
+	margin:0px 0px 14px 15px;
+	line-height:1.6;
+}
+.ranking li.box,#content2 .ranking li.box{
+	width:auto;
+}
+.ranking li img,#content2 .ranking li img{
+	margin-right:6px;
+	vertical-align:middle;
+}
+/*	こんなときには
+------------------------------------------------------------------------------*/
+#faq #lifescene{
+	margin-bottom:20px;
+}
+#faq #lifescene ul{
+	margin-left:24px;
+	list-style:none;
+	
+}
+#faq #lifescene ul li{
+	margin-right:12px;
+	float:left;
+}
+/*	組織から探す
+------------------------------------------------------------------------------*/
+#faq .faqlist h3{
+	margin-left:28px;
+	margin-right:28px;
+}
+#faq .faqlist ul.line{
+	margin-left:32px;
+	margin-right:32px;
+}
+/*------------------------------------------------------------------------------
+	よくある質問詳細ページ
+------------------------------------------------------------------------------*/
+#content h1.question{
+	margin-bottom:10px;
+	padding:15px 5px 10px 23px;
+	font-size:120%;
+	background:#f6eef5;
+	border:none;
+	zoom:1;
+}
+#content h1.question span.q{
+	width:60px;
+	float:left;
+	display:block;
+}
+#content h1.question span.qtitle{
+	width:620px;
+	display:block;
+	float:left;
+	font-size:100%;
+	font-weight:bold;
+}
+#content h2.answer{
+	clear:both;
+	background:none;
+	border:none;
+}
+/*==============================================================================
+	ライフイベント（通常ページに広告付き、なければ非表示）
+==============================================================================*/
+#life{
+	margin-bottom:10px;
+	width:530px;
+	float:left;
+	display:inline;
+}
+/*------------------------------------------------------------------------------
+	広告
+------------------------------------------------------------------------------*/
+#lad{
+	margin-bottom:10px;
+	width:140px;
+	float:right;
+	background:#FFF;
+	border:1px solid #CCCCCC;
+}
+#lad h2{
+	margin-bottom:10px;
+	padding:5px;
+	font-size:90%;
+	background:#EFEFEF none;
+	border:none;
+	text-align:center;
+}
+#lad p{
+	margin:0px 5px 5px 5px;
+	font-size:90%;
+	text-align:center;
+}
+#lad ul{
+	margin:0px 5px 5px 5px;
+	list-style-type:none;
+	text-align:center;
+}
+#lad ul li{
+	margin-bottom:8px;
+}
+#content #lad ul li img{
+	margin-right:0px;
+}
+/*==============================================================================
+	セカンドトップ
+==============================================================================*/
+/*------------------------------------------------------------------------------
+	レイアウト
+------------------------------------------------------------------------------*/
+#second{
+	margin:0px auto 0px auto;
+	line-height:1.8;
+}
+#soutline{
+	margin:0px 15px 20px 15px;
+}
+#secondcontent{
+	margin:0px 15px 0px 15px;
+}
+#sleft{
+	width:710px;
+	float:left;
+}
+#sright{
+	width:180px;
+	float:right;
+	display:inline;
+}
+/*------------------------------------------------------------------------------
+	詳細デザイン
+------------------------------------------------------------------------------*/
+/*　見出し・概要
+------------------------------------------------------------------------------*/
+#second h1{
+	margin-bottom:15px;
+	padding:14px 10px 14px 15px;
+	font-size:130%;
+	font-weight:bold;
+	line-height:1.4;
+	background:url(images/content/h1_bg.gif) repeat-x left bottom;
+	border-top:3px solid #9b0d67;
+	border-bottom:1px solid #ae7e9c;
+}
+#soutline p{
+	margin-bottom:10px;
+}
+/*　メニュー
+------------------------------------------------------------------------------*/
+.smenu{
+	margin:0px 0px 12px 19px;
+	width:212px;
+	float:left;
+	display:inline;
+	font-size:100%;
+}
+#sitemap .smenu{
+	width:291px;
+}
+.smenu h2,#gomi .smenu h2{
+	margin-bottom:15px;
+	padding:9px 5px 6px 10px;
+	font-size:105%;
+	color:#333333;
+	background:#e9c9e6 url(images/content/smenu_bg.gif) repeat-x left top;
+	border:1px solid #9B0D67;
+	line-height:1.5;
+}
+.smenu h2 a,#gomi .smenu h2 a{
+	color:#2d2d2d;
+}
+.smenu h3{
+	margin-bottom:5px;
+	padding:0px 5px 0px 12px;
+	font-size:110%;
+}
+.smenu p{
+	margin:0px 5px 10px 5px;
+	font-size:95%;
+	line-height:1.5;
+}
+.smenu ul{
+	margin:0px 5px 0px 10px;
+	list-style-type:none;
+}
+.smenu li{
+	margin-bottom:10px;
+	padding-left:18px;
+	background:url(images/content/mark_ul.gif) no-repeat left 2px;
+	line-height:1.4;
+}
+/*　ライフシーン
+------------------------------------------------------------------------------*/
+.scolumn{
+	margin-bottom:20px;
+	background:#F9F8F6;
+	border:1px solid #CCC;
+}
+#sright .scolumn h2{
+	padding:10px;
+	font-size:110%;
+	text-align:center;
+}
+.scolumn ul{
+	margin:0px 5px 10px 10px;
+	font-size:95%;
+	list-style-type:none;
+	text-align:center;
+}
+.scolumn ul li{
+	display:inline;
+	margin-bottom:3px;
+}
+.scolumn ul li img{
+	margin:0px 5px 10px 10px;
+	vertical-align:bottom;
+}
+/*==============================================================================
+	ごみトップ
+==============================================================================*/
+#gomi .smenu{
+	margin:0px 0px 15px 30px;
+	width:310px;
+}
+#gomi .smenu ul{
+	margin:0px 5px 0px 10px;
+	list-style-type:none;
+}
+#gomi .smenu h2{
+	margin-left:0px;
+	margin-right:0px;
+}
+/*==============================================================================
+	ごみカレンダー
+==============================================================================*/
+/*　収集カレンダー凡例
+------------------------------------------------------------------------------*/
+#content .gomihanrei{
+	margin:0px 15px 20px 15px;
+	padding-bottom:16px;
+	background:#F6F6F6;
+	border:1px solid #CCC;
+}
+#content .gomihanrei h3{
+	margin:0px 10px 0px 6px;
+	padding:10px 5px 6px 8px;
+	font-size:120%;
+	background:none;
+	border:none;
+}
+#content .gomihanrei ul{
+	margin:0px 0px 0px 10px;
+	list-style:none;
+	zoom:1;
+}
+#content .gomihanrei li{
+	margin:0px 12px 0px 0px;
+	padding-left:27px;
+	float:left;
+	line-height:2;
+}
+/*　カレンダー
+------------------------------------------------------------------------------*/
+#content table.gomi td{
+	padding:6px 5px 10px 5px;
+	width:95px;
+	border:1px solid #CCC;
+	vertical-align:top;
+}
+#content table.gomi th{
+	width:95px;
+	text-align:center;
+	vertical-align:middle;
+}
+#content table.gomi th.gsun{
+	width:45px;
+	font-size:85%;
+	color:#900;
+	background:#FFE8E8 url(images/content/th_bg.gif) repeat-x left top;
+}
+#content table.gomi td.gsun{
+	width:auto;
+}
+#content table.gomi th.gsat{
+	width:95px;
+	background:#ECF9FF url(images/content/th_bg.gif) repeat-x left top;
+}
+#content .gomi ul{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+#content table.gomi td ul li{
+	margin-bottom:5px;
+	padding-bottom:8px;
+	padding-left:30px;
+	line-height:1.5;
+}
+#content table.gomi td strong{
+	margin-bottom:5px;
+	padding:0px 0px 0px 5px;
+	display:block;
+	font-size:150%;
+	background:#EFEFEF;
+	line-height:1.3;
+}
+#content table.gomi td.gsun strong{
+	color:#900;
+	background:#FEEDED;
+}
+#content table.gomi td.gsat strong{
+	color:#069;
+	background:#EDF3FE;
+}
+.gomi1{
+	background:url(images/gomi/gomi1.gif) no-repeat left top;
+}
+.gomi2{
+	background:url(images/gomi/gomi2.gif) no-repeat left top;
+}
+.gomi3{
+	background:url(images/gomi/gomi3.gif) no-repeat left top;
+}
+.gomi4{
+	background:url(images/gomi/gomi4.gif) no-repeat left top;
+}
+.gomi5{
+	background:url(images/gomi/gomi5.gif) no-repeat left top;
+}
+.gomi6{
+	background:url(images/gomi/gomi6.gif) no-repeat left top;
+}
+/*==============================================================================
+	投票所（五十音順）
+==============================================================================*/
+.linebox{
+	padding:10px 0px 0px 156px;
+}
+.linebox.box{
+	width:auto;
+}
+.linebox br{
+	clear:both;
+}
+.linebox span{
+	margin:0px 22px 15px 0px;
+	float:left;
+	display:block;
+	font-size:125%;
+	font-weight:bold;
+	text-align:center;
+	line-height:150%;
+}
+.linebox span.linkbox{
+	border:1px solid #9b0d67;
+}
+.linebox span.textbox{
+	padding:13px 17px 13px 17px;
+	border:1px solid #aaaaaa;
+	background-color:#FFFFFF;
+}
+.linebox span a{
+	padding:13px 17px 13px 17px;
+	display:block;
+	background-color:#FFFFFF;
+}
+.linebox span a:hover{
+	background-color:#E8DCE7;
+}
+/*==============================================================================
+	組織（リスト）
+==============================================================================*/
+#sosiki .sosikih2{
+	margin:0px 15px 20px 15px;
+	padding:10px 10px 4px 10px;
+	border:1px solid #f2eddb;
+}
+#sosiki .sosikih3{
+	margin:0px 10px 14px 30px;
+	padding:6px 10px 6px 10px;
+	background:#f2eddb;
+}
+#sosiki h2{
+	margin-bottom:6px;
+	font-size:120%;
+}
+#sosiki h3{
+	margin:0px;
+	padding:0px 5px 5px 10px;
+}
+#sosiki h4{
+	margin:0px 20px 0px 30px;
+	padding:8px 6px 0px 12px;
+	background:#ffffff;
+	line-height:1.4;
+}
+#sosiki ul{
+	margin:0px 20px 8px 30px;
+	padding:4px 6px 4px 10px;
+	background:#ffffff;
+}
+.sosikih3 .pagetop{
+	margin-bottom:0px;
+	margin-right:18px;
+	text-align:right;
+}
+/*==============================================================================
+	汎用トップ
+==============================================================================*/
+/*------------------------------------------------------------------------------
+	レイアウト
+------------------------------------------------------------------------------*/
+#header ul.support li{
+	list-style:none;
+}
+#petit{
+	margin:0px auto 0px auto;
+	line-height:1.8;
+}
+#petit p.textcenter{
+	margin-bottom:15px;
+}
+#poutline{
+	margin:0px 15px 20px 15px;
+}
+/*　1列、2列、3列
+------------------------------------------------------------------------------*/
+#ptopnavi{
+	margin:0px auto 10px auto;
+	width:920px;
+}
+#petitcontent{
+	margin:0px auto 0px auto;
+	width:920px;
+}
+#p1content{
+	width:910px;
+}
+#p1content #content{
+	width:910px;
+}
+#plnavi{
+	width:180px;
+	float:left;
+	line-height:1.5;
+}
+#p2content{
+	float:right;
+	width:700px;
+}
+#p2content #content{
+	width:700px;
+}
+#p3{
+	float:left;
+	width:700px;
+}
+#p3content{
+	float:right;
+	width:490px;
+}
+#p3content #content{
+	width:490px;
+}
+#prnavi{
+	width:180px;
+	float:right;
+	line-height:1.5;
+}
+/*------------------------------------------------------------------------------
+	詳細デザイン
+------------------------------------------------------------------------------*/
+#petit p.imagecenter{
+	margin-bottom:20px;
+}
+/*　見出し・概要
+------------------------------------------------------------------------------*/
+#poutline p{
+	margin-bottom:10px;
+}
+/*------------------------------------------------------------------------------
+	上メニュー
+------------------------------------------------------------------------------*/
+/* 画像
+------------------------------------------------------------------------------*/
+#ptopnavi ul.imgnavi{
+	list-style-type:none;
+}
+#ptopnavi ul.imgnavi li{
+	margin:0px 5px 10px 5px;
+	float:left;
+	display:inline;
+}
+/* テキスト
+------------------------------------------------------------------------------*/
+#content2 #ptopnavi ul.txtnavi{
+	margin:5px 0px 20px 0px
+}
+#ptopnavi ul.txtnavi{
+	list-style-type:none;
+}
+#ptopnavi ul.txtnavi li{
+	margin:0px 5px 10px 5px;
+	float:left;
+	display:inline;
+}
+#ptopnavi ul.txtnavi li a{
+	padding:10px 8px 10px 8px;
+	display:inline-block;
+	color:#333;
+	background:#FFF url(images/parts/menu_bg.gif) repeat-x left bottom;
+	border-top:3px solid #A2720A;
+	border-right:1px solid #CCCCCC;
+	border-bottom:1px solid #CCCCCC;
+	border-left:1px solid #CCCCCC;
+	text-decoration:none;
+	white-space:nowrap;
+}
+#ptopnavi ul.txtnavi li a:hover{
+	background:#F6F6F6;
+}
+/* 3列メニュー
+------------------------------------------------------------------------------*/
+#petit .smenu{
+	margin:0px 0px 12px 20px;
+	width:290px;
+}
+#petit .smenu h2{
+	background:#fefefe url(images/content/bannertxt_bg.gif) repeat-x left bottom;
+	border:1px solid #bcb291;
+	border-top:2px solid #a59970;
+}
+#petit .smenu h2.imglink{
+	padding:0px;
+	background:none;
+	border:0px;
+}
+#petit .smenu li{
+	background:url(images/parts/mark_ul_go.gif) no-repeat left 2px;
+}
+/*------------------------------------------------------------------------------
+	コンテンツ
+------------------------------------------------------------------------------*/
+#p1content p,#p2content p,#p3content p{
+}
+#p1content p.imgtopics,#p2content p.imgtopics,#p3content p.imgtopics{
+	margin:0px 0px 20px 0px;
+}
+#p1content h2,#p2content h2,#p3content h2{
+}
+#p1content ul.objectlink,#p2content ul.objectlink,#p3content ul.objectlink{
+}
+#p1content ul.objectlink li,#p2content ul.objectlink li,#p3content ul.objectlink li{
+}
+#p1content #reference h2,#p2content #reference h2,#p3content #reference h2{
+}
+#p1content #reference p,#p2content #reference p,#p3content #reference p{
+}
+/* 基本色(金[#A2720A])　色変更(青[#0E5AA8]・緑[#1A6E00]・紫[#9B0D67]・赤[#B91C07])
+------------------------------------------------------------------------------*/
+.color1 #ptopnavi ul.txtnavi li a{ 
+	border-top:3px solid #0E5AA8;
+}
+.color1 .sidelink h2{
+	border-top:2px solid #0E5AA8;
+}
+.color1 .sidelink ul li{
+	background:url(images/content/mark_diamond_c1.gif) no-repeat left 4px;
+}
+.color1 .bannertxt ul li{
+	border-left:5px solid #0E5AA8;
+}
+#petit .color1 .smenu li{
+	background:url(images/parts/mark_ul_bl.gif) no-repeat left 2px;
+}
+.color2 #ptopnavi ul.txtnavi li a{ 
+	border-top:3px solid #1A6E00;
+}
+.color2 .sidelink h2{
+	border-top:2px solid #1A6E00;
+}
+.color2 .sidelink ul li{
+	background:url(images/content/mark_diamond_c2.gif) no-repeat left 4px;
+}
+.color2 .bannertxt ul li{
+	border-left:5px solid #1A6E00;
+}
+#petit .color2 .smenu li{
+	background:url(images/parts/mark_ul_gr.gif) no-repeat left 2px;
+}
+.color3 #ptopnavi ul.txtnavi li a{ 
+	border-top:3px solid #9B0D67;
+}
+.color3 .sidelink h2{
+	border-top:2px solid #9B0D67;
+}
+.color3 .sidelink ul li{
+	background:url(images/content/mark_diamond_c3.gif) no-repeat left 4px;
+}
+.color3 .bannertxt ul li{
+	border-left:5px solid #9B0D67;
+}
+#petit .color3 .smenu li{
+	background:url(images/content/mark_ul.gif) no-repeat left 2px;
+}
+.color4 #ptopnavi ul.txtnavi li a{ 
+	border-top:3px solid #B91C07;
+}
+.color4 .sidelink h2{
+	border-top:2px solid #B91C07;
+}
+.color4 .sidelink ul li{
+	background:url(images/content/mark_diamond_c4.gif) no-repeat left 4px;
+}
+.color4 .bannertxt ul li{
+	border-left:5px solid #B91C07;
+}
+#petit .color4 .smenu li{
+	background:url(images/parts/mark_ul_re.gif) no-repeat left 2px;
+}
+/*==============================================================================
+	イベント
+==============================================================================*/
+#content p.ecategory{
+	text-align:right;
+}
+#content p.ecategory span{
+	margin-left:5px;
+	margin-bottom:5px;
+	padding:2px 5px 2px 5px;
+	display:inline-block;
+	border:1px solid #CCA11E;
+	line-height:1.4;
+}
+/*------------------------------------------------------------------------------
+	イベント検索
+------------------------------------------------------------------------------*/
+#content table.eventform{
+	margin:0px auto 10px auto;
+	width:95%;
+}
+#content table.eventform th{
+	width:15%;
+}
+#content table.eventform th,
+#content table.eventform td{
+	padding:8px;
+}
+#content table.eventform input{
+	margin-right:3px;
+}
+#content table.eventform input#text{
+	width:70%;
+	padding:3px;
+}
+#content table.eventform label{
+	margin-right:10px;
+}
+#content p.textcenter input{
+	padding:3px 10px 3px 10px;
+}
+/*------------------------------------------------------------------------------
+	今日のイベント
+------------------------------------------------------------------------------*/
+#today{
+	margin:0px 0px 30px 18px;
+	padding:5px;
+	width:503px;
+	float:left;
+	background:#E8DCE7;
+}
+#todayevent{
+	margin:0px;
+	background-color:#FFF;
+	border:1px solid #ae7e9c;
+}
+#today h2{
+	margin:5px 10px 10px 10px;
+	padding:5px 3px 5px 5px;
+	color:#333;
+	background:none;
+	border-top:none;
+	border-right:none;
+	border-bottom:1px dotted #9b0d67;
+	border-left:none;
+}
+#today h3{
+	margin:5px 10px 5px 10px;
+	padding:5px 3px 3px 25px;
+	color:#333;
+	font-size:95%;
+	background:url(images/event/shimekiri_bg.gif) no-repeat 5px center;
+	border-top:2px solid #9b0d67;
+}
+#today p{
+	margin-bottom:10px;
+}
+#today ul{
+	margin:0px 10px 0px 15px;
+	list-style-type:none;
+}
+#today ul li{
+	margin-bottom:8px;
+	padding-left:13px;
+	background:url(images/content/mark_diamond.gif) no-repeat left 4px;
+	line-height:1.4;
+}
+/* 凡例：本日のイベントがあるとき
+------------------------------------------------------------------------------*/
+#hanrei1{
+	margin:0px 18px 30px 0px;
+	padding:3px;
+	width:136px;
+	float:right;
+	float:right;
+	font-size:90%;
+	background:#F6F6F6;
+	border:1px solid #CCC;
+}
+#hanrei1 h2{
+	margin:0px;
+	padding:0px;
+	font-weight:normal;
+	font-size:100%;
+	color:#2d2d2d;
+	background:none;
+	text-align:center;
+	text-indent:0px;
+}
+#hanrei1 ul{
+	margin:5px 5px 5px 8px;
+	list-style-type:none;
+}
+#hanrei1 ul li{
+	margin-bottom:5px;
+}
+#hanrei1 ul li img{
+	margin-right:4px;
+	vertical-align:middle;
+}
+/* 凡例：本日のイベントがないとき
+------------------------------------------------------------------------------*/
+#hanrei2{
+	margin-bottom:20px;
+	margin-left:15px;
+	padding-top:5px;
+	padding-bottom:5px;
+	width:95%;
+	clear:both;
+	background:#F6F6F6;
+	border:1px solid #CCC;
+}
+#hanrei2 h2{
+	margin-bottom:5px;
+	margin-left:15px;
+	padding:0px;
+	font-weight:normal;
+	font-size:90%;
+	color:#2d2d2d;
+	background:none;
+	text-indent:0px;
+}
+#hanrei2 ul{
+	margin:0px 0px 0px 20px;
+	font-size:90%;
+	list-style-type:none;
+}
+#hanrei2 li{
+	width:19%;
+	float:left;
+}
+#hanrei2 ul li img{
+	margin-right:3px;
+	vertical-align:middle;
+}
+/* 開催期間
+------------------------------------------------------------------------------*/
+.kikan{
+	font-size:90%;
+}
+/* 開催期間マーク
+------------------------------------------------------------------------------*/
+.kaisaikikan{
+	padding:2px 5px 2px 5px;
+	font-size:75%;
+	background-color:#EFEFEF;
+	border-right:1px solid #CCCCCC;
+	border-bottom:1px solid #CCCCCC;
+}
+/* 月送り
+------------------------------------------------------------------------------*/
+/*　開催期間の注意　*/
+#content p.kikanchui{
+	margin:15px 10px 10px 10px;
+	padding:3px 10px 3px 10px;
+	font-size:90%;
+	background-color:#EFEFEF;
+	border:1px dotted #CCCCCC;
+	text-indent:0px;
+}
+/* 募集終了マーク
+------------------------------------------------------------------------------*/
+span.boshuend,span.app1,span.app2{
+	padding:1px 5px 1px 5px;
+	font-size:75%;
+	display:inline-block;
+	background:#FFFADF;
+	border:1px solid #CCCCCC;
+}
+/* カテゴリアイコン
+------------------------------------------------------------------------------*/
+#content table#event ul li img,#today ul li img{
+	margin-left:3px;
+	vertical-align:middle;
+}
+/* 並び替え、全件表示
+------------------------------------------------------------------------------*/
+#content #today p.order{
+	margin:0px 10px 10px 0px;
+	font-size:90%;
+	text-align:right;
+}
+#content p.order{
+	margin:0px 18px 10px 0px;
+	font-size:90%;
+	text-align:right;
+}
+#content p.order a{
+	margin-left:10px;
+	padding:3px 3px 3px 15px;
+	background:url(images/event/mark_order.gif) no-repeat left center;
+}
+#content p.order a:hover{
+	background:url(images/event/mark_order_o.gif) no-repeat left center;
+}
+#content p.order a.ordero{
+	color:#333;
+	font-weight:bold;
+	background:url(images/event/mark_order_o.gif) no-repeat left center;
+	text-decoration:none;
+}
+/*------------------------------------------------------------------------------
+	カレンダー
+------------------------------------------------------------------------------*/
+#content table#event{
+	margin:0px auto 10px auto;
+	width:95%;
+}
+#content table#event th{
+	padding:5px;
+}
+#content table#event th.day{
+	width:105px;
+	font-weight:normal;
+	background-color:#FFFFFF;
+}
+#content table#event th.sat{
+	color:#069;
+	font-weight:normal;
+	background-color:#E8F8FF;
+}
+#content table#event th.sun{
+	color:#C00;
+	font-weight:normal;
+	background-color:#FFF0F0;
+}
+#content table#event ul{
+	margin:5px 5px 0px 5px;
+	list-style-type:none;
+}
+#content table#event ul li{
+	margin-bottom:8px;
+	padding-left:13px;
+	background:url(images/content/mark_diamond.gif) no-repeat left 4px;
+	line-height:1.4;
+}
+#content table#event ul li img{
+	vertical-align:middle;
+}
+/* 月送り
+------------------------------------------------------------------------------*/
+#content ul.month{
+	margin-bottom:10px;
+	list-style-type:none;
+	text-align:center;
+}
+#content ul.month li{
+	display:inline;
+}
+#content ul.month li.this a{
+	margin:0px 10px 0px 10px;
+	padding:0px 15px 0px 15px;
+	display:inline-block;
+	border-right:1px solid #999999;
+	border-left:1px solid #999999;
+	line-height:1.2;
+}
+#content ul.month li.pre a{
+	padding-left:20px;
+	background:url(images/event/pre.gif) no-repeat left center;
+}
+#content ul.month li.next a{
+	padding-right:20px;
+	background:url(images/event/next.gif) no-repeat right center;
+}
+/*------------------------------------------------------------------------------
+	イベント検索結果
+------------------------------------------------------------------------------*/
+.eventkekka{
+	margin:0px 18px 15px 18px;
+	padding:5px;
+	border:1px solid #E3E3E3;
+}
+#content .eventkekka h3{
+	margin:0px 0px 8px 0px;
+	padding:5px 5px 5px 25px;
+	background:#f6eef5 url(images/event/eventkekka.gif) no-repeat 8px 10px;
+	border-bottom:1px dotted #9b0d67;
+	line-height:1.8;
+}
+#content .eventkekka h3 img{
+	vertical-align:middle;
+}
+/* イベント概要
+------------------------------------------------------------------------------*/
+#content .eventkekka p.outline{
+	margin:0px 0px 5px 0px;
+	padding:0px 5px 8px 8px;
+	border:none;
+	border-bottom:1px dotted #CCC;
+}
+/* イベント日
+------------------------------------------------------------------------------*/
+#content .eventkekka p.day{
+	margin:0px 0px 5px 0px;
+	padding:0px 0px 0px 8px;
+	font-size:90%;
+}
+/* イベント日（隔週）
+------------------------------------------------------------------------------*/
+#content .eventkekka p.eyear{
+	margin:0px 0px 5px 0px;
+	padding:0px 0px 0px 10px;
+	width:70px;
+	float:left;
+	display:inline;
+	font-size:90%;
+}
+#content .eventkekka p.eday{
+	margin:0px 0px 5px 100px;
+	padding:0px 0px 0px 10px;
+	font-size:90%;
+	border-left:1px solid #CCC;
+}
+/* イベント詳細
+------------------------------------------------------------------------------*/
+#content .eventkekka p.eventdetail{
+	margin:0px;
+	padding:5px 5px 0px 0px;
+	clear:both;
+	font-size:90%;
+	border-top:1px dotted #CCC;
+	text-align:right;
+}
+#content .eventkekka p.eventdetail a{
+	padding:2px 0px 2px 20px;
+	background:url(images/event/mark_detail.gif) no-repeat left 3px;
+}
+/*==============================================================================
+	イベントカレンダースマホ連携ボタン
+==============================================================================*/
+#content .evt{
+	margin:25px 25px 15px 25px;
+	padding:15px 0px 15px 5px;
+	clear:both;
+	zoom:1;
+	border:3px solid #fbdfa2;
+	text-align:left;
+}
+#content .evt a{
+	padding:3px 0px 3px 20px;
+	background:url(images/content/mark_ul.gif) no-repeat 3px 7px;
+}
+#content .evt p{
+	margin:0px 15px 15px 15px ;
+}
+#smenu{
+	position:relative;
+	zoom:1;
+}
+#smenu .scate a{
+	padding-left:0px;
+	background:none;
+}
+/*　説明文　*/
+#content #smenu .scate p.evtcoop{
+	margin:0px 0px 0px 15px;
+	padding:15px;
+	width:320px;
+	display:none;
+	z-index:100;
+	position:absolute;
+	overflow:hidden;
+	background:#FFF none;
+	border:2px solid #c87dae;
+}
+#content #smenu .scate p{
+	margin:0px 0px 0px 0px;
+}
+#content #smenu .scate p input{
+	margin:0px 0px 0px 15px;
+	vertical-align:bottom;
+}
+#content #smenu .tismenu,#content #smenu .tismenuov{
+	float:left;
+	display:inline;
+}
+a.help img{
+	margin-left:8px;
+	margin-right:12px;
+}
+.title{
+	margin-bottom:10px;
+	text-align:left;
+	font-weight:bold;
+	display:block;
+}
+#content .attention{
+	margin:0px;
+	padding:2px 8px 2px 8px;
+	font-weight:bold;
+	color:#A80000;
+	background:#fcf9c7;
+	border:none;
+}
+/*　ヘルプ　*/
+#content #smenu .scate p img,#content2 #smenu .scate p img{
+	vertical-align:bottom;
+}
+#content #smenu .scate input,#content2 #smenu .scate input{
+	margin-right:10px;
+	padding:0px;
+}
+/*--- Googleカレンダーに複数取込画面　---*/
+#wrapcal{
+	margin:0px auto 0px auto;
+	width:100%;
+	font-size:85%;
+}
+#wrapcal #header,#wrapcal #tpath,#wrapcal #pagebody,#wrapcal #content2{
+	width:100%;
+}
+#wrapcal #tlogo{
+	width:153px;
+}
+#wrapcal #tlogo p{
+	margin:0px 0px 8px 0px;
+}
+#wrapcal #tpath p{
+	margin:0px 10px 5px 10px;
+}
+#wrapcal #content2{
+	margin-bottom:0px;
+}
+#wrapcal #content2 p{
+	margin:0px 25px 20px 25px;
+	text-align:left;
+}
+#wrapcal #checkbox{
+	margin:20px 20px 40px 20px;
+	padding:20px 10px 20px 10px;
+	border:3px solid #E8DCE7;
+}
+#wrapcal #checkbox p{
+	margin:0px 0px 0px 0px;
+	text-align:center;
+}
+#wrapcal #checkbox .checkboxwrap{
+	margin:0px 0px 0px 10px;
+	padding:25px 0px 0px 0px;
+}
+#wrapcal #checkbox .checkboxwrap input{
+	margin:0px 10px 0px 0px;
+	vertical-align:middle;
+}
+#wrapcal #checkbox .checkboxwrap label{
+	display:block;
+	margin:-17px 0px 10px 25px;
+}
+#wrapcal #checkbox .eventcheck{
+	margin:0px 0px 0px 0px;
+}
+#wrapcal #checkbox .eventcheck input{
+	margin:0px 5px 0px 5px;
+	padding:8px 10px 8px 10px;
+}
+#wrapcal #checkbox .eventcheck button{
+	margin:5px 5px 20px 5px;
+	padding:8px 10px 8px 10px;
+	font-size:100%;
+}
+#wrapcal #checkbox p.order{
+	margin:10px 0px 10px 0px;
+	font-size:100%;
+	font-weight:bold;
+	color:#9b0d67;
+	text-align:left;
+}
+#wrapcal #checkbox p.order a{
+	margin:0px 0px 0px 10px;
+	font-weight:normal;
+}
+#wrapcal #checkbox p.end{
+	margin:0px 10px 15px 10px;
+	padding:6px;
+	font-size:100%;
+	font-weight:bold;
+	color:#A80000;
+	border:1px solid #A80000;
+	text-align:center;
+}
+#wrapcal #content2 #inputerror{
+	margin:0px 10px 20px 10px;
+	padding:0px;
+	background:none;
+}
+#wrapcal #content2 #inputerror p{
+	font-weight:normal;
+	color:inherit;
+	text-align:left;
+}
+#wrapcal #content2 #inputerror li{
+	line-height:1.4;
+}
+/*==============================================================================
+	マップ
+==============================================================================*/
+/*------------------------------------------------------------------------------
+	マップ詳細ページ
+------------------------------------------------------------------------------*/
+#map_canvas{
+	margin:0px auto 25px auto;
+	width:680px;
+	height:500px;
+	border:1px solid #CCC;
+}
+.mapfukidashi{
+	height:85px;
+	font-size:95%;
+	text-align:left;
+}
+/* IE6吹き出しの幅調整
+------------------------------------------------------------------------------*/
+* html .mapfukidashi{
+	width:250px;
+}
+.mapfukidashi div.mapimage{
+	width:108px;
+	float:left;
+}
+/*==============================================================================
+	審議会トップ
+==============================================================================*/
+.thwst1{
+	width:26%;
+}
+.thwst2{
+	width:16%;
+}
+.thwst4{
+	width:8%;
+}
+/*==============================================================================
+	審議会詳細
+==============================================================================*/
+table ruby{
+	ruby-align:left;
+}
+table rt{
+	font-size:80%;
+}
+/*******************************************************************************
+[2] 共通スタイル]
+*******************************************************************************/
+/*==============================================================================
+	文字サイズ・背景色の変更ボタン
+==============================================================================*/
+p.change a,p.bannertxt2 a{
+	margin:0px 5px 10px 5px;
+	padding:6px 8px 6px 8px;
+	display:inline-block;
+	color:#333;
+	background:#FFFFFF url(images/parts/menu_bg.gif) repeat-x left bottom;
+	border:1px solid #CCCCCC;
+	text-decoration:none;
+	white-space:nowrap;
+}
+p.change a:hover,p.bannertxt2 a:hover{
+	background:#F5F5F5;
+}
+/*==============================================================================
+	サイドメニュー
+==============================================================================*/
+/*------------------------------------------------------------------------------
+	テキストリンク・画像リンク、バナーテキストリンク
+------------------------------------------------------------------------------*/
+.sidelink{
+	margin-bottom:20px;
+}
+.sidelink h2{
+	margin-bottom:0px;
+	padding:8px 5px 8px 5px;
+	font-size:100%;
+	border-top:2px solid #A2720A;
+}
+.sidelink p{
+	padding:0px 5px 10px 5px;
+}
+/* テキストリンク
+------------------------------------------------------------------------------*/
+.sidelink ul{
+	margin:0px 0px 15px 0px;
+	list-style-type:none;
+}
+.sidelink ul li{
+	margin-left:5px;
+	margin-bottom:8px;
+	padding-left:13px;
+	background:url(images/content/mark_diamond.gif) no-repeat left 4px;
+	line-height:1.4;
+}
+/* 画像リンク
+------------------------------------------------------------------------------*/
+.sidelink ul li.imglink{
+	margin-left:0px;
+	padding-left:0px;
+	background:none;
+}
+/*------------------------------------------------------------------------------
+	バナーテキストリンク
+------------------------------------------------------------------------------*/
+.bannertxt{
+	margin-bottom:20px;
+}
+.bannertxt ul{
+	list-style-type:none;
+}
+.bannertxt ul li{
+	margin-bottom:8px;
+	background:#fefefe url(images/content/bannertxt_bg.gif) repeat-x left bottom;
+	border-left:5px solid #A2720A;
+	line-height:1.4;
+}
+.bannertxt ul li a{
+	padding:10px 5px 8px 10px;
+	display:block;
+	font-weight:bold;
+	color:#2d2d2d;
+	border-top:1px solid #A5A297;
+	border-right:1px solid #A5A297;
+	border-bottom:1px solid #A5A297;
+	text-decoration:none;
+}
+.bannertxt ul li a span{
+	font-weight:normal;
+	font-size:70%;
+}
+/*==============================================================================
+	新着更新情報
+==============================================================================*/
+/*==============================================================================
+	#content内お知らせ
+==============================================================================*/
+.news,#content div.news,#content2 div.news{
+	margin-bottom:20px;
+	border:1px solid #CCA11E;
+}
+#content div.news,#content2 div.news{
+	margin-left:15px;
+	margin-right:15px;
+}
+.news h2,#content div.news h2,#content2 div.news h2{
+	margin:0px 0px 5px 0px;
+	padding:10px 10px 8px 10px;
+	font-size:110%;
+	color:#2d2d2d;
+	background:#F3EFE0;
+	line-height:1.4;
+}
+.news ul,#content div.news ul,#content2 div.news ul{
+	margin:0px 10px 4px 10px;
+	list-style-type:none;
+}
+.news ul li,#content div.news ul li,#content2 div.news ul li{
+	margin-bottom:0px;
+	padding:5px 0px 5px 0px;
+	border-bottom:1px dotted #CCCCCC;
+}
+#content div.news ul li,#content2 div.news ul li{
+	padding-left:18px;
+	background:url(images/content/mark_diamond.gif) no-repeat left 10px;
+	border:none;
+}
+.news ul li span.date{
+	padding:0px 0px 0px 5px;
+	width:135px;
+	float:left;
+	color:#666666;
+}
+.news li img{
+	padding:4px 5px 0px 0px;
+	float:left;
+	vertical-align:middle;
+}
+#p1content .news li img,
+#p2content .news li img,
+#p3content .news li img{
+	padding:4px 15px 0px 0px;
+}
+.news ul li span.newsli{
+	padding:0px 5px 0px 0px;
+	width:540px;
+	float:left;
+}
+#p1content .news ul li span.newsli{
+	width:742px;
+}
+#p2content .news ul li span.newsli{
+	width:532px;
+}
+#p3content .news ul li span.newsli{
+	width:322px;
+}
+/*==============================================================================
+	トピックス
+==============================================================================*/
+.topics{
+	margin:0px 0px 20px 0px;
+	border:1px solid #CCA11E;
+}
+#faq .topics{
+	margin:0px 15px 20px 15px;
+}
+.topics h2,#faq .topics h2,#petit .topics h2{
+	margin:0px 0px 12px 0px;
+	padding:10px 10px 8px 10px;
+	font-size:110%;
+	color:#2d2d2d;
+	background:#F3EFE0;
+	border:none;
+	line-height:1.4;
+}
+.topics ul{
+	margin:0px 10px 10px 15px;
+	list-style-type:none;
+}
+.topics ul li{
+	margin-bottom:10px;
+	padding-left:20px;
+	background:url(images/content/mark_diamond.gif) no-repeat left 5px;
+	line-height:1.4;
+}
+/*==============================================================================
+	お問い合わせCGI
+==============================================================================*/
+#content2 dd input,#content2 dd textarea{
+	padding:3px;
+}
+#content2 dd input[type="radio"]{
+	margin-right:4px;
+}
+#content2 dd input[type="text"],#content2 dd textarea{
+	width:80%;
+}
+#content2 dd input#nmtxt1,
+#content2 dd input#id_mailtxt1,
+#content2 dd input#id_mailtxt2,
+#content2 dd input#id_kenmei{
+	width:450px;
+}
+#content2 dd input#id_pref{
+	width:500px;
+}
+#content2 dd input#id_teltxt{
+	width:150px;
+}
+#content2 dd input#id_postcodetxt{
+	width:100px;
+}
+#content2 dd input#id_age{
+	width:50px;
+}
+#content2 dd textarea#id_naiyoutxt{
+	width:450px;
+	height:150px;
+}
+#content2 p.textcenter input{
+	padding:3px 10px 3px 10px;
+}
+#content2 dl dt img{
+	vertical-align:middle;
+}
+/* 入力制限
+------------------------------------------------------------------------------*/
+.limited{
+	font-weight:normal;
+	font-size:90%;
+}
+/* エラーメッセージ表示
+------------------------------------------------------------------------------*/
+#content2 div#inputerror{
+	margin:0px 20px 20px 20px;
+	padding:8px;
+	background-color:#FFE8E8;
+	border:1px solid #900;
+}
+#content2 div#inputerror p{
+	margin:0px;
+	padding:10px 10px 10px 15px;
+	color:#900;
+	font-weight:bold;
+	background-color:#FFF;
+}
+#content2 div#inputerror ul{
+	margin:0px;
+	padding:0px 10px 10px 40px;
+	background-color:#FFF;
+}
+/*==============================================================================
+	広告欄（トップページ、セカンドトップ）
+==============================================================================*/
+#sad,#sadfloat{
+	margin:0px auto 0px auto;
+	padding:10px 0px 3px 0px;
+	width:950px;
+	clear:both;
+	background-color:#FFFFFF;
+	text-align:left;
+}
+#sadfloat{
+	display:none;
+}
+#sad .sadftitle{
+	padding-left:25px;
+	width:900px;
+}
+#sadfloat .sadftitle{
+	padding-left:25px;
+	width:845px;
+}
+#second #sad{
+	border-top:8px solid #e9e6dc;
+	margin:0px;
+}
+#sad h2,#sadfloat h2{
+	padding:0px 5px 6px 0px;
+	width:51px;
+	float:left;
+	font-size:90%;
+}
+#sad p,#sadfloat p{
+	margin:0px 0px 4px 0px;
+	padding:0px 4px 0px 0px;
+	width:auto;
+	display:inline;
+	font-size:90%;
+}
+#sad ul,#sadfloat ul{
+	margin:0px 0px 0px 25px;
+	padding-top:6px;
+	clear:both;
+	list-style-type:none;
+}
+#sad ul:after,#sadfloat ul:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+#sad ul li,#sadfloat li{
+	margin:0px 12px 8px 0px;
+	float:left;
+	display:inline;
+}
+#sadfloat{
+	border-top:1px solid #e5e1d3;
+}
+#sadfloat p.sadclose{
+	padding:3px 6px 3px 6px;
+	width:auto;
+	float:none;
+	display:inline-block;
+	position:absolute;
+	top:10px;
+	right:26px;
+	background:#dddddd;
+}
+#sadfloat p.sadclose a{
+	color:#333333;
+}
+/*==============================================================================
+	リンク集(2列、3列、4列)	
+==============================================================================*/
+#content ul.link2,
+#content ul.link3,
+#content ul.link4,
+#content2 ul.link2,
+#content2 ul.link3,
+#content2 ul.link4{
+	margin-left:20px;
+	clear:both;
+	list-style-type:none;
+}
+#content ul.link2:after,
+#content ul.link3:after,
+#content ul.link4:after,
+#content2 ul.link2:after,
+#content2 ul.link3:after,
+#content2 ul.link4:after{
+    content:""; 
+    display:block; 
+    clear:both;
+}
+#content ul.link2 li,
+#content2 ul.link2 li{
+	margin:0px 5px 10px 0px;
+	padding:0px 0px 0px 20px;
+	width:46%;
+	float:left;
+	background:url(images/header/mark_ul.gif) no-repeat 5px 5px;
+}
+#content ul.link3 li,
+#content2 ul.link3 li{
+	margin:0px 5px 10px 0px;
+	padding:0px 0px 0px 20px;
+	width:29%;
+	float:left;
+	background:url(images/header/mark_ul.gif) no-repeat 5px 5px;
+}
+#content ul.link4 li,
+#content2 ul.link4 li{
+	margin:0px 5px 10px 0px;
+	padding:0px 0px 0px 20px;
+	width:21%;
+	float:left;
+	background:url(images/header/mark_ul.gif) no-repeat 5px 5px;
+}

@@ -1,0 +1,32 @@
+@charset "utf-8";
+/*******************************************************************************
+	CKエディタ（強調はstrongタグで設定）
+*******************************************************************************/
+.red{
+	color:#A80000;
+}
+.blue{
+	color:#0740C2;
+}
+.green{
+	color:#175839;
+}
+.purple{
+	color:#3D2275;
+}
+.underline{
+	text-decoration:underline;
+}
+.big{
+	font-size:120%!important;
+}
+.boxnormal{
+	margin:15px;
+	padding:10px 12px 10px 12px;
+	border:1px solid #aaa;
+}
+.boxnotice{
+	margin:15px;
+	padding:12px 14px 10px 14px;
+	border:2px solid #A80000;
+}
