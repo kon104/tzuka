@@ -1,5 +1,34 @@
 <?php
 
+require_once("./MyCurl.class.inc");
+
+	$csvUrls = array(
+		"https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/govt-services.csv"
+	);
+	$results = MyCurl::execMulti($csvUrls);
+
+
+	$services = explode("\r\n", $results[0]['body']);
+	unset($services[0]);
+	$services = array_values($services);
+
+	$ages = array();
+	foreach($services as $idx => $service) {
+		$items = str_getcsv($service);
+
+		$age = array();
+		if ($items[1] === "1") $age[] = "\"age40\"";
+		if ($items[2] === "1") $age[] = "\"age50\"";
+		if ($items[3] === "1") $age[] = "\"age60\"";
+		if ($items[4] === "1") $age[] = "\"age65\"";
+		if ($items[5] === "1") $age[] = "\"age70\"";
+		if ($items[6] === "1") $age[] = "\"age75\"";
+		$ages[$idx] = "[" . implode(",", $age) . "]";
+
+		$services[$idx] = $items;
+	}
+
+
 ?>
 <html>
 <head>
@@ -28,7 +57,7 @@
 
 #animationList li {
     width: 500px;
-//    height: 220px;
+    height: 100px;
 //    padding: 10px;
 //    float: left;
 //    color: #fff;
@@ -48,7 +77,8 @@
 <div>あなたの年齢は？</div>
 <div>
 	<input type="text" class="dial" value="60"
-		data-max="120"
+		data-min="30"
+		data-max="80"
 		data-angleOffset="-125"
 		data-angleArc="250"
 		data-fgColor="mediumorchid"
@@ -56,13 +86,6 @@
 	>
 </div>
 
-<script>
-	$(".dial").knob({
-		'release' : function(v) {
-			console.log(v);
-		}
-	});
-</script>
 
 <hr />
 
@@ -70,41 +93,48 @@
 
 <ul id="btn">
     <li data-group="all" class="active alpha">ALL</li>
-    <li data-group="red" class="alpha">RED</li>
-    <li data-group="blue" class="alpha">BLUE</li>
-    <li data-group="green" class="alpha">GREEN</li>
-    <li data-group="yellow" class="alpha">YELLOW</li>
-
 	<li data-group="age40" class="alpha">40-49</li>
 	<li data-group="age50" class="alpha">50-59</li>
-	<li data-group="age60" class="alpha">60-69</li>
+	<li data-group="age60" class="alpha">60-64</li>
+	<li data-group="age65" class="alpha">65-69</li>
 	<li data-group="age70" class="alpha">70-74</li>
 	<li data-group="age75" class="alpha">75-</li>
 </ul>
+
 <ul id="animationList">
-    <li data-groups='["age70","age75"]'><div>バス・タクシー運賃の一部助成</div></li>
-
-
-    <li data-groups='["red"]'><span class="red">RED</span></li>
-    <li data-groups='["yellow","red"]'><span class="yellow">YELLOW / RED</span></li>
-    <li data-groups='["blue"]'><span class="blue">BLUE</span></li>
-    <li data-groups='["green"]'><span class="green">GREEN</span></li>
-    <li data-groups='["green"]'><span class="green">GREEN</span></li>
-    <li data-groups='["yellow"]'><span class="yellow">YELLOW</span></li>
-    <li data-groups='["blue"]'><span class="blue">BLUE</span></li>
-    <li data-groups='["red"]'><span class="red">RED</span></li>
-    <li data-groups='["red"]'><span class="red">RED</span></li>
-    <li data-groups='["blue"]'><span class="blue">BLUE</span></li>
-    <li data-groups='["yellow"]'><span class="yellow">YELLOW</span></li>
-    <li data-groups='["green"]'><span class="green">GREEN</span></li>
+<?php
+	foreach($services as $idx => $items) {
+		echo "\t<li data-groups='$ages[$idx]'><div>$items[0]</div></li>\n";
+	}
+?>
 </ul>
 
 </div>
 
 <script>
+$(function() {
+	$(".dial").knob({
+		'release' : function(v) {
+			console.log(v);
+
+			var $age = "age0";
+			if (v >= 75) $age = "age75"; 
+			else if (v >= 70) $age = "age70";
+			else if (v >= 65) $age = "age65";
+			else if (v >= 60) $age = "age60";
+			else if (v >= 50) $age = "age50";
+			else if (v >= 40) $age = "age40";
+
+			var $grid = $('#animationList');
+			$grid.shuffle($age);
+		}
+	});
+});
+</script>
+
+<script>
     $(function() {
         $('#btn li').on('click', function() {
-console.log("Start");
             var $this = $(this),
                 $grid = $('#animationList');
                  
