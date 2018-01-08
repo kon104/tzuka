@@ -17,6 +17,13 @@
 	foreach($services as $idx => $service) {
 		$items = str_getcsv($service);
 
+		foreach($items as $j => $item) {
+			$item = str_replace("\n", "<br/>", $item);
+			if ($item === "") $item = "---";
+			$items[$j] = $item;
+		}
+		$services[$idx] = $items;
+
 		$age = array();
 		if ($items[1] === "1") $age[] = "\"age40\"";
 		if ($items[2] === "1") $age[] = "\"age50\"";
@@ -25,10 +32,11 @@
 		if ($items[5] === "1") $age[] = "\"age70\"";
 		if ($items[6] === "1") $age[] = "\"age75\"";
 		$ages[$idx] = "[" . implode(",", $age) . "]";
-
-		$services[$idx] = $items;
 	}
 
+	$default = array();
+	$default['age'] = 60;
+	$default['filter'] = "age60";
 
 ?>
 <html>
@@ -44,59 +52,49 @@
 	GenerateHtml::jsBootStrap();
 ?>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
-<!--
-<script type="text/javascript" src="http://www.n--log.net/demo/js/jquery.shuffle.min.js"></script>
--->
 
 <style>
-/*
-#btn {
-    overflow: hidden;
-    margin-bottom: 40px;
-}
- 
-#btn li {
-    float: left;
-    margin: 10px;
-    cursor: pointer;
-}
-*/
- 
-/*
-#animationList {
-	list-style: none;
-//    overflow: hidden;
+.mybody { 
+	padding-top: 10px;
 }
 
-#animationList li {
-    width: 500px;
-    height: 100px;
-//    padding: 10px;
-//    float: left;
-//    color: #fff;
+#age_title {
+	text-align: center;
 }
- 
-#animationList li span {
-//    display: block;
-//    width: 180px;
-//    height: 180px;
-//    padding: 20px;
+
+#age_chart {
+	text-align: center;
 }
-*/
+
+#list_filter ul {
+	padding: 0px;
+}
+#list_filter li {
+	display: inline;
+	padding: 0 5px;
+}
+
+#list_service th {
+	white-space: nowrap;
+}
+
 </style>
 
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="container-fluid mybody">
 	<div class="row">
-		<div class="col-sm-5">
+		<div class="col-sm-6">
 
-<div>あなたの年齢は？</div>
-<div>
-	<input type="text" class="dial" value="60"
+<div id="age_title"><h2>あなたの年齢は？</h2></div>
+<div id="age_chart">
+	<input type="text" class="dial"
+		value="<?php echo $default['age']; ?>"
 		data-min="30"
 		data-max="80"
+		data-width="300"
+		data-height="270"
 		data-angleOffset="-125"
 		data-angleArc="250"
 		data-fgColor="mediumorchid"
@@ -105,9 +103,10 @@
 </div>
 
 		</div>
-		<div class="col-sm-7">
+		<div class="col-sm-6">
 
-<div>
+<!--
+<div id="list_filter">
 	<ul class="filters">
 		<li data-filter="all" class="active alpha">全て</li>
 		<li data-filter="age40" class="alpha">40 〜 49歳</li>
@@ -118,14 +117,36 @@
 		<li data-filter="age75" class="alpha">75歳以上</li>
 	</ul>
 </div>
-<div>
-	<ul class="boxes">
+-->
+
+<div id="list_service" class="boxes">
 <?php
 	foreach($services as $idx => $items) {
-		echo "\t<li data-groups='$ages[$idx]'><div>$items[0]</div></li>\n";
+		echo "\t<div class=\"card2\" data-groups='$ages[$idx]'>\n";
+
+		echo "\t<h4><a class=\"list-group-item\" data-toggle=\"collapse\" data-parent=\"#list_service\" href=\"#service$idx\">$items[0]</a></h4>\n";
+
+		echo "\t<div id=\"service$idx\" class=\"panel-collapse collapse\">\n";
+		echo "\t<div class=\"card-body\">\n";
+
+		echo "<table class=\"table table-bordered table-hover\">\n";
+		echo "<tr><th class=\"table-info\">居住要件</th><td>$items[8]</td></tr>\n";
+		echo "<tr><th>所得要件</th><td>$items[10]</td></tr>\n";
+		echo "<tr><th>介護要件</th><td>$items[11]</td></tr>\n";
+		echo "<tr><th>障害要件</th><td>$items[12]</td></tr>\n";
+		echo "<tr><th>その他<br />要件</th><td>$items[14]</td></tr>\n";
+		echo "<tr><th>窓口</th><td>$items[16]</td></tr>\n";
+		echo "<tr><th>内容</th><td>$items[17]</td></tr>\n";
+		echo "<tr><th>自己負担</th><td>$items[18]</td></tr>\n";
+		echo "<tr><th>備考</th><td>$items[19]</td></tr>\n";
+		echo "</table>\n";
+
+		echo "\t</div>\n";
+		echo "\t</div>\n";
+
+		echo "\t</div>\n";
 	}
 ?>
-	</ul>
 </div>
 
 		</div>
@@ -157,6 +178,8 @@ $(function() {
 
 	var filters = $('.filters [data-filter]'),
 	    boxes = $('.boxes [data-groups]');
+
+	showFilterItems(boxes, "<?php echo $default['filter']; ?>");
 
 	filters.on('click', function(e) {
 		e.preventDefault();
