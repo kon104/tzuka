@@ -1,6 +1,7 @@
 <?php
 
-require_once("./MyCurl.class.inc");
+	require_once("./MyCurl.class.inc");
+	require_once("./GenerateHtml.class.inc");
 
 	$csvUrls = array(
 		"https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/govt-services.csv"
@@ -32,8 +33,16 @@ require_once("./MyCurl.class.inc");
 ?>
 <html>
 <head>
+<meta http-equiv="Content-Type" Content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<?php
+	GenerateHtml::cssBootStrap();
+?>
+<?php
+	GenerateHtml::jsJQuery();
+	GenerateHtml::jsBootStrap();
+?>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
 <script type="text/javascript" src="http://www.n--log.net/demo/js/jquery.shuffle.min.js"></script>
 
@@ -52,6 +61,7 @@ require_once("./MyCurl.class.inc");
 */
  
 #animationList {
+	list-style: none;
 //    overflow: hidden;
 }
 
@@ -74,45 +84,59 @@ require_once("./MyCurl.class.inc");
 </head>
 <body>
 
-<div>あなたの年齢は？</div>
-<div>
-	<input type="text" class="dial" value="60"
-		data-min="30"
-		data-max="80"
-		data-angleOffset="-125"
-		data-angleArc="250"
-		data-fgColor="mediumorchid"
-		data-linecap="round"
-	>
-</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-5">
 
+	<div>あなたの年齢は？</div>
+	<div>
+		<input type="text" class="dial" value="60"
+			data-min="30"
+			data-max="80"
+			data-angleOffset="-125"
+			data-angleArc="250"
+			data-fgColor="mediumorchid"
+			data-linecap="round"
+		>
+	</div>
 
-<hr />
+		</div>
+		<div class="col-sm-7">
 
-<div>
-
-<ul id="btn">
-    <li data-group="all" class="active alpha">ALL</li>
-	<li data-group="age40" class="alpha">40-49</li>
-	<li data-group="age50" class="alpha">50-59</li>
-	<li data-group="age60" class="alpha">60-64</li>
-	<li data-group="age65" class="alpha">65-69</li>
-	<li data-group="age70" class="alpha">70-74</li>
-	<li data-group="age75" class="alpha">75-</li>
-</ul>
-
-<ul id="animationList">
+	<div>
+		<ul id="btn">
+			<li data-group="all" class="active alpha">ALL</li>
+			<li data-group="age40" class="alpha">40-49</li>
+			<li data-group="age50" class="alpha">50-59</li>
+			<li data-group="age60" class="alpha">60-64</li>
+			<li data-group="age65" class="alpha">65-69</li>
+			<li data-group="age70" class="alpha">70-74</li>
+			<li data-group="age75" class="alpha">75-</li>
+		</ul>
+		<ul id="animationList">
 <?php
 	foreach($services as $idx => $items) {
 		echo "\t<li data-groups='$ages[$idx]'><div>$items[0]</div></li>\n";
 	}
 ?>
-</ul>
+		</ul>
+	</div>
 
+		</div>
+	</div>
 </div>
 
 <script>
+
 $(function() {
+/*
+	$('#animationList').shuffle({
+//		group: 'all',
+		group: 'age60',
+		speed: 700,
+		easing: 'ease-in-out'
+	});
+*/
 	$(".dial").knob({
 		'release' : function(v) {
 			console.log(v);
@@ -129,29 +153,20 @@ $(function() {
 			$grid.shuffle($age);
 		}
 	});
-});
-</script>
-
-<script>
-    $(function() {
-        $('#btn li').on('click', function() {
-            var $this = $(this),
-                $grid = $('#animationList');
+/*
+	$('#btn li').on('click', function() {
+		var $this = $(this),
+		    $grid = $('#animationList');
                  
-            $('#btn .active').removeClass('active');
-            $this.addClass('active');
-            $grid.shuffle($this.data('group'));
-//            $grid.shuffle("age70");
-        });
-        $('#animationList').shuffle({
-            group: 'all',
-            speed: 700,
-            easing: 'ease-in-out'
-        });
-    });
+		$('#btn .active').removeClass('active');
+		$this.addClass('active');
+		$grid.shuffle($this.data('group'));
+//		$grid.shuffle("age70");
+	});
+*/
+});
+
 </script>
-
-
 
 </body>
 </html>
