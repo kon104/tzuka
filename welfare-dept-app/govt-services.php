@@ -44,7 +44,9 @@
 	GenerateHtml::jsBootStrap();
 ?>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
+<!--
 <script type="text/javascript" src="http://www.n--log.net/demo/js/jquery.shuffle.min.js"></script>
+-->
 
 <style>
 /*
@@ -60,6 +62,7 @@
 }
 */
  
+/*
 #animationList {
 	list-style: none;
 //    overflow: hidden;
@@ -79,6 +82,7 @@
 //    height: 180px;
 //    padding: 20px;
 }
+*/
 </style>
 
 </head>
@@ -88,39 +92,41 @@
 	<div class="row">
 		<div class="col-sm-5">
 
-	<div>あなたの年齢は？</div>
-	<div>
-		<input type="text" class="dial" value="60"
-			data-min="30"
-			data-max="80"
-			data-angleOffset="-125"
-			data-angleArc="250"
-			data-fgColor="mediumorchid"
-			data-linecap="round"
-		>
-	</div>
+<div>あなたの年齢は？</div>
+<div>
+	<input type="text" class="dial" value="60"
+		data-min="30"
+		data-max="80"
+		data-angleOffset="-125"
+		data-angleArc="250"
+		data-fgColor="mediumorchid"
+		data-linecap="round"
+	>
+</div>
 
 		</div>
 		<div class="col-sm-7">
 
-	<div>
-		<ul id="btn">
-			<li data-group="all" class="active alpha">ALL</li>
-			<li data-group="age40" class="alpha">40-49</li>
-			<li data-group="age50" class="alpha">50-59</li>
-			<li data-group="age60" class="alpha">60-64</li>
-			<li data-group="age65" class="alpha">65-69</li>
-			<li data-group="age70" class="alpha">70-74</li>
-			<li data-group="age75" class="alpha">75-</li>
-		</ul>
-		<ul id="animationList">
+<div>
+	<ul class="filters">
+		<li data-filter="all" class="active alpha">全て</li>
+		<li data-filter="age40" class="alpha">40 〜 49歳</li>
+		<li data-filter="age50" class="alpha">50 〜 59歳</li>
+		<li data-filter="age60" class="alpha">60 〜 64歳</li>
+		<li data-filter="age65" class="alpha">65 〜 69歳</li>
+		<li data-filter="age70" class="alpha">70 〜 74歳</li>
+		<li data-filter="age75" class="alpha">75歳以上</li>
+	</ul>
+</div>
+<div>
+	<ul class="boxes">
 <?php
 	foreach($services as $idx => $items) {
 		echo "\t<li data-groups='$ages[$idx]'><div>$items[0]</div></li>\n";
 	}
 ?>
-		</ul>
-	</div>
+	</ul>
+</div>
 
 		</div>
 	</div>
@@ -128,42 +134,62 @@
 
 <script>
 
-$(function() {
-/*
-	$('#animationList').shuffle({
-//		group: 'all',
-		group: 'age60',
-		speed: 700,
-		easing: 'ease-in-out'
+function showAllItems(boxes)
+{
+	boxes.removeClass('is-animated')
+		.fadeOut().promise().done(function() {
+			boxes.addClass('is-animated').fadeIn();
 	});
-*/
+}
+
+function showFilterItems(boxes, filter)
+{
+	boxes.removeClass('is-animated')
+		.fadeOut().promise().done(function() {
+			boxes.filter('[data-groups *= "' + filter + '"]')
+				.addClass('is-animated').fadeIn();
+	});
+}
+
+$(function() {
+
+	'use strict';
+
+	var filters = $('.filters [data-filter]'),
+	    boxes = $('.boxes [data-groups]');
+
+	filters.on('click', function(e) {
+		e.preventDefault();
+		var self = $(this);
+
+//		filters.removeClass('active');
+//		self.addClass('active');
+
+		var filter = self.attr('data-filter');
+
+		if (filter == 'all') {
+			showAllItems(boxes);
+		} else {
+			showFilterItems(boxes, filter);
+		}
+	});
+
 	$(".dial").knob({
 		'release' : function(v) {
 			console.log(v);
 
-			var $age = "age0";
-			if (v >= 75) $age = "age75"; 
-			else if (v >= 70) $age = "age70";
-			else if (v >= 65) $age = "age65";
-			else if (v >= 60) $age = "age60";
-			else if (v >= 50) $age = "age50";
-			else if (v >= 40) $age = "age40";
+			var filter = "age0";
+			if (v >= 75) filter = "age75"; 
+			else if (v >= 70) filter = "age70";
+			else if (v >= 65) filter = "age65";
+			else if (v >= 60) filter = "age60";
+			else if (v >= 50) filter = "age50";
+			else if (v >= 40) filter = "age40";
 
-			var $grid = $('#animationList');
-			$grid.shuffle($age);
+		    var boxes = $('.boxes [data-groups]');
+			showFilterItems(boxes, filter);
 		}
 	});
-/*
-	$('#btn li').on('click', function() {
-		var $this = $(this),
-		    $grid = $('#animationList');
-                 
-		$('#btn .active').removeClass('active');
-		$this.addClass('active');
-		$grid.shuffle($this.data('group'));
-//		$grid.shuffle("age70");
-	});
-*/
 });
 
 </script>
