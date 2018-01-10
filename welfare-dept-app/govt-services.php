@@ -42,6 +42,8 @@
 	$default['age'] = 60;
 	$default['filter'] = "age60";
 
+	$myurl = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+
 ?>
 <html>
 <head>
@@ -73,6 +75,14 @@ body {
 
 #service_count {
 	text-align: center;
+}
+
+#qrcode {
+	text-align: center;
+}
+
+#qrcode div {
+	padding: 5 0px;
 }
 
 #list_filter ul {
@@ -115,6 +125,11 @@ body {
 	>
 </div>
 <div id="service_count"><h5></h5></div>
+
+<div id="qrcode" class="d-none d-sm-block">
+	<div><img src="http://chart.apis.google.com/chart?chs=150x150&cht=qr&chl=<?php echo urlencode($myurl); ?>"></div>
+	<div><h6>スマートフォンで<br />アクセス</h6></div>
+</div>
 
 		</div>
 		<div class="col-sm-6">
