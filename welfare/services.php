@@ -65,6 +65,13 @@ body {
 	background-color: #FFFFAA;
 }
 
+.container-fluid
+{
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 900px;
+}
+
 #age_title {
 	text-align: center;
 }
@@ -108,7 +115,7 @@ body {
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-sm-5">
 
 <div id="age_title"><h2>あなたの年齢は？</h2></div>
 <div id="age_chart">
@@ -132,7 +139,7 @@ body {
 </div>
 
 		</div>
-		<div class="col-sm-6">
+		<div class="col-sm-7">
 
 <!--
 <div id="list_filter">
