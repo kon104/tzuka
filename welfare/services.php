@@ -3,6 +3,9 @@
 	require_once("./MyCurl.class.inc");
 	require_once("./GenerateHtml.class.inc");
 
+	define("FONT_CHK", "<i class=\"fa fa-check-square-o\" aria-hidden=\"true\">%s</i>&nbsp;");
+
+
 	$csvUrls = array(
 		"https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/govt-services.csv"
 	);
@@ -85,6 +88,7 @@
 <?php
 	GenerateHtml::cssBootStrap();
 ?>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 <?php
 	GenerateHtml::jsJQuery();
 	GenerateHtml::jsBootStrap();
@@ -192,13 +196,20 @@ body {
 	foreach($services as $idx => $items) {
 		echo "\t<div class=\"card mb-2\" data-groups='$ages[$idx]'>\n";
 
-//		echo "\t<div class=\"card-header\"><h4><a data-toggle=\"collapse\" data-parent=\"#list_service\" href=\"#service$idx\">$items[0]</a></h4></div>\n";
 		echo "\t<div class=\"card-header\"><a data-toggle=\"collapse\" data-parent=\"#list_service\" href=\"#service$idx\"><h4>$items[0]</h4></a></div>\n";
 
 		echo "\t<div id=\"service$idx\" class=\"collapse\">\n";
 		echo "\t<div class=\"card-body\">\n";
 
 		echo "<table class=\"table table-bordered table-hover\">\n";
+		echo "<tr><th class=\"table-info\">年齢要件</th><td>";
+		if ($items[1] === "1") printf(FONT_CHK, "40-49歳");
+		if ($items[2] === "1") printf(FONT_CHK, "50-59歳");
+		if ($items[3] === "1") printf(FONT_CHK, "60-64歳");
+		if ($items[4] === "1") printf(FONT_CHK, "65-69歳");
+		if ($items[5] === "1") printf(FONT_CHK, "70-74歳");
+		if ($items[6] === "1") printf(FONT_CHK, "75歳以上");
+		echo "</td></tr>\n";
 		echo "<tr><th class=\"table-info\">居住要件</th><td>$items[8]</td></tr>\n";
 		echo "<tr><th class=\"table-info\">所得要件</th><td>$items[10]</td></tr>\n";
 		echo "<tr><th class=\"table-info\">介護要件</th><td>$items[11]</td></tr>\n";
