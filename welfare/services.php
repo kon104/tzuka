@@ -13,9 +13,41 @@
 	unset($services[0]);
 	$services = array_values($services);
 
-	$ages = array();
 	foreach($services as $idx => $service) {
 		$items = str_getcsv($service);
+		$services[$idx] = $items;
+	}
+
+	$sort_4049 = array();
+	$sort_5059 = array();
+	$sort_6064 = array();
+	$sort_6569 = array();
+	$sort_7074 = array();
+	$sort_75xx = array();
+	$sort_name  = array();
+
+	foreach($services as $idx => $items) {
+		$sort_4049[$idx] = $items[1];
+		$sort_5059[$idx] = $items[2];
+		$sort_6064[$idx] = $items[3];
+		$sort_6569[$idx] = $items[4];
+		$sort_7074[$idx] = $items[5];
+		$sort_75xx[$idx] = $items[6];
+		$sort_name[$idx] = $items[0];
+	}
+	$aaa = array_multisort(
+		$sort_75xx, SORT_ASC,
+		$sort_7074, SORT_ASC,
+		$sort_6569, SORT_ASC,
+		$sort_6064, SORT_ASC,
+		$sort_5059, SORT_ASC,
+		$sort_4049, SORT_ASC,
+		$sort_name, SORT_DESC, SORT_STRING,
+		$services
+	);
+
+	$ages = array();
+	foreach($services as $idx => $items) {
 
 		foreach($items as $j => $item) {
 			$item = str_replace("\n", "<br/>", $item);
