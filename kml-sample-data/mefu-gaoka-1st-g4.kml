@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Placemark>
+      <name>第一売布ヶ丘 4班</name>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              135.3566024,34.8176041,0
+              135.3566788,34.8180346,0
+              135.3560713,34.8176988,0
+              135.3556193,34.8174676,0
+              135.355732,34.8173057,0
+              135.3558218,34.8173156,0
+              135.3558487,34.8173498,0
+              135.3559493,34.8172253,0
+              135.3560498,34.8172793,0
+              135.3561182,34.8173343,0
+              135.3566024,34.8176041,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+</kml>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Placemark>
+      <name>伊孑志 A1</name>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              135.3533891,34.8014947,0
+              135.3530565,34.8008406,0
+              135.3529117,34.8005499,0
+              135.3531799,34.8004397,0
+              135.3533033,34.8004441,0
+              135.3540918,34.8003979,0
+              135.3539899,34.8006842,0
+              135.3537861,34.8011622,0
+              135.3537136,34.8014066,0
+              135.3533891,34.8014947,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+</kml>

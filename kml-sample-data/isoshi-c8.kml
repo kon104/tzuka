@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Placemark>
+      <name>伊孑志 C8</name>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              135.3582318,34.7979366,0
+              135.357513,34.7979344,0
+              135.3576297,34.7973793,0
+              135.3576471,34.7972252,0
+              135.3580441,34.79718,0
+              135.3582318,34.7979366,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+</kml>

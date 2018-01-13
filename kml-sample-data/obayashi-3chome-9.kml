@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Placemark>
+      <name>小林3丁目 9番</name>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              135.3574003,34.794082,0
+              135.3578483,34.7939334,0
+              135.3582184,34.7938959,0
+              135.3585014,34.7938739,0
+              135.3585014,34.7946646,0
+              135.3585041,34.795114,0
+              135.357859,34.7951481,0
+              135.3577262,34.7951867,0
+              135.3576444,34.7947781,0
+              135.3575532,34.7944389,0
+              135.3575197,34.7943232,0
+              135.3574003,34.794082,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+</kml>

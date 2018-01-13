@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Placemark>
+      <name>第一売布ヶ丘 8班</name>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              135.3551888,34.8179608,0
+              135.3567311,34.8188328,0
+              135.3567338,34.8189407,0
+              135.3565943,34.8189826,0
+              135.3550735,34.818115,0
+              135.3551888,34.8179608,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+</kml>

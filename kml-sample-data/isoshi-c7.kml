@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Placemark>
+      <name>伊孑志 C7</name>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              135.3590137,34.7989762,0
+              135.3587455,34.798648,0
+              135.3585429,34.7983507,0
+              135.3586958,34.7983496,0
+              135.3588259,34.7983363,0
+              135.3589842,34.7983485,0
+              135.3592524,34.7983628,0
+              135.3592618,34.7987108,0
+              135.3595407,34.7985401,0
+              135.3596011,34.7986084,0
+              135.3590137,34.7989762,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+</kml>

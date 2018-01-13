@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Placemark>
+      <name>伊孑志 B7</name>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              135.3581071,34.7967659,0
+              135.3586435,34.7968155,0
+              135.3586113,34.7970148,0
+              135.3581969,34.7971426,0
+              135.3580441,34.79718,0
+              135.3579475,34.7967659,0
+              135.3571174,34.7966833,0
+              135.3567982,34.7966624,0
+              135.3568518,34.7965236,0
+              135.3578161,34.7966029,0
+              135.3579126,34.7966239,0
+              135.358087,34.7966448,0
+              135.3581071,34.7967659,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+</kml>

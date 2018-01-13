@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Placemark>
+      <name>伊孑志 B3</name>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              135.3544606,34.7983077,0
+              135.3545585,34.7982482,0
+              135.3549246,34.7982626,0
+              135.3548147,34.7984564,0
+              135.3548321,34.798528,0
+              135.3547221,34.7985081,0
+              135.3546189,34.7989497,0
+              135.3544579,34.7989497,0
+              135.3542595,34.7989167,0
+              135.3544606,34.7983077,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+</kml>
