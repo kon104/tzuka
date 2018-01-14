@@ -82,7 +82,7 @@ class MyCoord
 			}
 		}
 
-		$inputs = array_chunk($urls, 2, true);
+		$inputs = array_chunk($urls, 5, true);
 		$results = array();
 		foreach($inputs as $chunk) {
 			$responses = MyCurl::execMulti($chunk);
