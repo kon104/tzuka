@@ -4,7 +4,7 @@
 	require_once("./GenerateHtml.class.inc");
 	require_once("./define.inc");
 
-	$kmlxmls = MyCoord::fetchKmlXmls();
+	$kmlxmls = MyCoord::fetchKmlXmls(MyCoord::$kmlUrls);
 ?>
 <html>
 <head>
@@ -64,7 +64,7 @@ body {
 
 				<div id="tab1" class="divtab">
 <?php
-	GenerateHtml::partCommunityTree($kmlxmls);
+	GenerateHtml::partCommunityTree(MyCoord::$kmlUrls, $kmlxmls);
 ?>
 				</div>
 
@@ -73,7 +73,7 @@ body {
 						<a id="btn_classify" onClick="buttonClick()">判定開始(10箇所毎)</a>
 					</div>
 					<div class="sideend">
-						<a href="https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-app/data/emergency-station.csv" target="_blank">sample</a>
+						<a href="https://raw.githubusercontent.com/kon104/tzuka/master/welfare/data/emergency-station.csv" target="_blank">sample</a>
 					</div>
 					<div>
 						<textarea name="textarea" id="txtarea" cols="28" rows="5" placeholder="number,address">1,兵庫県宝塚市宮の町１０−３
@@ -118,32 +118,31 @@ function initMap() {
 	behaviorSearchBox(map);
 
 	// draw polygons on KML
-	var kmlUrls = [
+	var kmlUrls = [];
 <?php
-	foreach($kmlxmls as $kml) {
-		printf("\t\t\"%s\",\n", $kml['url']);
+	foreach($kmlxmls as $index => $kml) {
+		printf("\t\tkmlUrls['%d'] = \"%s\";\n", $index, $kml['url']);
 	}
 ?>
-	];
 
-	for(var i = 0; i < kmlUrls.length; i++)
+	for(var key in kmlUrls)
 	{
-		var layer = new google.maps.KmlLayer(kmlUrls[i], {
+		var layer = new google.maps.KmlLayer(kmlUrls[key], {
 			clickable: false,
 			suppressInfoWindows: true,
 			preserveViewport: false,
 		});
-		layer.setMap(map);
-		kmlLayers.push({
+//		layer.setMap(map);
+		kmlLayers[key] = {
 			layer: layer,
 			polygon: null,
-			visible: true
-		});
+			visible: false
+		};
 	}
 
 	// create class of polygon from KML
 <?php	foreach($kmlxmls as $i => $kml) { ?>
-	kmlLayers[<?php echo $i; ?>].polygon = new google.maps.Polygon({
+	kmlLayers['<?php echo $i; ?>'].polygon = new google.maps.Polygon({
 		paths: [
 <?php
 			foreach($kml['coordinates'] as $pos) {
@@ -163,14 +162,16 @@ function initMap() {
 function placeMarker(map, layers, markers, latlng, caption)
 {
 	var pinWithin = false;
-	for(var i = 0; (pinWithin == false) && (i < layers.length); i++)
-	{
-		if (layers[i].visible == false) {
+	for(var key in layers) {
+		if (pinWithin == true ) {
+			break;
+		}
+		if (layers[key].visible == false) {
 			continue;
 		}
-		pinWithin = google.maps.geometry.poly.containsLocation(latlng, layers[i].polygon);
-
+		pinWithin = google.maps.geometry.poly.containsLocation(latlng, layers[key].polygon);
 	}
+
 	var pinColor = null;
 	if (pinWithin == true) {
 		pinColor = '6495ed';
@@ -219,19 +220,19 @@ $('#kml_tree').on("changed.jstree", function (e, data) {
 	for(var i = 0; i < data.selected.length; i++) {
 		var items = data.selected[i].split("_");
 		var num = items[1];
-		if (num == 'root') continue;
+		if (items[0] == 'kmlroot') continue;
 		checks[num] = num;
 	}
-	for(var i = 0; i < kmlLayers.length; i++) {
-		if (kmlLayers[i].visible === true) {
-			if (typeof checks[i] === "undefined") {
-				kmlLayers[i].layer.setMap(null);
-				kmlLayers[i].visible = false;
+	for(var key in kmlLayers) {
+		if (kmlLayers[key].visible === true) {
+			if (typeof checks[key] === "undefined") {
+				kmlLayers[key].layer.setMap(null);
+				kmlLayers[key].visible = false;
 			}
 		} else {
-			if (typeof checks[i] !== "undefined") {
-				kmlLayers[i].layer.setMap(map);
-				kmlLayers[i].visible = true;
+			if (typeof checks[key] !== "undefined") {
+				kmlLayers[key].layer.setMap(map);
+				kmlLayers[key].visible = true;
 			}
 		}
 	}

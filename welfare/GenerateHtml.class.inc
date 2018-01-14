@@ -62,26 +62,26 @@ EOT;
 	}
 	// }}}
 
-	// {{{ public static function partCommunityTree($kmlxmls)
-	public static function partCommunityTree($kmlxmls)
+	// {{{ public static function partCommunityTree($kmlurls, $kmlxmls)
+	public static function partCommunityTree($kmlurls, $kmlxmls)
 	{
-echo <<<EOT
-<div id="kml_tree">
-	<ul>
-		<li id="kml_root" data-jstree='{"opened": true, "selected": true}'>自治会
-EOT;
-		if (count($kmlxmls) > 0) {
+		$area_count = 0;
+
+		echo "<div id=\"kml_tree\">\n<ul>\n";
+
+		foreach($kmlurls as $name => $areas) {
+			$area_count++;
+			printf("<li id=\"kmlroot_%d\" data-jstree='{\"opened\": true, \"selected\": false}'>%s\n", $area_count, $name);
 			echo "\n\t\t\t<ul>\n";
-			foreach($kmlxmls as $idx => $kml) {
-				printf("\t\t\t\t<li id=\"kml_%d\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $idx, $kml['xml']->Placemark->name);
+			foreach($areas as $index => $url) {
+				$serialnum = $area_count * 100 + $index;
+				printf("\t\t\t\t<li id=\"kml_%s\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $serialnum, $kmlxmls[$serialnum]['xml']->Placemark->name);
 			}
 			echo "\t\t\t</ul>";
+			echo "</li>\n";
 		}
-echo <<<EOT
-</li>
-	</ul>
-</div>
-EOT;
+
+		echo "</ul>\n</div>\n";
 		echo "\n";
 	}
 	// }}}
