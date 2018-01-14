@@ -141,26 +141,25 @@ function initMap() {
 	behaviorSearchBox(map);
 
 	// draw polygons on KML
-	var kmlUrls = [];
 <?php
 	foreach($kmlxmls as $index => $kml) {
-		printf("\t\tkmlUrls['%d'] = \"%s\";\n", $index, $kml['url']);
+		echo "\tkmlLayers[$index] = {\n";
+		printf("\t\turl: \"%s\",\n", $kml['url']);
+		echo "\t\tlayer: null,\n";
+		echo "\t\tpolygon: null,\n";
+		echo "\t\tvisible: false\n";
+		echo "\t};\n";
 	}
 ?>
 
-	for(var key in kmlUrls)
-	{
-		var layer = new google.maps.KmlLayer(kmlUrls[key], {
+	for(var key in kmlLayers) {
+		var layer = new google.maps.KmlLayer(kmlLayers[key].url, {
 			clickable: false,
 			suppressInfoWindows: true,
 			preserveViewport: false,
 		});
 //		layer.setMap(map);
-		kmlLayers[key] = {
-			layer: layer,
-			polygon: null,
-			visible: false
-		};
+		kmlLayers[key].layer = layer;
 	}
 
 	// create class of polygon from KML

@@ -69,12 +69,12 @@ EOT;
 
 		echo "<div id=\"kml_tree\">\n<ul>\n";
 
-		foreach($kmlurls as $name => $areas) {
+		foreach($kmlurls as $area_name => $areas) {
 			$area_count++;
-			printf("<li id=\"kmlroot_%d\" data-jstree='{\"opened\": true, \"selected\": false}'>%s\n", $area_count, $name);
-			echo "\n\t\t\t<ul>\n";
+			printf("\t<li id=\"kmlroot_%d\" data-jstree='{\"opened\": true, \"selected\": false}'>%s\n", $area_count, $area_name);
+			echo "\t\t\t<ul>\n";
 			foreach($areas as $index => $url) {
-				$serialnum = $area_count * 100 + $index;
+				$serialnum = $area_count * 100 + $index + 1;
 				$xml = $kmlxmls[$serialnum]['xml'];
 				$name = "読込失敗(判定利用不可)";
 				if ($xml !== null) {

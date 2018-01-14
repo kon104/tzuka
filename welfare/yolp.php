@@ -4,7 +4,6 @@
 	require_once("./GenerateHtml.class.inc");
 	require_once("./define.inc");
 
-//	$kmlxmls = MyCoord::fetchKmlXmls();
 	$kmlxmls = MyCoord::fetchKmlXmls(MyCoord::$kmlUrls);
 
 ?>
@@ -13,13 +12,13 @@
 <meta http-equiv="Content-Type" Content="text/html;charset=UTF-8">
 <?php
 	GenerateHtml::cssJsTree();
-	GenerateHtml::cssBootStrap();
+//	GenerateHtml::cssBootStrap();
 ?>
 <link rel="stylesheet" href="./style/map.css" type="text/css">
 <?php
 	GenerateHtml::jsJQuery();
 	GenerateHtml::jsJsTree();
-	GenerateHtml::jsBootStrap();
+//	GenerateHtml::jsBootStrap();
 ?>
 
 <style>
