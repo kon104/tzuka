@@ -4,7 +4,9 @@
 	require_once("./GenerateHtml.class.inc");
 	require_once("./define.inc");
 
-	$kmlxmls = MyCoord::fetchKmlXmls();
+//	$kmlxmls = MyCoord::fetchKmlXmls();
+	$kmlxmls = MyCoord::fetchKmlXmls(MyCoord::$kmlUrls);
+
 ?>
 <html>
 <head>
@@ -19,18 +21,40 @@
 	GenerateHtml::jsJsTree();
 	GenerateHtml::jsBootStrap();
 ?>
+
+<style>
+
+#container{
+	display: flex;
+}
+#side{
+	width: 300px;
+	height: 100%;
+	overflow: auto;
+}
+#control{
+	width: 100%;
+	height: 100%;
+}
+#main{
+	flex: 1;
+	height: 99.5%;
+}
+</style>
+
 </head>
 <body>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-3">
+
+<div id="container">
+	<div id="side">
+		<div class="control">
 <?php
-	GenerateHtml::partCommunityTree($kmlxmls);
+	GenerateHtml::partCommunityTree(MyCoord::$kmlUrls, $kmlxmls);
 ?>
 		</div>
-		<div class="col-sm-9">
-			<div id="map"></div>
-		</div>
+	</div>
+	<div id="main">
+		<div id="map"></div>
 	</div>
 </div>
 
@@ -57,21 +81,21 @@ $('#kml_tree').on("changed.jstree", function (e, data) {
 	for(var i = 0; i < data.selected.length; i++) {
 		var items = data.selected[i].split("_");
 		var num = items[1];
-		if (num == 'root') continue;
+		if (items[0] == 'kmlroot') continue;
 		checks[num] = num;
 	}
 
-	for(var i =0; i < kmlLayers.length; i++) {
-		if (kmlLayers[i].visible === true) {
-			if (typeof checks[i] === "undefined") {
-				ymap.removeLayer(kmlLayers[i].layer);
-				kmlLayers[i].visible = false;
+	for(var key in kmlLayers) {
+		if (kmlLayers[key].visible === true) {
+			if (typeof checks[key] === "undefined") {
+				ymap.removeLayer(kmlLayers[key].layer);
+				kmlLayers[key].visible = false;
 			}
 		} else {
-			if (typeof checks[i] !== "undefined") {
-				ymap.addLayer(kmlLayers[i].layer);
-				kmlLayers[i].layer.execute();
-				kmlLayers[i].visible = true;
+			if (typeof checks[key] !== "undefined") {
+				ymap.addLayer(kmlLayers[key].layer);
+				kmlLayers[key].layer.execute();
+				kmlLayers[key].visible = true;
 			}
 		}
 	}
@@ -95,23 +119,21 @@ window.onload = function(){
 
 	ymap.drawMap(new Y.LatLng(<?php printf("%.14f, %.14f", MyCoord::$center['lat'], MyCoord::$center['lng']); ?>), 16, Y.LayerSetId.NORMAL);
 
-	var kmlUrls = [
+	var kmlUrls = [];
 <?php
-	foreach($kmlxmls as $kml) {
-		printf("\t\t\"%s\",\n", $kml['url']);
+	foreach($kmlxmls as $index => $kml) {
+		printf("\tkmlUrls['%d'] = \"%s\";\n", $index, $kml['url']);
 	}
 ?>
-	];
 
-	for(var i = 0; i < kmlUrls.length; i++)
-	{
-		var layer = new Y.GeoXmlLayer(kmlUrls[i]);
-		ymap.addLayer(layer);
+	for(var key in kmlUrls) {
+		var layer = new Y.GeoXmlLayer(kmlUrls[key]);
+//		ymap.addLayer(layer);
 		layer.execute();
-		kmlLayers.push({
+		kmlLayers[key] = {
 			layer: layer,
-			visible: true
-		});
+			visible: false
+		};
 	}
 
 }
