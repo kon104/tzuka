@@ -45,6 +45,28 @@ body {
 	height: 99.5%;
 }
 
+
+div.alert {
+	background-color:#FFEFEF;
+	margin:0 0 1em 0; padding:10px;
+	color:#C25338;
+	border:1px solid #D4440D;
+	line-height:1.5;
+	clear:both;
+	background-repeat:no-repeat;
+	background-position:5px 5px;
+}
+div.warning {
+	background-color:#ffff80;
+	border-color:#E5A500;
+	color:#CC7600;
+}
+/*
+div.warning span { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/content/img/css/warning_48.png', sizingMethod='scale'); }
+html>body div.warning { background-image:url(/content/img/css/warning_48.png); }
+*/
+html>body div.warning span { visibility:hidden; }
+
 </style>
 
 </head>
@@ -56,13 +78,14 @@ body {
 		<div class="control">
 
 			<ul id="tab_menu">
-				<li><a href="#tab1" class="current">tab1</a></li>
-				<li><a href="#tab2" class="">tab2</a></li>
+				<li><a href="#tab1" class="current">区域指定</a></li>
+				<li><a href="#tab2" class="">区域内判定</a></li>
 			</ul>
 
 			<div id="tab_contents">
 
 				<div id="tab1" class="divtab">
+				<div class="alert warning"><span>警告</span>25ポリゴンまで選択可能</div>
 <?php
 	GenerateHtml::partCommunityTree(MyCoord::$kmlUrls, $kmlxmls);
 ?>
@@ -145,8 +168,10 @@ function initMap() {
 	kmlLayers['<?php echo $i; ?>'].polygon = new google.maps.Polygon({
 		paths: [
 <?php
-			foreach($kml['coordinates'] as $pos) {
-				printf("\t\t\tnew google.maps.LatLng(%s , %s),\n", $pos['lat'], $pos['lng']);
+			if ($kml['coordinates'] !== null) {
+				foreach($kml['coordinates'] as $pos) {
+					printf("\t\t\tnew google.maps.LatLng(%s , %s),\n", $pos['lat'], $pos['lng']);
+				}
 			}
 ?>
 		]
@@ -276,8 +301,9 @@ function buttonClick()
 					var pinWithin = placeMarker(map, kmlLayers, markers, results[0].geometry.location, "#" + num);
 					cell3.innerHTML = pinWithin;
 				} else {
-					console.log('Geocode was not successful for the following reason: ' + status);
-					cell3.innerHTML = "-";
+//					console.log('Geocode was not successful for the following reason: ' + status);
+//					cell3.innerHTML = "-";
+					cell3.innerHTML = status;
 				}
 			});
 		})();

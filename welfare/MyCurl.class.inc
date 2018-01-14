@@ -59,10 +59,14 @@ class MyCurl {
 		$ch_list[ $id ] = curl_init( $url );
 		curl_setopt($ch_list[ $id ], CURLOPT_HEADER, true);
 		curl_setopt($ch_list[ $id ], CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch_list[ $id ], CURLOPT_TIMEOUT, true);
+//		curl_setopt($ch_list[ $id ], CURLOPT_TIMEOUT, true);
+		curl_setopt($ch_list[ $id ], CURLOPT_TIMEOUT, 10);
 		curl_multi_add_handle( $mh, $ch_list[ $id ] );
 //		curl_setopt($ch_list[ $id ], CURLOPT_POST, true);
 //		curl_setopt($ch_list[ $id ], CURLOPT_POSTFIELDS, $data);
+
+//		curl_setopt($ch_list[ $id ], CURLOPT_CONNECTTIMEOUT, 10);
+
 		return;
 	}
 

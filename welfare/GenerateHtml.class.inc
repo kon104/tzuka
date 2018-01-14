@@ -75,7 +75,13 @@ EOT;
 			echo "\n\t\t\t<ul>\n";
 			foreach($areas as $index => $url) {
 				$serialnum = $area_count * 100 + $index;
-				printf("\t\t\t\t<li id=\"kml_%s\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $serialnum, $kmlxmls[$serialnum]['xml']->Placemark->name);
+				$xml = $kmlxmls[$serialnum]['xml'];
+				$name = "読込失敗(判定利用不可)";
+				if ($xml !== null) {
+					$name = $xml->Placemark->name;
+				}
+//				printf("\t\t\t\t<li id=\"kml_%s\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $serialnum, $kmlxmls[$serialnum]['xml']->Placemark->name);
+				printf("\t\t\t\t<li id=\"kml_%s\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $serialnum, $name);
 			}
 			echo "\t\t\t</ul>";
 			echo "</li>\n";
