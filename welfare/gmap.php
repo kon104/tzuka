@@ -279,7 +279,11 @@ function buttonClick()
 	var lines = str.split(/\r\n|\r|\n/);
 
 	// There is a limit until 10 to call count of G's api per second.
-	for(var idx = 0; (idx < lines.length) && (idx < 10); idx++) {
+	for(var idx = 0, count = 0; (idx < lines.length) && (count < 10); idx++) {
+
+		if (lines[idx].indexOf('#') === 0) {
+			continue;
+		}
 
 		var items = lines[idx].split(',');
 		var number = items[0];
@@ -306,6 +310,7 @@ function buttonClick()
 				}
 			});
 		})();
+		count++;
 	}
 
 }
