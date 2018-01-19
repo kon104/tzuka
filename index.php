@@ -15,6 +15,7 @@
 	<li><a href="./welfare/gmap.php">実験 for gmap</a></li>
 	<li><a href="./welfare/services.php">年代別の行政サービス</a></li>
 	<li><a href="./www/">Home Page 改善案</a></li>
+	<li><a href="./www/">記事に地図埋め込み案</a></li>
 </ul>
 
 
