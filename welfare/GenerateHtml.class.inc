@@ -62,30 +62,46 @@ EOT;
 	}
 	// }}}
 
-	// {{{ public static function partCommunityTree($kmlurls, $kmlxmls)
-	public static function partCommunityTree($kmlurls, $kmlxmls)
+	// {{{ private static function writeTreeItems($kmlurls, $kmlxmls, &$tier, &$increased, &$area_count)
+	private static function writeTreeItems($kmlurls, $kmlxmls, &$tier, &$increased, &$area_count)
 	{
-		$area_count = 0;
-
-		echo "<div id=\"kml_tree\">\n<ul>\n";
-
-		foreach($kmlurls as $area_name => $areas) {
-			$area_count++;
-			printf("\t<li id=\"kmlroot_%d\" data-jstree='{\"opened\": true, \"selected\": false}'>%s\n", $area_count, $area_name);
-			echo "\t\t\t<ul>\n";
-			foreach($areas as $index => $url) {
-				$serialnum = $area_count * 100 + $index + 1;
-				$xml = $kmlxmls[$serialnum]['xml'];
+		foreach($kmlurls as $key => $value) {
+			if (gettype($value) === "array") {
+				if ($increased !== true) {
+					$area_count++;
+					$increased = true;
+				}
+				$tier++;
+				printf("\t<li id=\"kmlinner_%d_%d\" data-jstree='{\"opened\": true, \"selected\": false}'>%s\n", $area_count, $tier, $key);
+				echo "\t\t\t<ul>\n";
+				self::writeTreeItems($value, $kmlxmls, $tier, $increased, $area_count);
+				echo "\t\t\t</ul>";
+				echo "</li>\n";
+				$tier--;
+			} else {
+				$increased = false;
+				$serial = $area_count * 100 + $key + 1;
+				$xml = $kmlxmls[$serial]['xml'];
 				$name = "読込失敗(判定利用不可)";
 				if ($xml !== null) {
 					$name = $xml->Placemark->name;
 				}
-//				printf("\t\t\t\t<li id=\"kml_%s\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $serialnum, $kmlxmls[$serialnum]['xml']->Placemark->name);
-				printf("\t\t\t\t<li id=\"kml_%s\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $serialnum, $name);
+				printf("\t\t\t\t<li id=\"kml_%s\" data-jstree='{\"icon\": \"jstree-file\"}'>%s</li>\n", $serial, $name);
 			}
-			echo "\t\t\t</ul>";
-			echo "</li>\n";
 		}
+	}
+	// }}}
+
+	// {{{ public static function partCommunityTree($kmlurls, $kmlxmls)
+	public static function partCommunityTree($kmlurls, $kmlxmls)
+	{
+
+		echo "<div id=\"kml_tree\">\n<ul>\n";
+		$tier = 0;
+		$increased = false;
+		$area_count = 0;
+
+		self::writeTreeItems($kmlurls, $kmlxmls, $tier, $increased, $area_count);
 
 		echo "</ul>\n</div>\n";
 		echo "\n";

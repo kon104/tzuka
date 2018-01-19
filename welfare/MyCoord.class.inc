@@ -9,6 +9,7 @@ class MyCoord
 
 	// {{{ public static $kmlUrls = array()
 	public static $kmlUrls = array(
+	"自治会" => array(
 		"伊孑志 A" => array(
 			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/isoshi-a1.kml",
 			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/isoshi-a2.kml",
@@ -66,32 +67,45 @@ class MyCoord
 			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/obayashi-3chome-8.kml",
 			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/obayashi-3chome-9.kml",
 		),
+	),
 	);
 	// }}}
 
-	public static function fetchKmlXmls($kmlUrls)
+	private static function makeflatedUrls($hierarchy, &$increased, &$area_count, &$flatlist)
 	{
-
-		$area_count = 0;
-		$urls = array();
-		foreach($kmlUrls as $areas) {
-			$area_count++;
-			foreach($areas as $idx => $url) {
-				$serialnum = $area_count * 100 + $idx + 1;
-				$urls[$serialnum] = $url;
+		foreach($hierarchy as $key => $value) {
+			if (gettype($value) === "array") {
+				if ($increased !== true) {
+					$area_count++;
+					$increased = true;
+				}
+				self::makeflatedUrls($value, $increased, $area_count, $flatlist);
+			} else {
+				$increased = false;
+				$serial = $area_count * 100 + $key + 1;
+				$flatlist[$serial] = $value;
 			}
 		}
+	}
 
-		$inputs = array_chunk($urls, 5, true);
+	public static function fetchKmlXmls($kmlUrls)
+	{
+		$increased = false;
+		$area_count = 0;
+		$flatUrls = array();
+
+		self::makeflatedUrls($kmlUrls, $increased, $area_count, $flatUrls);
+
+		$separateUrls = array_chunk($flatUrls, 5, true);
 		$results = array();
-		foreach($inputs as $chunk) {
-			$responses = MyCurl::execMulti($chunk);
+		foreach($separateUrls as $chunkUrls) {
+			$responses = MyCurl::execMulti($chunkUrls);
 			$results = $results + $responses;
 		}
 //		$results = MyCurl::execMulti($kmlUrls);
 
-		$kmlxmls = array();
-		foreach($results as $serialnum => $response) {
+		$kmlXmls = array();
+		foreach($results as $serial => $response) {
 
 			if ($response['body'] === false) {
 				ob_start();
@@ -120,14 +134,14 @@ class MyCoord
 			}
 
 			// package to array
-			$kmlxmls[$serialnum] = array(
+			$kmlXmls[$serial] = array(
 				'url' => $response['url'],
 				'xml' => $xml,
 				'coordinates' => $coordinates
 			);
 
 		}
-		return $kmlxmls;
+		return $kmlXmls;
 	}
 
 }
