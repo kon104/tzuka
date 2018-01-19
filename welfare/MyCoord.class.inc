@@ -13,6 +13,13 @@ class MyCoord
 			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/akura.kml",
 			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/nishiyama.kml",
 			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/sumire-gaoka.kml",
+			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/komyo.kml",
+			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/maruhashi.kml",
+			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/nagao-south.kml",
+			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/nagao.kml",
+			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/sakasedai.kml",
+			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/takatsukasa.kml",
+			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/yamatedai.kml",
 	),
 	"自治会（一部）" => array(
 		"伊孑志 A" => array(
