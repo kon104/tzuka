@@ -9,6 +9,11 @@ class MyCoord
 
 	// {{{ public static $kmlUrls = array()
 	public static $kmlUrls = array(
+	"小学校区" => array(
+			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/akura.kml",
+			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/nishiyama.kml",
+			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/primary/sumire-gaoka.kml",
+	),
 	"自治会（一部）" => array(
 		"伊孑志 A" => array(
 			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/community/isoshi-a1.kml",
