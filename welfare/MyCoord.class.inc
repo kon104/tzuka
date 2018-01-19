@@ -9,7 +9,7 @@ class MyCoord
 
 	// {{{ public static $kmlUrls = array()
 	public static $kmlUrls = array(
-	"自治会" => array(
+	"自治会（一部）" => array(
 		"伊孑志 A" => array(
 			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/isoshi-a1.kml",
 			"https://raw.githubusercontent.com/kon104/tzuka/master/kml-sample-data/isoshi-a2.kml",
