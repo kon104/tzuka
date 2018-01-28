@@ -14,6 +14,7 @@
 		foreach($items as $item) {
 			echo "<td>$item</td>";
 		}
+		printf("<td><a href='https://maps.google.com/maps?q=%s,%s'>map</a></td>", $items[6], $items[7]);
 		echo "</tr>\n";
 	}
 	echo "</table>\n</body>";
