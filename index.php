@@ -16,6 +16,7 @@
 	<li><a href="./welfare/services.php">年代別の行政サービス</a></li>
 	<li><a href="./www/">Home Page 改善案</a></li>
 	<li><a href="./www/1000636.html">記事に地図埋め込み案</a></li>
+	<li><a href="./report/decipher.php">機械判読のサンプルプログラム</a></li>
 </ul>
 
 
