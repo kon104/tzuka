@@ -134,7 +134,7 @@ function initMap() {
 			lat: <?php echo MyCoord::$center['lat']; ?>,
 			lng: <?php echo MyCoord::$center['lng']; ?>
 		},
-		zoom: 14
+		zoom: 15
 	});
 
 	// set a behavior to search a place
