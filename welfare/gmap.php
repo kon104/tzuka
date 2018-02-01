@@ -134,7 +134,7 @@ function initMap() {
 			lat: <?php echo MyCoord::$center['lat']; ?>,
 			lng: <?php echo MyCoord::$center['lng']; ?>
 		},
-		zoom: 16
+		zoom: 14
 	});
 
 	// set a behavior to search a place
@@ -156,7 +156,7 @@ function initMap() {
 		var layer = new google.maps.KmlLayer(kmlLayers[key].url, {
 			clickable: false,
 			suppressInfoWindows: true,
-			preserveViewport: false,
+			preserveViewport: true,
 		});
 //		layer.setMap(map);
 		kmlLayers[key].layer = layer;
