@@ -10,7 +10,7 @@
 	$datasrc[] = array('高齢者向けサービス' =>
 			"https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/govt-services.csv");
 	$datasrc[] = array('検診サービス' =>
-			"http://lab-tkonuma-101.ssk.ynwm.yahoo.co.jp/users/tkonuma/tzuka/welfare/medical-exam.csv");
+			"https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/medical-exam.csv");
 
 	$appoint = $_GET['a'];
 
