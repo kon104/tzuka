@@ -6,14 +6,35 @@
 	define("FONT_CHK", "<i class=\"fa fa-check-square-o\" aria-hidden=\"true\">%s</i>&nbsp;");
 
 
-	$csvUrls = array(
-		"https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/govt-services.csv"
-	);
+	$datasrc = array();
+	$datasrc[] = array('高齢者向けサービス' =>
+			"https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/govt-services.csv");
+	$datasrc[] = array('検診サービス' =>
+			"http://lab-tkonuma-101.ssk.ynwm.yahoo.co.jp/users/tkonuma/tzuka/welfare/medical-exam.csv");
+
+	$appoint = $_GET['a'];
+
+	$csvUrls = array();
+	$pagetitle = "";
+	if (is_null($appoint) === true) {
+		foreach($datasrc as $num => $src) {
+			$csvUrls[$num] = array_values($src)[0];
+		}
+		$pagetitle = "サービス全般";
+	} else {
+		$csvUrls[$appoint] = array_values($datasrc[$appoint])[0];
+		$pagetitle = reset(array_keys($datasrc[$appoint]));
+	}
+
 	$results = MyCurl::execMulti($csvUrls);
 
+	$services = array();
+	foreach($results as $key => $response) {
+		$rows = explode("\r\n", $response['body']);
+		unset($rows[0]);
+		$services = array_merge($services, $rows);
+	}
 
-	$services = explode("\r\n", $results[0]['body']);
-	unset($services[0]);
 	$services = array_values($services);
 
 	foreach($services as $idx => $service) {
@@ -149,7 +170,24 @@ body {
 </head>
 <body>
 
+<div id="header">
+<!--
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+-->
+	<nav class="navbar fixed-top navbar-dark bg-primary2" style="background: coral;">
+<!--
+	<div class="container-fluid">
+-->
+	<div><h3><?php echo $pagetitle; ?></h3></div>
+<!--
+	</div>
+-->
+	</nav>
+</div>
+
 <div class="container-fluid">
+
 	<div class="row">
 		<div class="col-sm-5">
 
