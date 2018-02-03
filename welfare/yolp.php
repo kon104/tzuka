@@ -12,13 +12,11 @@
 <meta http-equiv="Content-Type" Content="text/html;charset=UTF-8">
 <?php
 	GenerateHtml::cssJsTree();
-//	GenerateHtml::cssBootStrap();
 ?>
 <link rel="stylesheet" href="./style/map.css" type="text/css">
 <?php
 	GenerateHtml::jsJQuery();
 	GenerateHtml::jsJsTree();
-//	GenerateHtml::jsBootStrap();
 ?>
 
 <style>

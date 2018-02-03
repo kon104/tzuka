@@ -5,25 +5,21 @@
 
 	define("FONT_CHK", "<i class=\"fa fa-check-square-o\" aria-hidden=\"true\">%s</i>&nbsp;");
 
+	$csvUrls = array();
+	$csvUrls[] = 'https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/senior-citizen.csv';
+	$csvUrls[] = 'https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/medical-exam.csv';
 
-	$datasrc = array();
-	$datasrc[] = array('高齢者向けサービス' =>
-			"https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/govt-services.csv");
-	$datasrc[] = array('検診サービス' =>
-			"https://raw.githubusercontent.com/kon104/tzuka/master/open-data/sample/welfare-dept/medical-exam.csv");
+	$csvTitles = array();
+	$csvTitles[] = '高齢者向けサービス';
+	$csvTitles[] = '検診サービス';
+	$csvTitles[] = 'サービス全般';
 
+	$pageTitle = $csvTitles[count($csvTitles) - 1];
 	$appoint = $_GET['a'];
 
-	$csvUrls = array();
-	$pagetitle = "";
-	if (is_null($appoint) === true) {
-		foreach($datasrc as $num => $src) {
-			$csvUrls[$num] = array_values($src)[0];
-		}
-		$pagetitle = "サービス全般";
-	} else {
-		$csvUrls[$appoint] = array_values($datasrc[$appoint])[0];
-		$pagetitle = reset(array_keys($datasrc[$appoint]));
+	if ($csvUrls[$appoint] !== null) {
+		$csvUrls = array_slice($csvUrls, $appoint, 1);
+		$pageTitle = $csvTitles[$appoint];
 	}
 
 	$results = MyCurl::execMulti($csvUrls);
@@ -118,7 +114,8 @@
 
 <style>
 body {
-	padding-top: 10px;
+//	padding-top: 10px;
+	padding-top: 5rem;
 	background-color: #FFFFAA;
 }
 
@@ -171,18 +168,31 @@ body {
 <body>
 
 <div id="header">
-<!--
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
--->
-	<nav class="navbar fixed-top navbar-dark bg-primary2" style="background: coral;">
-<!--
-	<div class="container-fluid">
--->
-	<div><h3><?php echo $pagetitle; ?></h3></div>
-<!--
-	</div>
--->
+	<nav class="navbar fixed-top navbar-dark2 navbar-light bg-primary2" style="background: orange;">
+		<div class="container-fluid">
+
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="折り畳みナビゲーション">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="navbar-text"><h4><?php echo $pageTitle; ?></h4></div>
+		</div>
+
+		<div class="collapse navbar-collapse" id="navmenu">
+			<ul class="navbar-nav mr-auto">
+<?php
+	foreach($csvTitles as $key => $title) {
+		$actstr = "";
+		if ($key === ((int) $appoint)) {
+			$actstr = " active";
+		}
+		printf("\t\t<li class=\"nav-item%s\"><a class=\"nav-link\" href=\"%s?a=%s\">%s</a></li>\n", $actstr, $_SERVER['PHP_SELF'], $key, $title);
+	}
+?>
+			</ul>
+		</div>
+
+
 	</nav>
 </div>
 

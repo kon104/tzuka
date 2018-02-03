@@ -47,6 +47,16 @@ EOT;
 	}
 	// }}}
 
+	// {{{ public static function cssBootStrap3()
+	public static function cssBootStrap3()
+	{
+echo <<<EOT
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+EOT;
+		echo "\n";
+	}
+	// }}}
+
 	// {{{ public static function jsBootStrap()
 	public static function jsBootStrap()
 	{
@@ -57,6 +67,16 @@ echo <<<EOT
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
   integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
   crossorigin="anonymous"></script>
+EOT;
+		echo "\n";
+	}
+	// }}}
+
+	// {{{ public static function jsBootStrap3()
+	public static function jsBootStrap3()
+	{
+echo <<<EOT
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 EOT;
 		echo "\n";
 	}
