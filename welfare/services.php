@@ -112,6 +112,10 @@
 ?>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
 
+<?php
+	GenerateHtml::jsGoogleAnalytics();
+?>
+
 <style>
 body {
 //	padding-top: 10px;
