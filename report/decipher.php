@@ -6,7 +6,21 @@
 
 	header('Content-Type: text/html;  charset=Shift_JIS');
 
-	echo "<head><link rel='stylesheet' href='./decipher.css' type='text/css'></head>\n";
+?>
+<head>
+<link rel='stylesheet' href='./decipher.css' type='text/css'>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113471219-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113471219-1');
+</script>
+</head>
+<?php
 	echo "<body><table>\n";
 	foreach($data as $row) {
 		$items = str_getcsv($row);
