@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+body {
+//	padding-top: 10px;
+	padding-top: 5rem;
+	background-color: #FFFFAA;
+}
+
+.container-fluid
+{
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 900px;
+}

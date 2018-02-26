@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+#list_filter ul {
+	padding: 0px;
+}
+
+#list_filter li {
+	display: inline;
+	padding: 0 5px;
+}
+
+#list_service a {
+	text-decoration: none;
+}
+
+#list_service th {
+	white-space: nowrap;
+}

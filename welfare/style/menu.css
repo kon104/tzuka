@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+#age_title {
+	text-align: center;
+}
+
+#age_chart {
+	text-align: center;
+}
+
+#service_count {
+	text-align: center;
+}
+
+#qrcode {
+	text-align: center;
+}
+
+#qrcode div {
+	padding: 5 0px;
+}

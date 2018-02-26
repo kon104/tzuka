@@ -105,64 +105,15 @@
 <?php
 	GenerateHtml::cssBootStrap();
 ?>
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="./style/comm.css" rel="stylesheet">
+<link href="./style/menu.css" rel="stylesheet">
+<link href="./style/list.css" rel="stylesheet">
 <?php
 	GenerateHtml::jsJQuery();
 	GenerateHtml::jsBootStrap();
 ?>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
-
-<style>
-body {
-//	padding-top: 10px;
-	padding-top: 5rem;
-	background-color: #FFFFAA;
-}
-
-.container-fluid
-{
-	margin-right: auto;
-	margin-left: auto;
-	max-width: 900px;
-}
-
-#age_title {
-	text-align: center;
-}
-
-#age_chart {
-	text-align: center;
-}
-
-#service_count {
-	text-align: center;
-}
-
-#qrcode {
-	text-align: center;
-}
-
-#qrcode div {
-	padding: 5 0px;
-}
-
-#list_filter ul {
-	padding: 0px;
-}
-#list_filter li {
-	display: inline;
-	padding: 0 5px;
-}
-
-#list_service a {
-	text-decoration: none;
-}
-
-#list_service th {
-	white-space: nowrap;
-}
-
-</style>
 
 </head>
 <body>
