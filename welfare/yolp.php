@@ -19,6 +19,10 @@
 	GenerateHtml::jsJsTree();
 ?>
 
+<?php
+	GenerateHtml::jsGoogleAnalytics();
+?>
+
 <style>
 
 #container{

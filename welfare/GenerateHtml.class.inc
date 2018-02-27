@@ -82,6 +82,24 @@ EOT;
 	}
 	// }}}
 
+	// {{{ public static function jsGoogleAnalytics()
+	public static function jsGoogleAnalytics()
+	{
+echo <<<EOT
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113471219-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113471219-1');
+</script>
+EOT;
+		echo "\n";
+	}
+	// }}}
+
 	// {{{ private static function writeTreeItems($kmlurls, $kmlxmls, &$tier, &$increased, &$area_count)
 	private static function writeTreeItems($kmlurls, $kmlxmls, &$tier, &$increased, &$area_count)
 	{

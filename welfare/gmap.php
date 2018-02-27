@@ -23,6 +23,9 @@
 <script type="text/javascript" src="./jsg/searchbox.js"></script>
 <script type="text/javascript" src="./jsg/tabmenu.js"></script>
 
+<?php
+	GenerateHtml::jsGoogleAnalytics();
+?>
 <style>
 body {
 	margin: 0px;
