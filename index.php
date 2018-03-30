@@ -19,6 +19,8 @@
 	<li><a href="./report/decipher.php">機械判読のサンプルプログラム</a></li>
 </ul>
 
+<hr/>
+Copyright (C) 2018 tzuka. All Rights Reserved.
 
 </body>
 </html>
