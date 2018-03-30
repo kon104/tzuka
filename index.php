@@ -20,7 +20,7 @@
 </ul>
 
 <hr/>
-Copyright (C) 2018 tzuka. All Rights Reserved.
+<div>Copyright (C) 2018 tzuka. All Rights Reserved.</div>
 
 </body>
 </html>
